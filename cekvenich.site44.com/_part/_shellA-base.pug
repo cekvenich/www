@@ -1,0 +1,45 @@
+include _head
+	block head
+
+body
+	script.
+		document.body.style.opacity = '0.01'
+
+	#ss1
+		nav#appbar.mui-container-fluid.mui--no-user-select
+			table(width='100%')
+				tr
+					td
+						#brand ☰ &nbsp;
+							span Massons-Foundation.org
+					td.mui--text-right
+						ul#menu.mui-list--inline
+							li
+								a(href='/post/comp/') Web Components
+							li
+								a(href='/post/app-shell/') App-Shell
+							li
+								a(href='/post/fetch/') Serverless
+							li
+								a(href='/post/vwall/') Video Wall
+						
+		#sidedrawer
+			nav#sidenav.mui--no-user-select
+				h2
+					#sidedrawer-brand.mui--text-title ☰ &nbsp; Massons
+				.mui-divider
+				ul.mui-list--unstyled#sidenavstrong
+					li
+						a(href='/post/comp/') Web Components
+					li
+						a(href='/post/app-shell/') App-Shell
+					li
+						a(href='/post/fetch/') Serverless
+					li
+						a(href='/post/vwall/') Video Wall
+
+		#content-wrapper0
+		#content-wrapper
+			block content
+
+	block footer

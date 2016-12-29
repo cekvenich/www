@@ -1,0 +1,26 @@
+
+extends  ../../_part/_shellA-base
+
+block content
+
+	script.
+		(function() {
+			var cx = '015406677380205718189:esv77diws9e';
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = true;
+			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+		})()
+	div
+		p
+
+	.mui-container-fluid
+		gcse:searchbox(newwindow='true')
+
+		gcse:searchresults
+
+
+block footer
+	include  ../../_part/_footer

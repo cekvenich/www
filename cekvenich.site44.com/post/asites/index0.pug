@@ -1,0 +1,41 @@
+
+extends  ../../_part/_shellA-base
+
+block content
+	include story1.md
+	style.
+		.vid {
+			width: 50%
+		}
+	.vid#rmpPlayer1
+
+	script.
+		// First we specify bitrates to feed to the player
+		var bitrates1 = {
+		mp4: [
+			'https://cdn.rawgit.com/cekvenich/what/master/asites/arc.mp4'
+		]}
+		// Then we set our player settings
+		var settings1 = {
+			initialVolume: 0,
+			muted: true,
+			scaleMode: 'stretch',
+			posterScaleMode: 'stretch',
+			bitrates: bitrates1,
+			poster: 'https://www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg',
+			autoplay: true,
+			mutedAutoplayOnMobile: true,
+			delayToFade: 1000,
+			loop: true,
+
+		}
+		head.ready(function () {
+			// Reference to the wrapper div (unique id)
+			var element1 = 'rmpPlayer1'
+			var rmp1 = new RadiantMP(element1)
+			rmp1.init(settings1)
+		})
+
+
+block footer
+	include  ../../_part/_footer

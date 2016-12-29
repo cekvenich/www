@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" manifest="/cache2.mf">
+  <head>
+    <meta http-equiv="cache-control" content="max-age=0">
+    <link rel="icon" href="/favicon.ico">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/_sass/main.css" rel="stylesheet" type="text/css">
+    <script src="//cdn.jsdelivr.net/js-signals/1.0.0/signals.min.js" type="text/javascript"></script>
+    <script src="//www.masons-foundation.org/zCDN/libJs/loadjs.min.js" type="text/javascript"></script>
+    <script src="/_js/setup.js" type="text/javascript"></script>
+    <meta name="description" content="">
+    <script src="//cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js" type="text/javascript"></script>
+    <script src="//www.masons-foundation.org/zCDN/compHost/webcomponentsjs/webcomponents-lite.js" type="text/javascript"></script>
+    <link rel="import" href="//www.masons-foundation.org/zCDN/compHost/polymer/polymer.html">
+    <script src="//cdn.jsdelivr.net/riot/3.0.0/riot+compiler.min.js" type="text/javascript"></script>
+    <link rel="import" href="/_compHost/bind-list.html">
+    <script src="/_compHost/home-card.tag" type="riot/tag"></script>
+    <script src="/_compHost/x-vid.tag" type="riot/tag"></script>
+  </head>
+</html>
+<body>
+  <script>
+    document.body.style.opacity = '0.01'
+    
+  </script>
+  <div id="ss1">
+    <nav class="mui-container-fluid mui--no-user-select" id="appbar">
+      <table width="100%">
+        <tr>
+          <td>
+            <div id="brand">☰ &nbsp;<span>Massons-Foundation.org</span></div>
+          </td>
+          <td class="mui--text-right">
+            <ul class="mui-list--inline" id="menu">
+              <li><a href="/post/comp/">Web Components</a></li>
+              <li><a href="/post/app-shell/">App-Shell</a></li>
+              <li><a href="/post/fetch/">Serverless</a></li>
+              <li><a href="/post/vwall/">Video Wall</a></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </nav>
+    <div id="sidedrawer">
+      <nav class="mui--no-user-select" id="sidenav">
+        <h2>
+          <div class="mui--text-title" id="sidedrawer-brand">☰ &nbsp; Massons</div>
+        </h2>
+        <div class="mui-divider"></div>
+        <ul class="mui-list--unstyled" id="sidenavstrong">
+          <li><a href="/post/comp/">Web Components</a></li>
+          <li><a href="/post/app-shell/">App-Shell</a></li>
+          <li><a href="/post/fetch/">Serverless</a></li>
+          <li><a href="/post/vwall/">Video Wall</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="content-wrapper0"></div>
+    <div id="content-wrapper">
+      <div class="mui-container-fluid"><h1 id="interactive-banner-ad-w-web-components">Interactive Banner Ad w/ Web Components</h1>
+<h2 id="as-hands-on-example">as hands on example</h2>
+<p>By using components or custom tags, we can make it easier to maintain more complex, interactive and creative UX. In this case, a banner ad:</p>
+
+        <iframe id="ad1" width="300" height="250" style="border: 0; overflow: hidden; background-color: gray"></iframe>
+        <script>
+          var ad = document.getElementById('ad1')
+          ad.setAttribute('src', 'https://www.masons-foundation.org/ads/carolla/')
+          
+        </script><h4 id="re-ad">Re: Ad</h4>
+<p>Some cameras, such as iPhone7, can do a <em>bouquet</em> effect - where the background is blurred. We can do same w/ transparent .png images. Also we added some interactivity:</p>
+<ul>
+<li>If you hover on left / right side of image.</li>
+<li>If on mobile (most page views are), you can just tilt the phone and get same effect.</li>
+</ul>
+<h4 id="background-web-components">Background / Web Components</h4>
+<p>There are several Web Components that I have used. Some of the DOM based are:</p>
+<ul>
+<li>Standard WWW Web components, ex: <a href="http://developers.google.com/web/fundamentals/getting-started/primers/customelements">http://developers.google.com/web/fundamentals/getting-started/primers/customelements</a></li>
+<li>Polymer, ex: <a href="http://shop.polymer-project.org/">http://shop.polymer-project.org/</a></li>
+<li>RIOT: <a href="http://riotjs.com">http://riotjs.com</a></li>
+</ul>
+<p>Alternative to DOM based are .js based (examples: Angular, Vue, React) - and those are a bit less designer friendly. To make nice UX, lets make it easier for a larger group of designers by making it easy to use CSS, HTML, BEM, and even Sass and such - and I do that by using standard DOM (ex: &lt;style&gt;, &lt;div&gt;; vs creating those in .js).</p>
+<p>Of the ones I have used mentioned above, I found RIOT best to my liking - and most team friendly.
+So the prerequisites for this coding exercise is that you know how to write a web component(RIOT) and how to code interactive design (GSAP):</p>
+<ul>
+<li>GSAP: <a href="http://codepen.io/GreenSock/pen/FnsqC">http://codepen.io/GreenSock/pen/FnsqC</a></li>
+<li>RIOT: <a href="http://cekvenich.site44.com/post/comp">http://cekvenich.site44.com/post/comp</a></li>
+</ul>
+<p>Lets get started.</p>
+<h3 id="1-placing-an-ad-on-a-page">1. Placing an ad on a page</h3>
+<pre><code>    &lt;iframe id=&quot;ad1&quot; width=&quot;300&quot; height=&quot;250&quot; style=&quot;border: 0; overflow: hidden; background-color: gray&quot;&gt;&lt;/iframe&gt;
+    &lt;script&gt;
+        var ad = document.getElementById(&#39;ad1&#39;)
+        ad.setAttribute(&#39;src&#39;, &#39;http://cekvenich.site44.com/ads/carolla&#39;)
+    &lt;/script&gt;
+</code></pre><p>Notice that we use iframe to load the ad. If you care about UX - use iframe for ad hosting. Quite likely that the org that writes and hosts the ad, vs the org that places the ad via ad-tech serving are different orgs. Also load the &#39;source&#39; via script like we did. This loads the ad after the page content - so that our content loads ahead of the ad. If you care about UX - and there are web apps that don&#39;t care, but most good creative people avoid working w/ such orgs: use iframe for displaying ads.</p>
+<h4 id="not-now">Not now</h4>
+<p>It would be nice to make this kind of ad iframe code into a reusable web component! You can do that as a separate exercise after. For this example here, to make it easier to digest for the reader: we will use web component only in the ad itself, not the page that uses the ad.</p>
+<h2 id="2-write-a-working-component-block">2. Write a working component block</h2>
+<p>So most n00bs just go to writing a component as step 1; but a pro will first get the component to work w/o any component code, just regular code. So in this step we do that - just plain HTML code.</p>
+<ul>
+<li>View source of the banner ad: <a href="http://cekvenich.site44.com/ads/carolla/index0.html">http://cekvenich.site44.com/ads/carolla/index0.html</a>. Again, if you don&#39;t know GSAP - go back and learn that first and come back here later.</li>
+</ul>
+<p>We want to make this a bit easier to maintain. Notice there is #spil code in:</p>
+<ul>
+<li>Style section</li>
+<li>At start of script to get it to &#39;flow&#39; endlessly.</li>
+<li>And left() and right() functions.</li>
+</ul>
+<p>So we will take #spil code and make it into a tag.</p>
+<p>Aside: when hosting an ad - <em>all</em> assets should be in one folder served from a distributed CDN such as CDN77 ( CDN77 has own FTP). Most likely your ad-tech vendor has specs to host your ads. (Also your web app itself should do the same, be served from a CDN - for the obvious reasons such as DDOS. Serve your web app from a CDN, only 50% of people use CDN to host their web app).</p>
+<h3 id="3-draft-the-spil-component">3. Draft the <em>spil</em> component</h3>
+<ul>
+<li>Download the code for the tag: <a href="http://cekvenich.site44.com/ads/carolla/spil-comp.tag">http://cekvenich.site44.com/ads/carolla/spil-comp.tag</a></li>
+<li>Open the downloaded tag file in an IDE (ex: CodeAnywhere, Brackets or Atom)</li>
+</ul>
+<p>Notice in that file we have: style, DOM, init code and left and right functions.</p>
+<h3 id="4-use-the-component">4. Use the component</h3>
+<ul>
+<li>View source of the finished ad: <a href="http://cekvenich.site44.com/ads/carolla/index.html">http://cekvenich.site44.com/ads/carolla/index.html</a></li>
+</ul>
+<p>We now use our component on the banner page. Here is the interesting parts:</p>
+<pre><code>    &lt;spil-comp&gt;&lt;/spil-comp&gt;
+
+    &lt;script src=&quot;spil-comp.tag&quot; type=&quot;riot/tag&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        var _loaded = false
+        var _vspil = null
+        riot.compile(function(){ // wait for it
+            var comps = riot.mount(&#39;spil-comp&#39;)
+            _vspil= comps[0]
+            console.log(_vspil)
+            _loaded = true
+        })
+        function left() {
+            ...
+            if(_loaded) _vspil.left()
+        }
+        function right() {
+            ...
+            if(_loaded) _vspil.right()
+        }
+</code></pre><p>We place and load the tag; then we compile it and use the methods. The code for #spil has now been encapsulated - into a component.   The end.</p>
+<h3 id="5-that-s-all">5. That&#39;s all</h3>
+<p>Aside: I use head.js  - and head.js triggers load events, w/ a setup like so:</p>
+<pre><code>const _act = new signals.Signal()
+_act.addOnce(function(arg1, arg2) {
+    console.log(arg1, arg2)
+    return false
+})
+</code></pre><p>So that after head.js finishes loading libs, I trigger a RIOT action to listen inside the tag: for example after GSAP lib is loaded. (Also you can use js-Signals to broadcast any user action).</p>
+<p>There are other web Components libs out there, you can see some of the strengths of RIOT.</p>
+<p>Also, I am happy to write a web component for you ~ $50 each, details here:</p>
+<ul>
+<li><a href="https://cekvenich.site44.com/">https://cekvenich.site44.com/</a></li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p></p>
+    <div class="mui-container-fluid">
+      <div class="mui-panel"><a href="https://gitter.im/what-community/Lobby">Forum</a></div>
+    </div>
+    <script>
+      loadjs('/_js/main.js')
+      
+    </script>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  </footer>
+</body>

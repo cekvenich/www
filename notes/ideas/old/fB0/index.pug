@@ -1,0 +1,24 @@
+
+extends  ../../_part/_shellA-base
+block head
+
+block content
+	.mui-container-fluid
+		include story1.html
+
+	script.
+		function init() {
+			// change url to match your NAME/URL
+			head.load('https://murder.site44.com/home/fB/api.js')
+		}
+
+		if(_loaded) init()
+		else  {
+			_act.addOnce(function(arg1, arg2) {
+				init()
+				return false
+			})
+		}
+
+block footer
+	include  ../../_part/_footer

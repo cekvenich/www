@@ -1,0 +1,50 @@
+<html>
+<head>
+    <link rel='stylesheet' href='../../CDN/datatables/css/jquery.dataTables.css'>
+
+    <script src='../../CDN/js/jquery.min.js'></script>
+    <script src='../../CDN/datatables/js/jquery.dataTables.js'></script>
+</head>
+<body>
+
+<div>
+    <table id='t0' class='display' cellspacing='0' width='100%'>
+    <thead><tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr></thead>
+
+    </table>
+</div>
+
+<script>
+$(document).ready(function() {
+    console.log('ready')
+
+    $('#t0').dataTable( {
+        'ajax': '../../CDNm/sample_data/arrays.txt'
+        ,'searching': false
+        ,'info': false
+        ,'columnDefs': [
+            { 'visible': false, 'targets': 2 }
+            ]
+        ,'lengthChange': false
+        ,'paging': false
+        ,ordering: true
+
+    } )
+
+    $('#t0 tbody').on('click', 'tr', function () {
+        var col = $(this).find('td:nth-child(3)')
+        console.log(col.text())
+        $('#t0 tr').removeClass('selected')
+        $(this).toggleClass('selected')
+    } )
+
+})
+</script>
+</body></html>

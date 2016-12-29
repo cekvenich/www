@@ -1,0 +1,35 @@
+
+extends  ../../_part/_shellA-base
+
+block content
+	.mui-container-fluid
+		#bla
+			include story1.html
+
+		button.paypal.ClassyPaypal-button(data-business='info@masons-foundation.org', data-item_name='3 Web Components', data-amount='150.00', data-quantity='1', data-currency_code='USD') $150 for 3 Web Componnets
+		button.paypal.ClassyPaypal-button(data-business='info@masons-foundation.org', data-item_name='4 Days consulting', data-amount='3600.00', data-quantity='1', data-currency_code='USD') $3,600 4 Days consulting
+		button.paypal.ClassyPaypal-button(data-business='info@masons-foundation.org', data-item_name='2 Day private class', data-amount='4000.00', data-quantity='1', data-currency_code='USD') $4,000 2 Day private class
+		link(rel='prerender', href='https://www.paypal.com/webapps/hermes?token=8AK72576VV289905A&useraction=commit&xclick_params=JTI2UERUJTNEdHJ1ZSUyNiUyNkF1dG9SZXR1cm4lM0R0cnVlJTI2bG9naW5fZW1haWwlM0RpbmZvJTI1NDBtYXNvbnMtZm91bmRhdGlvbi5vcmclMjZhbW91bnQlM0QxNTAuMDAlMjZpdGVtX25hbWUlM0QzJTI1MjBXZWIlMjUyMENvbXBvbmVudHMlMjZxdWFudGl0eSUzRDElMjZidXNpbmVzcyUzRGluZm8lMjU0MG1hc29ucy1mb3VuZGF0aW9uLm9yZyUyNmN1cnJlbmN5X2NvZGUlM0RVU0QlMjZibiUzRFBheU5vd1BsdWdpbl9CdXlOb3dfV1BTX1VTJTI2JTI2d2FfdHlwZSUzREJ1eU5vdyUyNg==&mfid=1479052660595_b92aca3f1b7a5#/checkout/login')
+
+		p
+
+	script.
+		function init() {
+			console.log('init')
+			$('.paypal').ClassyPaypal({
+				type: 'buynow'
+				, style: 'default'
+			})
+		}
+
+		if(_loaded) init()
+		else  {
+			_act.addOnce(function(arg1, arg2) {
+				init()
+				return false
+			})
+		}
+
+
+block footer
+	include  ../../_part/_footer

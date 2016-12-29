@@ -1,0 +1,31 @@
+
+extends  ../../_part/_shellA-base
+block head
+
+block content
+
+	p
+	.mui-container-fluid
+		home-card(ref='/post/best/', img='/home/home/arc.jpg', headline='Best Practices training')
+
+		home-card(ref='/post/app-shell/', img='/post/comp/index.jpg', headline='App-Shell')
+
+		home-card(ref='/post/comp/', img='/post/comp/index.jpg', headline='Web Components')
+
+		home-card(ref='/post/dataB/', img='/post/comp/index.jpg', headline='Data Binding (view source)')
+
+		home-card(ref='/post/seo/', img='/post/seo/setup.png', headline='SEO')
+
+		home-card(ref='/post/vwall/', img='/post/vwall/players.png', headline='Video Wall')
+
+	p
+	script.
+		function init() {
+			riot.compile(function(){ // make component, and wait for it
+				var comps = riot.mount('home-card')
+			})//compile
+		}
+		init()
+
+block footer
+	include  ../../_part/_footer

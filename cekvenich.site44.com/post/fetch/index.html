@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" manifest="/cache2.mf">
+  <head>
+    <meta http-equiv="cache-control" content="max-age=0">
+    <link rel="icon" href="/favicon.ico">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/_sass/main.css" rel="stylesheet" type="text/css">
+    <script src="//cdn.jsdelivr.net/js-signals/1.0.0/signals.min.js" type="text/javascript"></script>
+    <script src="//www.masons-foundation.org/zCDN/libJs/loadjs.min.js" type="text/javascript"></script>
+    <script src="/_js/setup.js" type="text/javascript"></script>
+    <meta name="description" content="">
+    <script src="//cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js" type="text/javascript"></script>
+    <script src="//www.masons-foundation.org/zCDN/compHost/webcomponentsjs/webcomponents-lite.js" type="text/javascript"></script>
+    <link rel="import" href="//www.masons-foundation.org/zCDN/compHost/polymer/polymer.html">
+    <script src="//cdn.jsdelivr.net/riot/3.0.0/riot+compiler.min.js" type="text/javascript"></script>
+    <link rel="import" href="/_compHost/bind-list.html">
+    <script src="/_compHost/home-card.tag" type="riot/tag"></script>
+    <script src="/_compHost/x-vid.tag" type="riot/tag"></script>
+  </head>
+</html>
+<body>
+  <script>
+    document.body.style.opacity = '0.01'
+    
+  </script>
+  <div id="ss1">
+    <nav class="mui-container-fluid mui--no-user-select" id="appbar">
+      <table width="100%">
+        <tr>
+          <td>
+            <div id="brand">☰ &nbsp;<span>Massons-Foundation.org</span></div>
+          </td>
+          <td class="mui--text-right">
+            <ul class="mui-list--inline" id="menu">
+              <li><a href="/post/comp/">Web Components</a></li>
+              <li><a href="/post/app-shell/">App-Shell</a></li>
+              <li><a href="/post/fetch/">Serverless</a></li>
+              <li><a href="/post/vwall/">Video Wall</a></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </nav>
+    <div id="sidedrawer">
+      <nav class="mui--no-user-select" id="sidenav">
+        <h2>
+          <div class="mui--text-title" id="sidedrawer-brand">☰ &nbsp; Massons</div>
+        </h2>
+        <div class="mui-divider"></div>
+        <ul class="mui-list--unstyled" id="sidenavstrong">
+          <li><a href="/post/comp/">Web Components</a></li>
+          <li><a href="/post/app-shell/">App-Shell</a></li>
+          <li><a href="/post/fetch/">Serverless</a></li>
+          <li><a href="/post/vwall/">Video Wall</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="content-wrapper0"></div>
+    <div id="content-wrapper">
+      <div class="mui-container-fluid"><html>
+      <head>
+        <meta charset="UTF-8">
+        <title>one.md</title>
+      </head>
+      <body>
+        <h1 id="fetch-and-middleware-api-microservices">Fetch and Middleware API/MicroServices</h1>
+<p>Here we will fetch() and use a middleware API. Fetch is the new API that replaces Ajax/XHR. For older browsers it has a polyfill listed on CanIUse.com.</p>
+<h2 id="0-warm-up-deploy-to-cloud-">0. (Warm up) Deploy to cloud.</h2>
+<p>Running your own back end or database software is not a good practice. There are several cloud providers for Node+Express: Azure, AWS, GAE and BlueMix. The last two seem a notch above. You choice may depends on what back end you will need, as each cloud has a different back end offering. For example, do you like GAE BigQuery or BlueMix Data Warehouse offerings. You can use any cluod that you like, but avoid hosting your own servers.</p>
+<p>Follow notes here to deploy a hello world for BlueMix:</p>
+<ul>
+<li><a href="http://github.com/IBM-Bluemix/node-helloworld">http://github.com/IBM-Bluemix/node-helloworld</a>
+It will guide you to install &#39;cf&#39; command used to deploy Bluemix.</li>
+</ul>
+<p>We will use BlueMix here, but for GAE:</p>
+<ul>
+<li><p>&lt;<a href="http://cloud.google.com/appengine/docs/flexible/nodejs/quickstart?">http://cloud.google.com/appengine/docs/flexible/nodejs/quickstart?</a></p>
+<pre><code>  gcloud init 
+  gcloud app deploy
+</code></pre></li>
+</ul>
+<p>Once you know how to deploy &quot;Hello World&quot; to cloud, go to the next step. We will soon deploy a micro service to the cloud.</p>
+<h2 id="1-view-the-source-of-this-page-and-click-the-button-this-will-help-you-review-how-to-fetch-from-a-browser-against-a-working-service-so-you-know-any-error-is-not-on-client-side-">1. View the source of this page, and click the button. This will help you review how to fetch() from a browser - against a working service. So you know any error is not on client side.</h2>
+<pre><code>    function tstGet() {
+        fetch(&#39;http://jsonplaceholder.typicode.com/comments&#39;, { //1 call
+                method: &#39;get&#39;
+            }).then(function(response) { //2 promise
+                return (response.json())
+                }).then(function(value) { //3
+                    // your code here
+                    console.log(&#39;back&#39;)
+                    console.log(JSON.stringify(value))
+            }).catch(function(err) {
+                console.log(&#39;error&#39;)
+                console.log(err)
+        })//fetch()
+    }//()
+</code></pre><p>Run this code on a button clicked event to <em>fetch</em> some data.</p>
+<h2 id="2-lets-deploy-our-microservice-">2. Lets deploy our microservice.</h2>
+<p>Download and expand: <a href="https://www.masons-foundation.org/zCDN/mserv.zip">https://www.masons-foundation.org/zCDN/mserv.zip</a>
+Deploy this node service to your cloud. For example for BlueMix, use:</p>
+<pre><code>cf push
+</code></pre><h3 id="once-deployed-you-can-test-that-the-microservice-works-via-">Once deployed, you can test that the microservice works via:</h3>
+<p><img src="//www.masons-foundation.org/post/fetch/rest_test.png" alt=""></p>
+<h3 id="rest-client-is-a-browser-plug-in-that-can-post-a-request-to-your-microservice-">Rest-Client is a browser plug in that can POST a request to your microservice.</h3>
+<p>If you are not able to test that the microservice we deployed works, read next step and come back to this step so it does work.</p>
+<h3 id="3-lets-do-a-code-review-of-the-microservice-">3. Lets do a code review of the microservice.</h3>
+<p>We recommend that the routes match url on the front end. So if you are calling the microservice from /home/member then the route in express should be /home/member + a descriptive name of the function. Some REST people name routes based on back end entities. We believe it&#39;s a better practice to mirror the front end instead. The microservice will deal with entities as needed and shield the implementation from the front end. The most widley used software by full stack developer is <em>express</em>. Unzip the sample and the index.js looks like this:</p>
+<pre><code>    const middle = express()
+    const membersPg = require(&#39;./front_routes/membersPg&#39;)
+    const cfenv = require(&#39;cfenv&#39;)
+
+    //set up filters chain ###################### 
+    middle.use(bodyParser.json()) // parse application/json
+    middle.use(cors())
+    //routes ###################### 
+    middle.use(&#39;/membersPg&#39;, membersPg) //front route 1 - match the front end
+
+    // get the app environment from Cloud Foundry
+    var appEnv = cfenv.getAppEnv();
+    // start server on the specified port and binding host
+    middle.listen(appEnv.port, &#39;0.0.0.0&#39;, function() {
+        console.log(&quot;server starting on &quot; + appEnv.url)
+    })
+</code></pre><p>And the route:</p>
+<pre><code>    const router = express.Router()
+    const fake = require(&#39;./backend/fake&#39;)
+
+    router.post(&#39;/list&#39;, function (req, res) {
+        var ret = fake._fakeBackCall()
+        res.status(200).send(JSON.stringify(ret))
+    })
+    module.exports = router
+</code></pre><p>If there is an error, return status that is not 200. 
+And our back end:</p>
+<pre><code>    module.exports = {
+        _fakeBackCall: function() {
+        return {
+        &quot;data&quot;: [
+            [
+                &quot;Cedric Kelly&quot;,
+                &quot;Senior Javascript Developer&quot;,
+                &quot;Edinburgh&quot;,
+                &quot;6224&quot;,
+                &quot;2012/03/29&quot;,
+                &quot;$433,060&quot;
+            ],
+            [
+                &quot;Airi Satou&quot;,
+                &quot;Accountant&quot;,
+                &quot;Tokyo&quot;,
+                &quot;5407&quot;,
+                &quot;2008/11/28&quot;,
+                &quot;$162,700&quot;
+            ] ....
+</code></pre><p>We fake a DB for now. Of course you can add other middleware, like GZIP and setup JWT.</p>
+<h3 id="4-full-stack">4. Full stack</h3>
+<p>When writing middleware, you for sure should do integration testing, via QUnit for example as well as help with the data binding for the front end team, for example <a href="http://github.com/corinis/jsForm">http://github.com/corinis/jsForm</a>. Also check out list.js and datatables.net.</p>
+
+      </body>
+    </html>
+        <p></p>
+        <button class="mui-btn mui-btn--primary" id="but1">Klk Meh</button>
+      </div>
+      <script>
+        function tstGet() {
+        	fetch('http://jsonplaceholder.typicode.com/comments', { //1 call
+        			method: 'get'
+        		}).then(function(response) { //2 promise
+        			return (response.json())
+        			}).then(function(value) { //3
+        				// your code here
+        				console.log('back')
+        				console.log(JSON.stringify(value))
+        		}).catch(function(err) {
+        			console.log('error')
+        			console.log(err)
+        	})//fetch()
+        }//()
+        
+        function memList() {
+        	fetch('https://serv.mybluemix.net/membersPg/list', {
+        		 headers: {
+        			'Accept': 'application/json',
+        			'Content-Type': 'application/json'
+        			}
+        			, method: 'post'
+        			, body: JSON.stringify({"email": "vic@bla.com", "message": "hi" })
+        
+        		}).then(function(response) { 
+        			return (response.json())
+        			}).then(function(value) { 
+        				console.log(JSON.stringify(value))
+        		}).catch(function(err) {
+        			console.log('error')
+        			console.log(err)
+        			console.log(JSON.stringify(err))
+        	})//fetch()
+        }//()
+        
+        function init() {
+        	$( "#but1" ).click(function() {
+        		console.log('clicked')
+        		tstGet()
+        		//send()
+        	})
+        }
+        
+        if(_loaded) init()
+        else {
+        	_act.addOnce(function(arg1, arg2) {
+        		init()
+        		return false
+        	})
+        }
+        
+      </script>
+    </div>
+  </div>
+  <footer>
+    <p></p>
+    <div class="mui-container-fluid">
+      <div class="mui-panel"><a href="https://gitter.im/what-community/Lobby">Forum</a></div>
+    </div>
+    <script>
+      loadjs('/_js/main.js')
+      
+    </script>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  </footer>
+</body>

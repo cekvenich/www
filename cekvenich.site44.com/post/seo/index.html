@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" manifest="/cache2.mf">
+  <head>
+    <meta http-equiv="cache-control" content="max-age=0">
+    <link rel="icon" href="/favicon.ico">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/_sass/main.css" rel="stylesheet" type="text/css">
+    <script src="//cdn.jsdelivr.net/js-signals/1.0.0/signals.min.js" type="text/javascript"></script>
+    <script src="//www.masons-foundation.org/zCDN/libJs/loadjs.min.js" type="text/javascript"></script>
+    <script src="/_js/setup.js" type="text/javascript"></script>
+    <meta name="description" content="">
+    <script src="//cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js" type="text/javascript"></script>
+    <script src="//www.masons-foundation.org/zCDN/compHost/webcomponentsjs/webcomponents-lite.js" type="text/javascript"></script>
+    <link rel="import" href="//www.masons-foundation.org/zCDN/compHost/polymer/polymer.html">
+    <script src="//cdn.jsdelivr.net/riot/3.0.0/riot+compiler.min.js" type="text/javascript"></script>
+    <link rel="import" href="/_compHost/bind-list.html">
+    <script src="/_compHost/home-card.tag" type="riot/tag"></script>
+    <script src="/_compHost/x-vid.tag" type="riot/tag"></script>
+  </head>
+</html>
+<body>
+  <script>
+    document.body.style.opacity = '0.01'
+    
+  </script>
+  <div id="ss1">
+    <nav class="mui-container-fluid mui--no-user-select" id="appbar">
+      <table width="100%">
+        <tr>
+          <td>
+            <div id="brand">☰ &nbsp;<span>Massons-Foundation.org</span></div>
+          </td>
+          <td class="mui--text-right">
+            <ul class="mui-list--inline" id="menu">
+              <li><a href="/post/comp/">Web Components</a></li>
+              <li><a href="/post/app-shell/">App-Shell</a></li>
+              <li><a href="/post/fetch/">Serverless</a></li>
+              <li><a href="/post/vwall/">Video Wall</a></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </nav>
+    <div id="sidedrawer">
+      <nav class="mui--no-user-select" id="sidenav">
+        <h2>
+          <div class="mui--text-title" id="sidedrawer-brand">☰ &nbsp; Massons</div>
+        </h2>
+        <div class="mui-divider"></div>
+        <ul class="mui-list--unstyled" id="sidenavstrong">
+          <li><a href="/post/comp/">Web Components</a></li>
+          <li><a href="/post/app-shell/">App-Shell</a></li>
+          <li><a href="/post/fetch/">Serverless</a></li>
+          <li><a href="/post/vwall/">Video Wall</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="content-wrapper0"></div>
+    <div id="content-wrapper">
+      <style>
+        img {
+        	width: 70%;
+        }
+      </style>
+      <script>
+        preLImg(
+        	'//cekvenich.site44.com/post/seo/soc.jpg'
+        )
+      </script>
+      <div class="mui-container-fluid"><h1 id="-fts-seo-netops">(FTS -&gt; ) SEO ($) netops</h1>
+<p>Here I&#39;ll show you how to use FTS so that you can have great SEO.</p>
+<ul>
+<li>We&#39;ll a domain that uses a distributed CDN.</li>
+<li>We&#39;ll add sitemap to google webmaster dashboard for said domain</li>
+<li>We add FTS for the site</li>
+<li>We boost our page rank</li>
+</ul>
+<p>Without SEO, you website is just a brochure that only you hand out, but w/ SEO, it is a store window where people walk by and look, 24X7, and world wide audience - potentially of trillions.
+If you are a pro - by definition you make money: either via page views of your content or by selling/e-commerce - and both require good SEO. Good SEO gives you a constant and free stream of leads. I wish I can tell you that SEO is quick and onetime, it&#39;s not. But there is a trick to it. So before we jump into it, I&#39;ll tell you a trick to SEO: FTS! Google has CSE <a href="https://cse.google.com">https://cse.google.com</a> so you can search your site (and not have to use silly Solar in the cloud and such). The paid version ( $8 / month ) of Google CSE lets you do an instant scan of your content. W/o that - you have to wait to see how the SEO turns out. Wait weeks per each tweak. Hardly feasible.
+In theory, and only in theory you could get SEO to work w/o Google CSE - if you like a lot of pain.  With instant index, you can tune things as you are working on them. :-)</p>
+<p>So lets start w/ the labor that is SEO; because $$$ is good. It may take a few days of lab time - and needs ongoing SEO tuning - and arguing for more interesting content :-)</p>
+<h2 id="0-of-course-content">0. Of course, content</h2>
+<p>You should first have some rewarding articles to view(more than once?), or some nice things to sell, or both. Also it should be presented in a more interesting way than others present it - UI Effects.</p>
+<p>If you don&#39;t have millions of concurrent users, you can skip steps 1 and 2 and go to step 3.</p>
+<h2 id="1-fast">1. Fast</h2>
+<p>Latency counts in SEO page rank.</p>
+<p>You may need a &lt;no-script&gt; version of your app, or at least a less rich version - something approaching AMP.
+If you know how to App-shell, this is easy to do. You have one version of your app that is great UX for mobile apps, native mobile apps, chrome/FF/Safari and current version of IE.
+Now you may need to create a second version of your App-shell: AMP like. Recall that AMP has no script. Oder version of IE struggle. And SEO does not use .js. So some reasons to create 2 html files per page.
+If you use Pug or such to make an index.html using an App-shell X, now you may need to make another App-shell &#39;AMP&#39;.
+IMPORTANT: you can now see that when you make a component, you always pass in the data, you don&#39;t have a widget get the data direct - AMP won&#39;t use your rich UI components in the same way. AMP shell goal may be to make a 40K download for the entire page.</p>
+<p>Recommended:</p>
+<ul>
+<li><p>But in any case, your content must display fast. Your images must be very small - very very small. Sometimes you show nice images and sometimes you show fast(lossy) images. Image size is part of SEO - due to performance aspect.</p>
+</li>
+<li><p>And your content MUST be on a distributed CDN (ex: CDN77 has ftp. CDN77 is $12 / month). And SEO indexing now is mobile first - so for SEO: mobile first.</p>
+</li>
+</ul>
+<p>Two version of your html pages is optional. But CDN and fast images is not - you must deploy site to CDN.
+You&#39;ll need to register a domain (ex: easydns $5 / month). Before you SEO - you need a (https) domain that works - so we optimize it.</p>
+<p>Aside: You should also monitor (ex. monitis is ~ $15 / month <a href="http://monitis.com/free-tools">http://monitis.com/free-tools</a> )</p>
+<h2 id="2-lab-2-setup-your-naked-https-domain">2 Lab 2: Setup your (naked) HTTPS domain</h2>
+<p>In case you don&#39;t know, CNAME your DNS to CDN, of course. We must use https - as some HTML5 features only work in https.
+Your naked name will just redirect to your distributed CDN. Ex: Name.com will redirect to <a href="https://www.name.com">https://www.name.com</a>, where www is CDN provided CNAME.</p>
+<p><img src="/post/seo/setup.png" alt="">
+ The CDN provides https certs - you don&#39;t have to do that. It should looks something like above (here I also use them for video hosting). You can see that my origin on site44 is now distributed via CDN as masons-foundation.org. (But your origin should be secret to prevent DDOS). Also - unlike your origin, CDN is cached, so you have to flush it after update so it&#39;s not stale.</p>
+<p>But first create a node box, where you&#39;ll run the little http <em>express</em> server. The express server will answer every request with a permanent redirect to www (CDN)</p>
+<p>I advise against CloudFlare, AWS, GoDaddy and other toys. You are better of using something site44 only.</p>
+<p>(CDN acts as a proxy to hide your origin and manage access to your static web app. For API, you can use an approach like 3Scale.net - also a proxy. For API of course use a different domain name)</p>
+<h2 id="3-lab-3-half-step-to-cse">3. Lab 3: Half step to CSE</h2>
+<p>We need to tell google search engine that we are the owners of this domain.
+<img src="/post/seo/0.png" alt=""></p>
+<p>You can do that on &#39;google webmaster console &#39;</p>
+<p>And setup robots.txt</p>
+<ul>
+<li><a href="http://varvy.com/robottxt.html">http://varvy.com/robottxt.html</a>
+and site map</li>
+<li><a href="http://www.sitemaps.org/protocol.html">http://www.sitemaps.org/protocol.html</a></li>
+</ul>
+<h2 id="4-lab-4-cse">4. Lab 4: CSE</h2>
+<p>Now setup FTS on your site, so that user can find content/product of interest.
+Ex:</p>
+<ul>
+<li><a href="http://masons-foundation.org/en/about/search">http://masons-foundation.org/en/about/search</a></li>
+</ul>
+<p><img src="/post/seo/CSE.png" alt=""></p>
+<p><img src="/post/seo/$.png" alt=""></p>
+<p>Paid version is $8 per month - and lets us do instant submit.</p>
+<p><img src="/post/seo/yours.png" alt=""></p>
+<p>Source:</p>
+<pre><code>    script.
+        (function() {
+            var cx = &#39;015406677380205718189:esv77diws9e&#39;;
+            var gcse = document.createElement(&#39;script&#39;);
+            gcse.type = &#39;text/javascript&#39;;
+            gcse.async = true;
+            gcse.src = &#39;//cse.google.com/cse.js?cx=&#39; + cx;
+            var s = document.getElementsByTagName(&#39;script&#39;)[0];
+            s.parentNode.insertBefore(gcse, s);
+        })()
+    div
+    :verbatim
+        &lt;gcse:searchbox&gt;&lt;/gcse:searchbox&gt;
+    div
+    :verbatim
+        &lt;gcse:searchresults&gt;&lt;/gcse:searchresults&gt;
+</code></pre><p>It should look like:</p>
+<p><img src="/post/seo/searchBox.png" alt=""></p>
+<h2 id="5-seo">5 SEO</h2>
+<p>Once sitemap and CSE FTS works, you have SEO.</p>
+<h2 id="6-important-pagerank-lab-twitter">6 IMPORTANT - PageRank - Lab: Twitter</h2>
+<p>Now you need to create a separate page to point to your pages - some silly static site like google blog - where you blatantly increase your page rank.</p>
+<p>And social networks, such as twitter. But before you spam social network - lets play nice:</p>
+<pre><code>    block head
+        &lt;meta name=&quot;twitter:card&quot; content=&quot;summary&quot;/&gt;
+        &lt;meta name=&quot;twitter:url&quot; content=&quot;@puppetMaster3&quot;/&gt;
+        &lt;meta name=&quot;twitter:title&quot; content=&quot;About Masons-Foundation&quot;/&gt;
+        &lt;meta name=&quot;twitter:description&quot; content=&quot;Masons-Foundation help web designers and offers a software scaffolding&quot;/&gt;
+        &lt;meta name=&quot;twitter:image&quot; content=&quot;http://edge.masons-foundation.org/16/about/member1.jpg&quot;/&gt;
+</code></pre><p>This will insert meta tags into your &lt;head&gt; so that people can paste the url and get images.
+<img src="/post/seo/soc.jpg" alt=""></p>
+<p>So lets get twitter to work, as a lab.</p>
+<h2 id="7-the-end">7 The end</h2>
+<p>There are alternatives:
+<img src="/post/seo/alt.gif" alt=""></p>
+<p>So here:</p>
+<ul>
+<li>we created a https domain we want to optimize - that uses a distributed CDN</li>
+<li>we added sitemap to google webmaster dashboard</li>
+<li>we added FTS for the site (as SEO trick)</li>
+<li>we boosted our page rank</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p></p>
+    <div class="mui-container-fluid">
+      <div class="mui-panel"><a href="https://gitter.im/what-community/Lobby">Forum</a></div>
+    </div>
+    <script>
+      loadjs('/_js/main.js')
+      
+    </script>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  </footer>
+</body>
