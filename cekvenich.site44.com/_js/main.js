@@ -86,6 +86,7 @@ function loadAnalytics(){
 }
 
 function setupFlick() {
+	console.log('flick')
 	var mainEl = document.getElementById('content-wrapper');
 	var ztReg1 = new ZingTouch.Region(mainEl)
 	ztReg1.bind(mainEl, 'tap', function(sw){
