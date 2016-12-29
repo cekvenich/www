@@ -1,21 +1,17 @@
 'use strict'
 loadjs([
 	'//code.jquery.com/jquery-2.2.4.min.js'
-	,'//www.masons-foundation.org/zCDN/libJs/jquery.smoothState.js'
+	,'/zCDN/libJs/jquery.smoothState.js'
 	,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
 
-	//,'//cdn.jsdelivr.net/raphael/2.1.4/raphael-min.js'
+	,'//cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js'
 	//,'//cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js'
 	,'//cdn.jsdelivr.net/list.js/1.1.1/list.min.js'
 	//,'//cdn.jsdelivr.net/fetch/0.9.0/fetch.min.js'
-	,'//cdn.jsdelivr.net/jquery.fullpage/2.8.8/jquery.fullpage.min.js'
-	,'//cdn.jsdelivr.net/jquery.fullpage/2.8.9/jquery.fullpage.min.css'
+	,'/zCDN/libJs/zingtouch.min.js'
 
 	,'//cdn.jsdelivr.net/jquery.jsform/1.0.5/jquery.jsForm.min.js'
-	//,'//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'
-	//,'//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'
-	//,'//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css'
-	,'//www.masons-foundation.org/zCDN/libJs/classypaypal/jquery.classypaypal.js'
+	,'/zCDN/libJs/classypaypal/jquery.classypaypal.js'
 
 	, '/_js/split.js'
 	//, '/_js/split.css'
@@ -80,9 +76,20 @@ function startApp(){
 	}//sso
 	
 	const smoothState= $('#ss1').smoothState(ssoptions)
+
+	setupFlick()
 }//startApp()
 
 //====================================================================
 function loadAnalytics(){
+
+}
+
+function setupFlick() {
+	var mainEl = document.getElementById('content-wrapper');
+	var ztReg1 = new ZingTouch.Region(mainEl)
+	ztReg1.bind(mainEl, 'tap', function(sw){
+		console.log(sw)
+	}, false);
 
 }
