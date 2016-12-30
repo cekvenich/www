@@ -23,7 +23,7 @@ Once you get used to Pug, your productivity will skyrocket.
 Also, by using Sass, you are more of a team-player and designer friendly. And any other content such as images or copy in Markdown can be saved to Dropbox - and due to Site44 auto-deploys in real time, after being pre-processed so it can be static. 
 Each team role can use their favorite IDE, for example to edit .md files. If I need to isolate permissions by role, I use symbolic links to folders. For example copywriters don't need to see Sass and Pug files. They have their .md folder they can read/write. Anychanges there are reflected on the origin right away (and CDN edge on a flush.)
 
-I use Daas (Desktop as a Service) AWS Workspaces at $40/month. I spend money on very few things, the pre-processor for the team, the CDN and FTS. The rest is all free.
+I use Daas (Desktop as a Service) AWS Workspaces at $40/month to setup the build server. I spend money on very few things, the pre-processor for the team, the CDN and FTS. The rest is all free.
 On the cloud desktop, I install Dropbox and PrePros.io. If any dropbox file is changed by any team member - it runs and does it's thing.
 
 ### 4a. Old-school front end IDE

@@ -1,10 +1,4 @@
-<html>
-      <head>
-        <meta charset="UTF-8">
-        <title>story1.md</title>
-      </head>
-      <body>
-        <h2 id="my-futuristic-ide-setup">My (futuristic) IDE setup</h2>
+<h2 id="my-futuristic-ide-setup">My (futuristic) IDE setup</h2>
 <p>I was asked recently to describe my development environment setup.</p>
 <h3 id="1-static-front-end-server">1. Static Front End Server</h3>
 <p>Step one is to get a static server w/ https - as some front end .js does not work w/ http. I use site44.com for that, as they provide the certs for me - I just sign up and they serve from Dropbox. This also allows for continuous deployment. </p>
@@ -19,7 +13,7 @@
 Once you get used to Pug, your productivity will skyrocket. </p>
 <p>Also, by using Sass, you are more of a team-player and designer friendly. And any other content such as images or copy in Markdown can be saved to Dropbox - and due to Site44 auto-deploys in real time, after being pre-processed so it can be static. 
 Each team role can use their favorite IDE, for example to edit .md files. If I need to isolate permissions by role, I use symbolic links to folders. For example copywriters don&#39;t need to see Sass and Pug files. They have their .md folder they can read/write. Anychanges there are reflected on the origin right away (and CDN edge on a flush.)</p>
-<p>I use Daas (Desktop as a Service) AWS Workspaces at $40/month. I spend money on very few things, the pre-processor for the team, the CDN and FTS. The rest is all free.
+<p>I use Daas (Desktop as a Service) AWS Workspaces at $40/month to setup the build server. I spend money on very few things, the pre-processor for the team, the CDN and FTS. The rest is all free.
 On the cloud desktop, I install Dropbox and PrePros.io. If any dropbox file is changed by any team member - it runs and does it&#39;s thing.</p>
 <h3 id="4a-old-school-front-end-ide">4a. Old-school front end IDE</h3>
 <p>You can use something like free VS Code (not Visual Studio, but &#39;Code&#39;). Nice feature is that it does auto-save. I can&#39;t live w/o auto-save.
@@ -33,6 +27,3 @@ To do that I setup Codeanywhere IDE for Dropbox. </p>
 Since I always develop mobile first, there are few issues w/ native apps. </p>
 <p>Should I need any custom feature - than a small Cordova function can be outsourced. As is QA so it can be on-demand and based on specs.  </p>
 <p> At the end, I do port to desktop browsers.</p>
-
-      </body>
-    </html>
