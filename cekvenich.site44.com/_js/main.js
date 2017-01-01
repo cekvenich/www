@@ -14,7 +14,6 @@ loadjs([
 	,'/zCDN/libJs/classypaypal/jquery.classypaypal.js'
 
 	, '/_js/split.js'
-	//, '/_js/split.css'
 
 	],  { success: function(){
 		console.log('loaded')

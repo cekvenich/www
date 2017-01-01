@@ -8,10 +8,10 @@ https://www.masons-foundation.org/zCDN/libJs/loadjs.min.js
 https://cdn.jsdelivr.net/js-signals/1.0.0/signals.min.js
 https://www.masons-foundation.org/favicon.ico
 
-https://www.masons-foundation.org/zCDN/compHost/webcomponentsjs/webcomponents-lite.js
-https://www.masons-foundation.org/zCDN/compHost/polymer/polymer.html
-https://www.masons-foundation.org/zCDN/compHost/polymer/polymer-mini.html
-https://www.masons-foundation.org/zCDN/compHost/polymer/polymer-micro.html
+https://www.masons-foundation.org/_compHost/webcomponentsjs/webcomponents-lite.js
+https://www.masons-foundation.org/_compHost/polymer/polymer.html
+https://www.masons-foundation.org/_compHost/polymer/polymer-mini.html
+https://www.masons-foundation.org/_compHost/polymer/polymer-micro.html
 
 https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en
 https://fonts.googleapis.com/icon?family=Material+Icons

@@ -1,12 +1,105 @@
-<html><head>
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-	<meta http-equiv="Pragma" content="no-cache"/>
-	<meta http-equiv="Expires" content="0"/>
-	<script type="text/javascript">
-		location.href = '/home/home2/'
-	</script>
-</head>
-<body>
-
-</body>
+<!DOCTYPE html>
+<html lang="en" manifest="/cache.mf">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="icon" href="/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="/_sass/main.css" rel="stylesheet" type="text/css">
+    <script src="//cdn.jsdelivr.net/js-signals/1.0.0/signals.min.js" type="text/javascript"></script>
+    <script src="/zCDN/libJs/loadjs.min.js" type="text/javascript"></script>
+    <script src="/_js/setup.js" type="text/javascript"></script>
+    <meta name="description" content="">
+    <script src="//cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js" type="text/javascript"></script>
+    <script src="/_compHost/webcomponentsjs/webcomponents-lite.js" type="text/javascript"></script>
+    <link rel="import" href="/_compHost/polymer/polymer.html">
+    <script src="//cdn.jsdelivr.net/riot/3.0.0/riot+compiler.min.js" type="text/javascript"></script>
+    <link rel="import" href="/_compHost/bind-list.html">
+    <script src="/_compHost/home-card.tag" type="riot/tag"></script>
+    <script src="/_compHost/x-vid.tag" type="riot/tag"></script>
+  </head>
 </html>
+<body>
+  <script>
+    document.body.style.opacity = '0.01'
+    
+  </script>
+  <div id="ss1">
+    <nav class="mui-container-fluid mui--no-user-select" id="appbar">
+      <table width="100%">
+        <tr>
+          <td>
+            <div id="brand">☰ &nbsp;<span>Massons-Foundation.org</span></div>
+          </td>
+          <td class="mui--text-right">
+            <ul class="mui-list--inline" id="menu">
+              <li><a href="/home/home2/">Home</a></li>
+              <li><a href="/home/fts/">Search</a></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </nav>
+    <div id="sidedrawer">
+      <nav class="mui--no-user-select" id="sidenav">
+        <h2>
+          <div class="mui--text-title" id="sidedrawer-brand">☰ &nbsp; Massons</div>
+        </h2>
+        <div class="mui-divider"></div>
+        <ul class="mui-list--unstyled" id="sidenavstrong">
+          <li><a href="/home/home2/">Home</a></li>
+          <li><a href="/home/fts/">Search</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="content-wrapper0"></div>
+    <div id="content-wrapper">
+      <p></p>
+      <div class="mui-container-fluid">
+        <home-card ref="/post/app-shell/" img="/post/SPA/shell.png" headline="App-Shell"></home-card>
+        <home-card ref="/post/asites/" img="/post/asites/arc.jpg" headline="Sites I like"></home-card>
+        <home-card ref="/post/comp/" img="/post/comp/web-comp.png" headline="Web Components"></home-card>
+        <home-card ref="/post/dBind/" img="/post/dBind/vic.jpg" headline="Data Binding"></home-card>
+        <home-card ref="/post/fetch/" img="/post/fetch/rest_test.png" headline="Fetch a micro service"></home-card>
+        <home-card ref="/post/IDE/" img="/post/IDE/DaaS.png" headline="IDE"></home-card>
+        <home-card ref="/post/seo/" img="/post/seo/setup.png" headline="SEO"></home-card>
+        <home-card ref="/post/SPA/" img="/post/SPA/SPA.png" headline="SPA"></home-card>
+        <home-card ref="/post/useAd/" img="/ads/carolla/chick.png" headline="Ad"></home-card>
+        <home-card ref="/post/vwall/" img="/post/vwall/players.png" headline="Video Wall"></home-card>
+      </div>
+      <p></p>
+      <script>
+        function init() {
+        	riot.compile(function(){ // make component, and wait for it
+        		var comps = riot.mount('home-card')
+        	})//compile
+        }
+        init()
+        
+      </script>
+    </div>
+  </div>
+  <footer>
+    <p></p>
+    <div class="mui-container-fluid">
+      <div class="mui-panel">
+        <div class="mui-container-fluid">
+          <div class="mui-row">
+            <div class="mui-col-md-4"><a href="https://gitter.im/what-community/Lobby">Forum </a></div>
+            <div class="mui-col-md-4"></div>
+            <div class="mui-col-md-4"><a href="https://github.com/struts3/what-demos">Site tech</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      loadjs('/_js/main.js')
+      
+    </script>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  </footer>
+</body>
