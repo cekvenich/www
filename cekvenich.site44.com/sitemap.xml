@@ -4,20 +4,21 @@
 		xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
 		xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-	<url>
-		<loc>https://www.masons-foundation.org/post/comp/</loc>
-	</url>
 
 	<url>
 		<loc>https://www.masons-foundation.org/post/app-shell/</loc>
 	</url>
 
 	<url>
-		<loc>https://www.masons-foundation.org/post/vwall/</loc>
+		<loc>https://www.masons-foundation.org/post/asites/</loc>
 	</url>
 
 	<url>
 		<loc>https://www.masons-foundation.org/post/best/</loc>
+	</url>
+
+	<url>
+		<loc>https://www.masons-foundation.org/post/comp/</loc>
 	</url>
 
 	<url>
@@ -45,7 +46,7 @@
 	</url>
 	
 	<url>
-		<loc>https://www.masons-foundation.org/post/vwallF/</loc>
+		<loc>https://www.masons-foundation.org/post/vwall/</loc>
 	</url>
 	
 </urlset>
