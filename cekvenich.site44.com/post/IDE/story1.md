@@ -11,6 +11,7 @@ For production, I wrap the site44 origin w/ CDN77. They provide a free domain ce
 ### 2. Mobile First/ Mobile Only
 Step 2 is: Mobile First. Mostly I use the Blisk developer browser. It has watch directory features. Sometimes I use Chrome,I turn on Chrome w/ Developer Tools to view console logs(and one way to cache bust); and then click More Tools again (second level). That second menu lets me select 'remote devices'. I have a mobile device pluged in via USB at all times. This way I see in as I develop, what it looks like on mobile. Also in the network tab, I set the speed to 4g so I have a more realistic UX speed. Once it works well in mobile, I try to make it fluid so it works on modern desktop browsers.
 
+Also... as a developer you must have a touch screen - ex: Surface 27" desktop.
 
 ### 4. Optional: Micro-services / Backend Cloud IDE.
 We now use modern fetch() to get micro-services. You can use Bluemix Orion Cloud ( Foundry Web) IDE. Companies are starting to be come security aware, and a percentage of security issues are internal, such as a terminated employee. By keeping source code in the cloud, you add another layer of security. Since source code is in the cloud, well... your IDE is in the cloud. Bluemix (and others) provide a free https cert.
