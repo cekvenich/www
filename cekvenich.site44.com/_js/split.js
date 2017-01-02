@@ -10,7 +10,7 @@ function pgSplit($cont_, speed) {
 
 	// compute endpoints math to split screen
 	let haf = $(window).width() / 2
-	let he  = window.innerHeight + 'px, ' //
+	let he  = (window.innerHeight +4000) + 'px, ' //
 	let doub = ' ' +haf*2 + 'px, ' //
 	let lft = '-' +haf + 'px '
 	haf = haf + 'px'
