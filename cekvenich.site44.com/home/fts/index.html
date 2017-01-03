@@ -26,7 +26,6 @@
   <script type="text/javascript">
     document.body.style.opacity = '0.01'
     
-    
   </script>
   <div id="ss1">
     <nav class="mui-container-fluid mui--no-user-select" id="appbar">
@@ -58,8 +57,24 @@
     </div>
     <div id="content-wrapper0"></div>
     <div id="content-wrapper">
+      <style>
+        #fts {
+        	height: 100%;
+        }
+        
+      </style>
+      <div>
+        <p></p>
+      </div>
+      <div class="mui-container-fluid">
+        <div id="fts">
+          <gcse:searchbox newwindow="true"></gcse:searchbox>
+          <gcse:searchresults></gcse:searchresults>
+        </div>
+      </div>
       <script>
-        (function() {
+        function init() {
+        	console.log('fts')
         	var cx = '015406677380205718189:esv77diws9e';
         	var gcse = document.createElement('script');
         	gcse.type = 'text/javascript';
@@ -67,15 +82,17 @@
         	gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
         	var s = document.getElementsByTagName('script')[0];
         	s.parentNode.insertBefore(gcse, s);
-        })()
+        }
+        if(_loaded) init()
+        else {
+        	_act.addOnce(function(arg1, arg2) {
+        		init()
+        		return false
+        	})
+        }
+        
+        
       </script>
-      <div>
-        <p></p>
-      </div>
-      <div class="mui-container-fluid">
-        <gcse:searchbox newwindow="true"></gcse:searchbox>
-        <gcse:searchresults></gcse:searchresults>
-      </div>
     </div>
   </div>
   <footer>
@@ -106,18 +123,6 @@
       document.write("<sc"+"ript type='text/javascript' src='" +
       	scJsHost+
       	"statcounter.com/counter/counter.js'></"+"script>");
-      
-    </script>
-    <script type="text/javascript">
-      var clicky_site_ids = clicky_site_ids || [];
-      clicky_site_ids.push(101014242);
-      (function() {
-      	var s = document.createElement('script');
-      	s.type = 'text/javascript';
-      	s.async = true;
-      	s.src = '//static.getclicky.com/js';
-      	( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
-      })()
     </script>
   </footer>
 </body>

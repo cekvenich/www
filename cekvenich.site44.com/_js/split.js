@@ -10,7 +10,7 @@ function pgSplit($cont_, speed) {
 
 	// compute endpoints math to split screen
 	let haf = $(window).width() / 2
-	let he  = (window.innerHeight +4000) + 'px, ' //
+	let he  = $(window).height() + 'px, ' //
 	let doub = ' ' +haf*2 + 'px, ' //
 	let lft = '-' +haf + 'px '
 	haf = haf + 'px'
@@ -36,11 +36,13 @@ function pgSplit($cont_, speed) {
 	$('#firstSl').css('clip',fr)
 	$('#firstSl').css('position','absolute')
 	$('#firstSl').css('z-index',40)
+	$('#firstSl').css('min-height', he)
 	$('#firstSl').css('background','gray')
 
 	$('#cloneSl').css('clip',cr)
 	$('#cloneSl').css('position','absolute')
 	$('#cloneSl').css('z-index',41)
+	$('#cloneSl').css('min-height',he)
 	$('#cloneSl').css('background','gray')
 
 	$('#content-wrapper0').fadeTo(speed*3,.7)

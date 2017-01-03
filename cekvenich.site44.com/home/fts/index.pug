@@ -2,9 +2,22 @@
 extends  ../../_part/_shellA-base
 
 block content
+	style.
+		#fts {
+			height: 100%;
+		}
+
+	div
+		p
+	.mui-container-fluid
+		#fts
+			gcse:searchbox(newwindow='true')
+
+			gcse:searchresults
 
 	script.
-		(function() {
+		function init() {
+			console.log('fts')
 			var cx = '015406677380205718189:esv77diws9e';
 			var gcse = document.createElement('script');
 			gcse.type = 'text/javascript';
@@ -12,14 +25,14 @@ block content
 			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(gcse, s);
-		})()
-	div
-		p
-
-	.mui-container-fluid
-		gcse:searchbox(newwindow='true')
-
-		gcse:searchresults
+		}
+		if(_loaded) init()
+		else {
+			_act.addOnce(function(arg1, arg2) {
+				init()
+				return false
+			})
+		}
 
 
 block footer
