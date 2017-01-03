@@ -4,16 +4,14 @@ extends  ../../_part/_shellA-base
 block content
 	style.
 		#fts {
-			height: 100%;
+			min-height: 100%;
 		}
 
 	div
 		p
 	.mui-container-fluid
 		#fts
-			gcse:searchbox(newwindow='true')
-
-			gcse:searchresults
+			gcse:search
 
 	script.
 		function init() {
@@ -21,7 +19,7 @@ block content
 			var cx = '015406677380205718189:esv77diws9e';
 			var gcse = document.createElement('script');
 			gcse.type = 'text/javascript';
-			gcse.async = true;
+			gcse.async = false;
 			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(gcse, s);
@@ -33,7 +31,6 @@ block content
 				return false
 			})
 		}
-
 
 block footer
 	include  ../../_part/_footer

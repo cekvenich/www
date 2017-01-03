@@ -9,7 +9,7 @@ loadjs([
 	,'//cdn.jsdelivr.net/list.js/1.1.1/list.min.js'
 	//,'//cdn.jsdelivr.net/fetch/0.9.0/fetch.min.js'
 	,'/zCDN/libJs/zingtouch.min.js'
-
+	
 	,'//cdn.jsdelivr.net/jquery.jsform/1.0.5/jquery.jsForm.min.js'
 	,'/zCDN/libJs/classypaypal/jquery.classypaypal.js'
 
@@ -75,7 +75,7 @@ function startApp(){
 	
 	const smoothState= $('#ss1').smoothState(ssoptions)
 
-	setupFlick()
+	//setupFlick()
 }//startApp()
 
 //====================================================================

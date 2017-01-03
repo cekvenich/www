@@ -59,7 +59,7 @@
     <div id="content-wrapper">
       <style>
         #fts {
-        	height: 100%;
+        	min-height: 100%;
         }
         
       </style>
@@ -68,8 +68,7 @@
       </div>
       <div class="mui-container-fluid">
         <div id="fts">
-          <gcse:searchbox newwindow="true"></gcse:searchbox>
-          <gcse:searchresults></gcse:searchresults>
+          <gcse:search></gcse:search>
         </div>
       </div>
       <script>
@@ -78,7 +77,7 @@
         	var cx = '015406677380205718189:esv77diws9e';
         	var gcse = document.createElement('script');
         	gcse.type = 'text/javascript';
-        	gcse.async = true;
+        	gcse.async = false;
         	gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
         	var s = document.getElementsByTagName('script')[0];
         	s.parentNode.insertBefore(gcse, s);
@@ -90,7 +89,6 @@
         		return false
         	})
         }
-        
         
       </script>
     </div>
@@ -118,11 +116,7 @@
       var sc_project=11206272;
       var sc_invisible=1;
       var sc_security="420de42f";
-      var scJsHost = (("https:" == document.location.protocol) ?
-      "https://secure." : "http://www.");
-      document.write("<sc"+"ript type='text/javascript' src='" +
-      	scJsHost+
-      	"statcounter.com/counter/counter.js'></"+"script>");
     </script>
+    <script type="text/javascript">loadjs('//secure.statcounter.com/counter/counter.js')</script>
   </footer>
 </body>
