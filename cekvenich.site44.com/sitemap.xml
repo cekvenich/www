@@ -4,7 +4,6 @@
 		xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
 		xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-
 	<url>
 		<loc>https://www.masons-foundation.org/home/home/</loc>
 	</url>
@@ -15,10 +14,6 @@
 
 	<url>
 		<loc>https://www.masons-foundation.org/post/asites/</loc>
-	</url>
-
-	<url>
-		<loc>https://www.masons-foundation.org/post/best/</loc>
 	</url>
 
 	<url>

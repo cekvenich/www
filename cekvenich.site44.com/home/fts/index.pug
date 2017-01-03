@@ -3,8 +3,8 @@ extends  ../../_part/_shellA-base
 
 block content
 	style.
-		#fts {
-			min-height: 100%;
+		input[type=image], .gsc-search-button-v2 {
+			height: 29px;
 		}
 
 	div
@@ -12,10 +12,16 @@ block content
 	.mui-container-fluid
 		#fts
 			gcse:search
-
+			div
+				p
+			div
+				p
 	script.
-		function init() {
-			console.log('fts')
+		function init() { 
+			let he  = ($(window).height() - 180) + 'px'
+			$('#fts').css('min-height',he)
+			console.log('fts '+ he)
+
 			var cx = '015406677380205718189:esv77diws9e';
 			var gcse = document.createElement('script');
 			gcse.type = 'text/javascript';
