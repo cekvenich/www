@@ -20,6 +20,11 @@ else {
 		return false
 	})
 }
+
+_act.addOnce(function(arg1, arg2) {
+	console.log(arg1, arg2)
+	return false
+})
 */
 console.log('act setup')
 // <====================================================================
