@@ -1,23 +1,14 @@
-<html>
-      <head>
-        <meta charset="UTF-8">
-        <title>one.md</title>
-      </head>
-      <body>
-        <h1 id="fetch-and-middleware-api-microservices">Fetch and Middleware API/MicroServices</h1>
+<h1 id="fetch-and-middleware-api-microservices">Fetch and Middleware API/MicroServices</h1>
 <p>Here we will fetch() and use a middleware API. Fetch is the new API that replaces Ajax/XHR. For older browsers it has a polyfill listed on CanIUse.com.</p>
 <h2 id="0-warm-up-deploy-to-cloud-">0. (Warm up) Deploy to cloud.</h2>
-<p>Running your own back end or database software is not a good practice. There are several cloud providers for Node+Express: Azure, AWS, GAE and BlueMix. The last two seem a notch above. You choice may depends on what back end you will need, as each cloud has a different back end offering. For example, do you like GAE BigQuery or BlueMix Data Warehouse offerings. You can use any cluod that you like, but avoid hosting your own servers.</p>
-<p>Follow notes here to deploy a hello world for BlueMix:</p>
+<p>Running your own back end or database software is not a good practice. There are many back end providers for Node+Express and database api: Firebase, Backendless, AWS and GAE. The last two seem a notch above. You choice may depends on what back end you will need, as each cloud has a different back end offering. For example, do you like GAE BigQuery/DataStore or AWS Simple DB offerings. You can use any cloud/BaaS that you like, but avoid hosting your own servers, ex: Mongo in the cloud - where you have to scale it. </p>
+<p>For GAE:</p>
 <ul>
-<li><a href="http://github.com/IBM-Bluemix/node-helloworld">http://github.com/IBM-Bluemix/node-helloworld</a>
-It will guide you to install &#39;cf&#39; command used to deploy Bluemix.</li>
-</ul>
-<p>We will use BlueMix here, but for GAE:</p>
-<ul>
-<li><p>&lt;<a href="http://cloud.google.com/appengine/docs/flexible/nodejs/quickstart?">http://cloud.google.com/appengine/docs/flexible/nodejs/quickstart?</a></p>
+<li><a href="http://cloud.google.com/appengine/docs/flexible/nodejs/quickstart">http://cloud.google.com/appengine/docs/flexible/nodejs/quickstart</a></li>
+<li><a href="http://cloud.google.com/appengine/docs/flexible/nodejs">http://cloud.google.com/appengine/docs/flexible/nodejs</a></li>
+<li><p><a href="https://github.com/GoogleCloudPlatform/google-cloud-node">https://github.com/GoogleCloudPlatform/google-cloud-node</a></p>
 <pre><code>  gcloud init 
-  gcloud app deploy
+  gcloud app deploy -v 1
 </code></pre></li>
 </ul>
 <p>Once you know how to deploy &quot;Hello World&quot; to cloud, go to the next step. We will soon deploy a micro service to the cloud.</p>
@@ -39,9 +30,8 @@ It will guide you to install &#39;cf&#39; command used to deploy Bluemix.</li>
 </code></pre><p>Run this code on a button clicked event to <em>fetch</em> some data.</p>
 <h2 id="2-lets-deploy-our-microservice-">2. Lets deploy our microservice.</h2>
 <p>Download and expand: <a href="https://www.masons-foundation.org/zCDN/mserv.zip">https://www.masons-foundation.org/zCDN/mserv.zip</a>
-Deploy this node service to your cloud. For example for BlueMix, use:</p>
-<pre><code>cf push
-</code></pre><h3 id="once-deployed-you-can-test-that-the-microservice-works-via-">Once deployed, you can test that the microservice works via:</h3>
+Deploy this node service to your cloud.</p>
+<h3 id="once-deployed-you-can-test-that-the-microservice-works-via-">Once deployed, you can test that the microservice works via:</h3>
 <p><img src="//www.masons-foundation.org/post/fetch/rest_test.png" alt=""></p>
 <h3 id="rest-client-is-a-browser-plug-in-that-can-post-a-request-to-your-microservice-">Rest-Client is a browser plug in that can POST a request to your microservice.</h3>
 <p>If you are not able to test that the microservice we deployed works, read next step and come back to this step so it does work.</p>
@@ -97,6 +87,3 @@ And our back end:</p>
 </code></pre><p>We fake a DB for now. Of course you can add other middleware, like GZIP and setup JWT.</p>
 <h3 id="4-full-stack">4. Full stack</h3>
 <p>When writing middleware, you for sure should do integration testing, via QUnit for example as well as help with the data binding for the front end team, for example <a href="http://github.com/corinis/jsForm">http://github.com/corinis/jsForm</a>. Also check out list.js and datatables.net.</p>
-
-      </body>
-    </html>

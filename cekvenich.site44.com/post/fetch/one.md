@@ -5,17 +5,15 @@ Here we will fetch() and use a middleware API. Fetch is the new API that replace
 
 ## 0. (Warm up) Deploy to cloud.
 
-Running your own back end or database software is not a good practice. There are several cloud providers for Node+Express: Azure, AWS, GAE and BlueMix. The last two seem a notch above. You choice may depends on what back end you will need, as each cloud has a different back end offering. For example, do you like GAE BigQuery or BlueMix Data Warehouse offerings. You can use any cluod that you like, but avoid hosting your own servers.
+Running your own back end or database software is not a good practice. There are many back end providers for Node+Express and database api: Firebase, Backendless, AWS and GAE. The last two seem a notch above. You choice may depends on what back end you will need, as each cloud has a different back end offering. For example, do you like GAE BigQuery/DataStore or AWS Simple DB offerings. You can use any cloud/BaaS that you like, but avoid hosting your own servers, ex: Mongo in the cloud - where you have to scale it. 
 
-Follow notes here to deploy a hello world for BlueMix:
-- <http://github.com/IBM-Bluemix/node-helloworld>
-It will guide you to install 'cf' command used to deploy Bluemix.
-
-We will use BlueMix here, but for GAE:
-- <http://cloud.google.com/appengine/docs/flexible/nodejs/quickstart?
+For GAE:
+- <http://cloud.google.com/appengine/docs/flexible/nodejs/quickstart>
+- <http://cloud.google.com/appengine/docs/flexible/nodejs>
+- <https://github.com/GoogleCloudPlatform/google-cloud-node>
 
 		gcloud init 
-		gcloud app deploy
+		gcloud app deploy -v 1
 
 Once you know how to deploy "Hello World" to cloud, go to the next step. We will soon deploy a micro service to the cloud.
 
@@ -42,10 +40,7 @@ Run this code on a button clicked event to *fetch* some data.
 ## 2. Lets deploy our microservice.
 
 Download and expand: <https://www.masons-foundation.org/zCDN/mserv.zip>
-Deploy this node service to your cloud. For example for BlueMix, use:
-
-
-	cf push
+Deploy this node service to your cloud.
 
 
 ### Once deployed, you can test that the microservice works via:
