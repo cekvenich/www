@@ -8,7 +8,6 @@ Here we will fetch() and use a middleware API. Fetch is the new API that replace
 Running your own back end or database software is not a good practice. There are many back end providers for Node+Express and database api: Firebase, Backendless, AWS and GAE. The last two seem a notch above. You choice may depends on what back end you will need, as each cloud has a different back end offering. For example, do you like GAE BigQuery/DataStore or AWS Simple DB offerings. You can use any cloud/BaaS that you like, but avoid hosting your own servers, ex: Mongo in the cloud - where you have to scale it. 
 
 For GAE:
-- <http://cloud.google.com/appengine/docs/flexible/nodejs/quickstart>
 - <http://cloud.google.com/appengine/docs/flexible/nodejs>
 - <https://github.com/GoogleCloudPlatform/google-cloud-node>
 
