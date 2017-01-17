@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='//code.jquery.com/jquery-1.12.4.js'></script>
+	<script src='https://www.masons-foundation.org/zCDN/libJS/jsrender.min.js'></script>
+</head>
+<body>
+
+<script id='personTmpl' type='text/x-jsrender'>
+	<label>Name:</label> {{:name}}<br/>
+</script>
+
+<div id='peopleList'></div>
+
+<script>
+	var myTemplate = $.templates('#personTmpl')
+
+	var people = [
+		{
+			name: 'Adriana'
+		},
+		{
+			name: 'Robert'
+		}
+	]
+
+	var html = myTemplate.render(people)
+	$('#peopleList').html(html)
+
+</script>
+</body>
+</html>
