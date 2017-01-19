@@ -6,29 +6,16 @@ block head
 
 block content
 	.mui-container-fluid
-		include _common.html
-	
+		include _common
+
 	script.
-		var _people = [
-			{ name: 'Adriana' }
-			, { name: 'Robert'}
-		]
+		let _people = {people: [{name: "Jim"}, {name: "Pedro"}] }
 
-		fetch('_tmpl.html', {
-				method: 'get'
-			}).then(function(response) { //1: promise
-				//console.log(response)
-				return response.text()
-			}).then(function(value) { //2: your code here
-				console.log(value)
-				let tmpl = $.templates(value)//'<label>Name:</label> {{:name}}<br/>'
-				let html2 = tmpl.render( _people )
-				$('#peopleList').html(html2)
-			}).catch(function(err) {
-				console.log('error')
-				console.log(err)
-			})//fetch()
-
+		let tmpl = $.templates("#peopleList")
+		console.log(tmpl)
+		let html2 = tmpl.render( _people )
+		$('#peopleList').html(html2)
+		
 block footer
 	include   ../../_part/_footerS
 	
