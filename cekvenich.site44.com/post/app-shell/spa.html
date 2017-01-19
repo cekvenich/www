@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" manifest="/cache.mf">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="icon" href="/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="/_sass/main.css" rel="stylesheet" type="text/css">
+    <script src="//cdn.jsdelivr.net/js-signals/1.0.0/signals.min.js" type="text/javascript"></script>
+    <script src="/zCDN/libJs/loadjs.min.js" type="text/javascript"></script>
+    <script src="/_js/setup.js" type="text/javascript"></script>
+    <meta name="description" content="">
+    <script src="//cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js" type="text/javascript"></script>
+    <script src="/_compHost/webcomponentsjs/webcomponents-lite.js" type="text/javascript"></script>
+    <link rel="import" href="/_compHost/polymer/polymer.html">
+    <script src="//cdn.jsdelivr.net/riot/3.0.0/riot+compiler.min.js" type="text/javascript"></script>
+    <link rel="import" href="/_compHost/bind-list.html">
+    <script src="/_compHost/home-card.tag" type="riot/tag"></script>
+    <script src="/_compHost/x-vid.tag" type="riot/tag"></script>
+  </head>
+</html>
+<body>
+  <script type="text/javascript">
+    document.body.style.opacity = '0.01'
+    
+  </script>
+  <div id="ss1">
+    <nav class="mui-container-fluid mui--no-user-select" id="appbar">
+      <table width="100%">
+        <tr>
+          <td>
+            <div id="brand">☰ &nbsp;<span>Massons-Foundation.org</span></div>
+          </td>
+          <td class="mui--text-right">
+            <ul class="mui-list--inline" id="menu">
+              <li><a href="/home/home/">Home</a></li>
+              <li><a href="/home/fts/">Search</a></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </nav>
+    <div id="sidedrawer">
+      <nav class="mui--no-user-select" id="sidenav">
+        <h2>
+          <div class="mui--text-title" id="sidedrawer-brand">☰ &nbsp; Massons</div>
+        </h2>
+        <div class="mui-divider"></div>
+        <ul class="mui-list--unstyled" id="sidenavstrong">
+          <li><a href="/home/home/">Home</a></li>
+          <li><a href="/home/fts/">Search</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="content-wrapper0"></div>
+    <div id="content-wrapper">
+      <div class="mui-container-fluid"><h1 id="app-shell-s-p-a-">SApp Shell + S.P.A.</h1>
+<h3 id="w-pug-jade-and-smooth-state-js">w/ Pug(Jade) and Smooth State js</h3>
+<p>One of the PWA fundamental concepts is the app shell. We will create 2 page SPA, with reusable header and footer. I will assume you know how to use pre-processors. A pre processor,
+ for example would compile Sass into CSS. In our case, we will compile Pug(Jade) into html. Pug will help us combine header and footer to our page.</p>
+<h3 id="0-pre-process-generate-and-setup">0. Pre-process(/generate) and setup</h3>
+<p>There are several popular HTML pre-processors - for example if you use CodePen.io, you can glance the settings to see some. One of the popular ones is Pug.
+If you are new to Pug(Jade), you can glance</p>
+<ul>
+<li><a href="http://youtube.com/watch?v=wzAWI9h3q18">http://youtube.com/watch?v=wzAWI9h3q18</a> and</li>
+<li><a href="http://html2jade.org">http://html2jade.org</a></li>
+</ul>
+<p>You should download <a href="http://github.com/cekvenich/what/blob/master/as.zip?raw=true">http://github.com/cekvenich/what/blob/master/as.zip?raw=true</a>
+and unzip.</p>
+<h5 id="out-of-scope-">Out of scope:</h5>
+<p>I don&#39;t have space here to write about pre-processing, I assume you know how. But here is a few words:
+There are many ways to pre-process, compile Pug to html. This is also called static app generation. The resulting output can run completely on a CDN - so that it has the benefits
+of being distributed.
+If you are very new to using pre-processors, you may want to start with something like:</p>
+<ul>
+<li><p><a href="http://prepros.io">http://prepros.io</a>.
+But I use npm/node to write a script - that script calls a Pug npm module, via</p>
+<pre><code>  node _sync
+</code></pre></li>
+</ul>
+<p>So if you go to unzipped folder _pre you can run &#39;node _sync&#39; as test.
+Then run &#39;node _sync&#39; in folder /post/one and /post/two.</p>
+<h5 id="in-scope-">In scope:</h5>
+<p>You should know how to take a .pug file and make it into html. It is a pre-requsite.</p>
+<h3 id="1-header-and-footer">1. Header and footer</h3>
+<p>In the unziped folder /_part there is header and footer:</p>
+<ul>
+<li><a href="http://github.com/cekvenich/what/tree/master/app-shell.site44.com/_part">http://github.com/cekvenich/what/tree/master/app-shell.site44.com/_part</a></li>
+</ul>
+<p>We want to have a body:</p>
+<pre><code>    &lt;h1&gt;hi1&lt;/h1&gt;
+</code></pre><ul>
+<li><a href="http://github.com/cekvenich/what/blob/master/app-shell.site44.com/post/one/index.html">http://github.com/cekvenich/what/blob/master/app-shell.site44.com/post/one/index.html</a></li>
+</ul>
+<p>And a second page:</p>
+<pre><code>    &lt;h1&gt;hi2&lt;/h1&gt;
+</code></pre><ul>
+<li><a href="http://github.com/cekvenich/what/blob/master/app-shell.site44.com/post/two/index.html">http://github.com/cekvenich/what/blob/master/app-shell.site44.com/post/two/index.html</a></li>
+</ul>
+<p>But we don&#39;t want D.R.Y. header and footer. Server side you could include header and header in PHP, JSP or ASP or such.
+But we are doing a static site.</p>
+<h3 id="2-create-the-2-pages">2. Create the 2 pages</h3>
+<p>In post/one and post/two, create index.pug.
+Index pug will call the app shell:</p>
+<ul>
+<li><p><a href="http://github.com/cekvenich/what/blob/master/app-shell.site44.com/_part/_shellA-base.pug">http://github.com/cekvenich/what/blob/master/app-shell.site44.com/_part/_shellA-base.pug</a>
+The app shell is using Pug syntax to create a &#39;menu&#39;.
+Now run &#39;node _sync&#39; in folder one and folder two. The generated nav will look like:</p>
+<pre><code>  &lt;ul class=&quot;mui-list--inline&quot; id=&quot;topMenu&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;/post/one/&quot;&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/post/two/&quot;&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+</code></pre></li>
+</ul>
+<h3 id="3-spa">3. SPA</h3>
+<p>Notice we also have some js in the app shell:</p>
+<pre><code>        &lt;script src=&quot;/_js/libJs/head.load.min.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;footer &gt;
+        &lt;script&gt;head.load(&#39;/_js/main.js&#39;)&lt;/script&gt;
+</code></pre><p>Head js is a loader. We load:</p>
+<ul>
+<li><a href="http://github.com/cekvenich/what/blob/master/app-shell.site44.com/_js/main.js">http://github.com/cekvenich/what/blob/master/app-shell.site44.com/_js/main.js</a></li>
+</ul>
+<p>For SPA, we just lifted code from:</p>
+<ul>
+<li><a href="http://github.com/miguel-perez/smoothState.js">http://github.com/miguel-perez/smoothState.js</a></li>
+</ul>
+<p>Congrats: you are done w/ App-Shell and SPA.</p>
+<h3 id="4-spa">4. SPA</h3>
+<p>Review example on SmoothState.js site.</p>
+<h3 id="5-advanced-using-md">5. Advanced: Using MD</h3>
+<p>An advanced use would be to use Markdown files(MD) to help generate content. Something that you can do w/ Pug or preprocessors. You should mix a few .md files in your pug file;  and use mostly pug - especially for UI effects.</p>
+<h3 id="6-advanced-starting-w-a-layout">6. Advanced: Starting w/ a layout</h3>
+<p>When you create app shell, normally you start w/ a layout you like. For example:
+<a href="http://muicss.com/docs/v1/example-layouts/responsive-side-menu">http://muicss.com/docs/v1/example-layouts/responsive-side-menu</a>
+I usually convert html2pug to make it easier to work with.
+I then split out header and footer out - away from the &#39;middle&#39; content. In this way, I splice an app-shell.</p>
+
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p></p>
+    <div class="mui-container-fluid">
+      <div class="mui-panel">
+        <div class="mui-container-fluid">
+          <div class="mui-row">
+            <div class="mui-col-md-4"><a href="https://gitter.im/what-community/Lobby">Forum </a></div>
+            <div class="mui-col-md-4"></div>
+            <div class="mui-col-md-4"><a href="https://github.com/struts3/what-demos">Site tech</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      loadjs('/_js/main.js')
+      
+    </script>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript">
+      var sc_project=11206272;
+      var sc_invisible=1;
+      var sc_security="420de42f";
+    </script>
+    <script type="text/javascript">
+      loadjs('//secure.statcounter.com/counter/counter.js')
+      
+    </script>
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-82096733-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </footer>
+</body>
