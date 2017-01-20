@@ -1,0 +1,30 @@
+
+extends  ../../_part/_shellA-base
+
+block content
+	.mui-container-fluid
+		include story2.html
+
+		bind-list
+
+	script.
+		var data = [
+			{
+				name: 'Jonny Strömberg',
+				born: 1986
+			},
+			{
+				name: 'Jonas Arnklint',
+				born: 1985
+			},
+			{
+				name: 'Martina Elm',
+				born: 1986
+			}
+		]
+
+		var bl = document.querySelector('bind-list')
+		bl.init(data) // data comes from page
+
+block footer
+	include  ../../_part/_footer

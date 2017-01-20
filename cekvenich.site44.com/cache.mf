@@ -1,5 +1,6 @@
 CACHE MANIFEST
 # load stable asset once and freeze on client, even if asset changes, it won't ping
+# v2
 
 #index assets
 https://code.jquery.com/jquery-2.2.4.min.js
@@ -15,7 +16,6 @@ https://www.masons-foundation.org/_compHost/polymer/polymer-micro.html
 
 https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en
 https://fonts.googleapis.com/icon?family=Material+Icons
-
 
 #page assets
 https://cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js

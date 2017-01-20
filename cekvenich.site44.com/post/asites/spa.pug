@@ -1,0 +1,32 @@
+
+extends  ../../_part/_shellA-base
+
+block content
+	.mui-container-fluid
+		include story1.html
+
+		style.
+			.wall {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+		.wall
+			x-vid#rmpArc(bitrate1='//cdn-484996.c.cdn77.org/asites/arc.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpLab(bitrate1='//cdn-484996.c.cdn77.org/asites/lab.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpChair(bitrate1='//cdn-484996.c.cdn77.org/asites/chair.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpTravel(bitrate1='//cdn-484996.c.cdn77.org/asites/travel.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpShi(bitrate1='//cdn-484996.c.cdn77.org/asites/shi.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpTweet(bitrate1='//cdn-484996.c.cdn77.org/asites/tweet.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpChild(bitrate1='//cdn-484996.c.cdn77.org/asites/child.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpVw2(bitrate1='//cdn-484996.c.cdn77.org/asites/vw2.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpPress(bitrate1='//cdn-484996.c.cdn77.org/asites/press.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+		br
+
+	script.
+		riot.compile(function(){ // wait for it
+			var comps = riot.mount('x-vid')
+			console.log(comps)
+		})//compile
+block footer
+	include  ../../_part/_footer

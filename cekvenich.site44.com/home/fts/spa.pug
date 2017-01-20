@@ -1,0 +1,42 @@
+
+extends  ../../_part/_shellA-base
+
+block content
+	style.
+		input[type=image], .gsc-search-button-v2 {
+			height: 29px;
+		}
+
+	div
+		p
+	.mui-container-fluid
+		#fts
+			gcse:search
+			div
+				p
+			div
+				p
+	script.
+		function init() { 
+			let he  = ($(window).height() - 180) + 'px'
+			$('#fts').css('min-height',he)
+			console.log('fts '+ he)
+
+			var cx = '015406677380205718189:esv77diws9e';
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = false;
+			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+		}
+		if(_loaded) init()
+		else {
+			_act.addOnce(function(arg1, arg2) {
+				init()
+				return false
+			})
+		}
+
+block footer
+	include  ../../_part/_footer
