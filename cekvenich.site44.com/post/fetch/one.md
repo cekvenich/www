@@ -43,7 +43,7 @@ Deploy this node service to your cloud.
 
 
 ### Once deployed, you can test that the microservice works via:
-![](//www.masons-foundation.org/post/fetch/rest_test.png)
+![](/post/fetch/rest_test.png)
 
 ### Rest-Client is a browser plug in that can POST a request to your microservice.
 
