@@ -58,10 +58,10 @@
     <div id="content-wrapper0"></div>
     <div id="content-wrapper">
       <div class="mui-container-fluid"><h1 id="fetch-and-middleware-api-microservices">Fetch and Middleware API/MicroServices</h1>
-<p>Here we will fetch() and use a middleware API. Fetch is the new API that replaces Ajax/XHR. For older browsers it has a polyfill listed on CanIUse.com.</p>
+<p>Here we will fetch() and use a middleware API. Fetch() is the new js API that replaces Ajax/XHR. For older browsers it has a polyfill listed on CanIUse.com.</p>
 <h2 id="0-warm-up-deploy-to-cloud-">0. (Warm up) Deploy to cloud.</h2>
-<p>Running your own back end or database software is not a good practice. There are many back end providers for Node+Express and database api: Firebase, Backendless, AWS and GAE. The last two seem a notch above. You choice may depends on what back end you will need, as each cloud has a different back end offering. For example, do you like GAE BigQuery/DataStore or AWS Simple DB offerings. You can use any cloud/BaaS that you like, but avoid hosting your own servers, ex: Mongo in the cloud - where you have to scale it. </p>
-<p>For GAE:</p>
+<p>Running your own back end or database software is not a good practice. There are many back end providers for Node+Express and database api: Firebase, Backendless, AWS and Google Cloud. You choice may depends on what back end you will need, as each cloud has a different back end offering. For example, do you like GAE BigQuery/DataStore or AWS Simple DB offerings. You can use any cloud/BaaS that you like, but avoid hosting your own servers, ex: Mongo in the cloud - where you have to scale or secure it. Much better to Bass</p>
+<p>Here are some docs on Google Cloud:</p>
 <ul>
 <li><a href="http://cloud.google.com/appengine/docs/flexible/nodejs">http://cloud.google.com/appengine/docs/flexible/nodejs</a></li>
 <li><p><a href="https://github.com/GoogleCloudPlatform/google-cloud-node">https://github.com/GoogleCloudPlatform/google-cloud-node</a></p>
@@ -69,10 +69,10 @@
   gcloud app deploy -v 1
 </code></pre></li>
 </ul>
-<p>Once you know how to deploy &quot;Hello World&quot; to cloud, go to the next step. We will soon deploy a micro service to the cloud.</p>
+<p>Once you know how to deploy &quot;Hello World&quot; express to (Google) cloud, go to the next step. We will next deploy our micro service to the cloud.</p>
 <h2 id="1-view-the-source-of-this-page-and-click-the-button-this-will-help-you-review-how-to-fetch-from-a-browser-against-a-working-service-so-you-know-any-error-is-not-on-client-side-">1. View the source of this page, and click the button. This will help you review how to fetch() from a browser - against a working service. So you know any error is not on client side.</h2>
 <pre><code>    function tstGet() {
-        fetch(&#39;http://jsonplaceholder.typicode.com/comments&#39;, { //1 call
+        fetch(&#39;https://rch-demo.appspot.com/membersPg/mem/&#39;, { //1 call
                 method: &#39;get&#39;
             }).then(function(response) { //2 promise
                 return (response.json())
@@ -85,16 +85,13 @@
                 console.log(err)
         })//fetch()
     }//()
-</code></pre><p>Run this code on a button clicked event to <em>fetch</em> some data.</p>
+</code></pre><p>Run this code in a browser, on a button clicked event to <em>fetch</em> some data. Optionally, test, ex: QUnit. </p>
 <h2 id="2-lets-deploy-our-microservice-">2. Lets deploy our microservice.</h2>
-<p>Download and expand: <a href="https://www.masons-foundation.org/zCDN/mserv.zip">https://www.masons-foundation.org/zCDN/mserv.zip</a>
-Deploy this node service to your cloud.</p>
-<h3 id="once-deployed-you-can-test-that-the-microservice-works-via-">Once deployed, you can test that the microservice works via:</h3>
-<p><img src="/post/fetch/rest_test.png" alt=""></p>
-<h3 id="rest-client-is-a-browser-plug-in-that-can-post-a-request-to-your-microservice-">Rest-Client is a browser plug in that can POST a request to your microservice.</h3>
-<p>If you are not able to test that the microservice we deployed works, read next step and come back to this step so it does work.</p>
+<p>Download and expand: <a href="https://www.masons-foundation.org/zCDN/mserv.zip">https://www.masons-foundation.org/zCDN/mserv.zip</a></p>
+<p>Deploy this code as node service to your (Google) cloud. Test, ex: QUnit.</p>
+<p>If you are not able to get above microservice to work, go to next step anyway.</p>
 <h3 id="3-lets-do-a-code-review-of-the-microservice-">3. Lets do a code review of the microservice.</h3>
-<p>We recommend that the routes match url on the front end. So if you are calling the microservice from /home/member then the route in express should be /home/member + a descriptive name of the function. Some REST people name routes based on back end entities. We believe it&#39;s a better practice to mirror the front end instead. The microservice will deal with entities as needed and shield the implementation from the front end. The most widley used software by full stack developer is <em>express</em>. Unzip the sample and the index.js looks like this:</p>
+<p>We recommend that the routes match url on the front end. So if you are calling the microservice from /home/member then the route in express should be /home/member + a descriptive name of the function. Some REST zelots name routes based on back end entities. We believe it&#39;s a better practice to mirror the front end instead. The microservice will deal with entities as needed and shield the implementation away from the front end reqs. The sample and the index.js looks like this:</p>
 <pre><code>    const middle = express()
     const membersPg = require(&#39;./front_routes/membersPg&#39;)
     const cfenv = require(&#39;cfenv&#39;)
@@ -113,38 +110,22 @@ Deploy this node service to your cloud.</p>
     })
 </code></pre><p>And the route:</p>
 <pre><code>    const router = express.Router()
-    const fake = require(&#39;./backend/fake&#39;)
+    const fake = require(&#39;./fake&#39;)
 
-    router.post(&#39;/list&#39;, function (req, res) {
-        var ret = fake._fakeBackCall()
+    router.all(&#39;/mem&#39;, function (req, res) {
+        var ret = fake._fakeBind()
         res.status(200).send(JSON.stringify(ret))
     })
     module.exports = router
 </code></pre><p>If there is an error, return status that is not 200. 
 And our back end:</p>
-<pre><code>    module.exports = {
-        _fakeBackCall: function() {
-        return {
-        &quot;data&quot;: [
-            [
-                &quot;Cedric Kelly&quot;,
-                &quot;Senior Javascript Developer&quot;,
-                &quot;Edinburgh&quot;,
-                &quot;6224&quot;,
-                &quot;2012/03/29&quot;,
-                &quot;$433,060&quot;
-            ],
-            [
-                &quot;Airi Satou&quot;,
-                &quot;Accountant&quot;,
-                &quot;Tokyo&quot;,
-                &quot;5407&quot;,
-                &quot;2008/11/28&quot;,
-                &quot;$162,700&quot;
-            ] ....
-</code></pre><p>We fake a DB for now. Of course you can add other middleware, like GZIP and setup JWT.</p>
+<pre><code>    exports._fakeBind = function() {
+        let _people = {people: [{name: &#39;Jim&#39;}, {name: &#39;Pedro&#39;}] }
+        return _people
+    }
+</code></pre><p>We fake a DB for now (vs using Google Cloud DataStore). And of course you can add other middleware, like GZIP and setup JWT.</p>
 <h3 id="4-full-stack">4. Full stack</h3>
-<p>When writing middleware, you for sure should do integration testing, via QUnit for example as well as help with the data binding for the front end team, for example <a href="http://github.com/corinis/jsForm">http://github.com/corinis/jsForm</a>. Also check out list.js and datatables.net.</p>
+<p>Middleware also includes data binding for the front end team, such us jsRender, <a href="http://github.com/corinis/jsForm">http://github.com/corinis/jsForm</a>, datatables.net.</p>
 
         <p></p>
         <button class="mui-btn mui-btn--primary" id="but1">Klk Meh</button>
@@ -210,9 +191,9 @@ And our back end:</p>
       <div class="mui-panel">
         <div class="mui-container-fluid">
           <div class="mui-row">
-            <div class="mui-col-md-4"><a href="https://gitter.im/what-community/Lobby">Forum </a></div>
+            <div class="mui-col-md-4"><a href="https://gitter.im/topseed-demos/Lobby">Forum </a></div>
             <div class="mui-col-md-4"></div>
-            <div class="mui-col-md-4"><a href="https://github.com/struts3/what-demos">Site tech</a></div>
+            <div class="mui-col-md-4"><a href="https://github.com/topseed/topseed-demos">Site tech</a></div>
           </div>
         </div>
       </div>
