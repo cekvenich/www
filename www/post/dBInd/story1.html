@@ -1,0 +1,66 @@
+<h1 id="data-binding">Data Binding</h1>
+<p>One of the things that nodes has over JSP/ASP/PHP and such is that you can reuse more front end/browser and server side code. And data binding is one of key skills to have. </p>
+<h3 id="prerequesites">Prerequesites</h3>
+<p>Surprisingly, this exercise can be a broad topic. In this case, I need you to know how to do pre-processing before starting, learned elsewhere. For example Sass and Pug (found in CodePen and lots of google github examples). Learning pre-processing allows us to manage the potential of sprawl. 
+Also, we are using fetch() browser api, as even jquery 3.1 started deprecating &#39;ajax&#39; by makeing it optional in jquery slim. </p>
+<h3 id="browser-side-data-binding">Browser side data binding</h3>
+<p>In a browser we can fetch() from a micro service and bind. This is the bind code itself:</p>
+<pre><code>&lt;ul&gt;{{for people}}
+    &lt;li&gt;Name: {{:name}}&lt;/li&gt;  
+{{/for}}
+&lt;/ul&gt;
+</code></pre><p>And your page also needs a .js library imported, I&#39;m using a library that works in browser and in node, server side, jsRender:</p>
+<pre><code>&lt;script src=&quot;jsrender.min.js&quot;&gt;
+</code></pre><p>And now we can implement the library by calling a microservice, with that template:</p>
+<pre><code>fetch(&#39;https://rch-demo.appspot.com/membersPg/mem/&#39;, { 
+    method: &#39;get&#39;
+    }).then(function(response) {
+        return (response.json())
+    }).then(function(value) {
+        // your code here
+        let tmpl = $.templates(&quot;#peopleList&quot;) // the id of template
+        let html2 = tmpl.render( value )
+        $(&#39;#peopleList&#39;).html(html2)
+    }).catch(function(err) {
+        console.log(err)
+})//fetch()
+</code></pre><p>And we have to serve this page, with node/express it is one line:</p>
+<pre><code>server.use(express.static(&#39;www&#39;)) //folder w/ content
+</code></pre><p>Notice how we have UI and then the browser executes the fetch for data.</p>
+<p>The file layout looks something like this:
+<img src="/post/dBind/layout.png" alt="">
+Notice on the far left of the image we have index.js, that we run via:</p>
+<pre><code>node index
+</code></pre><p>And to the far right of the image is a folder that has spa.html. The folder contains the bundle needed for that url, in this case <a href="http://localhost:8080/post/one/spa.html">http://localhost:8080/post/one/spa.html</a>.<br>For me each folder maps to url and has spa.html that is served for browser rendered page. I also re-use code, for example header, footer, and combine partials using Pug. Also it has amp.html - that is rendered on the server, next:</p>
+<h3 id="data-binding-in-node-">Data binding in Node:</h3>
+<p>So we are going to re-use, of course. Here is the files:
+    <a href="http://github.com/topseed/topseed-demos/tree/master/webApp/www/members/dBindEx">http://github.com/topseed/topseed-demos/tree/master/webApp/www/members/dBindEx</a></p>
+<p>Make sure you view _common.pug file above, it is used in spa.html and amp.html :-). We have to read the amp.file in node:</p>
+<pre><code>server.get(&#39;/members/dBindEx/&#39;, function (req, res) {
+    fs.readFile(&#39;./www//members/dBindEx/amp.html&#39;, &#39;utf8&#39;, function(err, data) {
+        let tmpl = jsrender.templates(data)
+        fetch(&#39;https://rch-demo.appspot.com/membersPg/mem/&#39;, { 
+            method: &#39;get&#39;
+            }).then(function(response) {
+                return (response.json())
+            }).then(function(value) { 
+                // your code here
+                let html2 = tmpl.render( value )
+                res.send(html2)
+            }).catch(function(err) {
+                console.log(err)
+        })//fetch()
+    })// readfile
+</code></pre><p>In this case, the server waits for the microservice, and sends the UI and bound data together. There is no js scripts in the browser.</p>
+<p>To do server both  node side and browser side data binding you need something like:</p>
+<pre><code>server.get(&#39;/members/dBindEx/&#39;, function (req, res) {
+    const isWWWW = ...
+    if(isWWWW) {
+        ...
+        }
+    else { ...
+</code></pre><p>ex: <a href="http://github.com/topseed/topseed-demos/blob/master/webApp/index.js">http://github.com/topseed/topseed-demos/blob/master/webApp/index.js</a></p>
+<h2 id="summary-and-misc-">Summary and misc.</h2>
+<p>Most sites required dynamic data. We can do data binding from browser; and then reuse the template and use similar code to do that server side, before the page is sent to the browser - and we can do both at the same time. Sometimes we need a rich interactive page and sometimes we can&#39;t use .js in a browser.
+I suggest you avoid data binding libraries that only do one or the other. </p>
+<p>There are component libraries that do data binding, they require you to write a component if you want to do data binding. I suggest you use components for re-use and encapsulation of UI. If it does not work in a plain page, it won&#39;t work well when you make it re-usable. (there is an article here on proper use of standard web components)</p>
