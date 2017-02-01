@@ -1,56 +1,13 @@
+extends  ../../_part/_baseShellS
 
-extends  ../../_part/_shellA-base
+block head
+	include ../../_part/_headerS
 
-block content
-	.mui-container-fluid
-		include one.html
-		
-		p
-
-		button#but1.mui-btn.mui-btn--primary Klk Meh
+block main
+	include one.html
 
 	script.
-		function tstGet() {
-			fetch('http://jsonplaceholder.typicode.com/comments', { //1 call
-					method: 'get'
-				}).then(function(response) { //2 promise
-					return (response.json())
-					}).then(function(value) { //3
-						// your code here
-						console.log('back')
-						console.log(JSON.stringify(value))
-				}).catch(function(err) {
-					console.log('error')
-					console.log(err)
-			})//fetch()
-		}//()
-
-		function memList() {
-			fetch('https://serv.mybluemix.net/membersPg/list', {
-				 headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json'
-					}
-					, method: 'post'
-					, body: JSON.stringify({"email": "vic@bla.com", "message": "hi" })
-
-				}).then(function(response) { 
-					return (response.json())
-					}).then(function(value) { 
-						console.log(JSON.stringify(value))
-				}).catch(function(err) {
-					console.log('error')
-					console.log(err)
-					console.log(JSON.stringify(err))
-			})//fetch()
-		}//()
-		
 		function init() {
-			$( "#but1" ).click(function() {
-				console.log('clicked')
-				tstGet()
-				//send()
-			})
 		}
 
 		if(_loaded) init()
@@ -62,4 +19,4 @@ block content
 		}
 
 block footer
-	include  ../../_part/_footer
+	include ../../_part/_footerS

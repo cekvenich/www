@@ -5,6 +5,7 @@ CACHE MANIFEST
 #index assets
 https://code.jquery.com/jquery-2.2.4.min.js
 https://www.masons-foundation.org/zCDN/libJs/jquery.smoothState.js
+https://www.masons-foundation.org/zCDN/libJs/jsrender.min.js
 https://www.masons-foundation.org/zCDN/libJs/loadjs.min.js
 https://cdn.jsdelivr.net/js-signals/1.0.0/signals.min.js
 https://www.masons-foundation.org/favicon.ico
