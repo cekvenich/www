@@ -1,15 +1,16 @@
+extends  ../../_part/_baseShellA
 
-extends  ../../_part/_shellA-base
+block head
+	include ../../_part/_headerA
 
-block content
+	link(rel='canonical', href='https://www.masons-foundation.org/post/dBind/')
+
+block top
+	include ../../_part/_topA
+
+block main
 	.mui-container-fluid
 		include story1.html
 
-	script.
-		_act.addOnce(function(arg1, arg2) {
-			console.log('o'+arg1, arg2)
-			return false
-		})
-
 block footer
-	include  ../../_part/_footer
+	include ../../_part/_footerA
