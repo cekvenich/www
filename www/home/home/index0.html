@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="/cache2.mf">
+<html lang="en" manifest="/cache.mf">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
@@ -23,8 +23,8 @@
   </head>
 </html>
 <body>
-  <script>
-    document.body.style.opacity = '0.01'
+  <script type="text/javascript">
+    document.body.style.opacity = '0.5'
     
   </script>
   <div id="ss1">
@@ -36,7 +36,7 @@
           </td>
           <td class="mui--text-right">
             <ul class="mui-list--inline" id="menu">
-              <li><a href="/home/home2/">Home</a></li>
+              <li><a href="/home/home/">Home</a></li>
               <li><a href="/home/fts/">Search</a></li>
             </ul>
           </td>
@@ -50,7 +50,7 @@
         </h2>
         <div class="mui-divider"></div>
         <ul class="mui-list--unstyled" id="sidenavstrong">
-          <li><a href="/home/home2/">Home</a></li>
+          <li><a href="/home/home/">Home</a></li>
           <li><a href="/home/fts/">Search</a></li>
         </ul>
       </nav>
@@ -88,7 +88,7 @@
           
         </style>
         <div class="homeCard"><a href="/post/app-shell/">
-            <div class="hc--img" style="background-image: url(&quot;arc.jpg&quot;)"></div>
+            <div class="hc--img" style="background-image: url(&quot;arc.jpg&quot;);"></div>
             <div class="hc--headline">Best Practices training</div></a></div>
       </div>
       <p></p>
@@ -97,15 +97,30 @@
   <footer>
     <p></p>
     <div class="mui-container-fluid">
-      <div class="mui-panel"><a href="https://gitter.im/what-community/Lobby">Forum</a>
-        <p></p><a href="https://github.com/struts3/what-demos">Site tech</a>
+      <div class="mui-panel">
+        <div class="mui-container-fluid">
+          <div class="mui-row">
+            <div class="mui-col-md-4"><a href="https://gitter.im/topseed-demos/Lobby">Forum </a></div>
+            <div class="mui-col-md-4"></div>
+            <div class="mui-col-md-4"><a href="https://github.com/topseed/topseed-demos">Site tech</a></div>
+          </div>
+        </div>
       </div>
     </div>
-    <script>
+    <script type="text/javascript">
       loadjs('/_js/main.js')
       
     </script>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-82096733-1', 'auto');
+      ga('send', 'pageview');
+    </script>
   </footer>
 </body>
