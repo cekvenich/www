@@ -33,7 +33,7 @@ function pgSplit($cont_, speed) {
 
 	// =============================================================
 	//css clip computed
-	$('#firstSl').css('clip',fr)
+	$('#firstSl').css('clip',fr) // clip it
 	$('#firstSl').css('position','absolute')
 	$('#firstSl').css('z-index',40)
 	$('#firstSl').css('min-height', he)
