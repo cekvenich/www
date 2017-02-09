@@ -67,22 +67,25 @@ The AMP 'block head' requires a lot of boiler plate, it is always the same:
 		include ../_sass/main.css
 
 Also the page needs something like:
+
 	link(rel='canonical', href='https://www.masons-foundation.org/post/mserv/')
 
+It needs a link to a canonical version of self, in our case SPA, since it has a www. subdomain. 
 
-While finishing the AMP page, you need to follow the AMP guidelines on tags. Of course, you can't have .js in AMP page, but you can use iFrames (that have .js inside). You should test that you AMP page is compliant:
+While finishing the AMP page, you need to follow the AMP guidelines on tags. Of course, you can't have .js in AMP page, but you can use iFrames (that have .js inside). The full code for front end is here:
+- <http://github.com/cekvenich/www/tree/master/www/post/amp>
 
+You should test that you AMP page is compliant:
 - <http://search.google.com/search-console/amp>
 
 #### How to AMP
 You should also update you sitemap.xml like so:
 
 	<url>
-		<loc>https://amp.masons-foundation.org/post/amp/</loc>
+		<loc>https://amp.masons-foundation.org/post/mserv/</loc>
 	</url>
 
 When a mobile Chrome browser recognizes an AMP page the first time, it is cached on the google CDN. This is what give AMP it's speed, edge serving by a CDN, for those that may not be using a CDN for some reason. If you change the content of your AMP page, you need to notify Google using their process so that they flush the page and get the new content. 
-
 - <http://developers.google.com/amp/cache/update-ping>
 
 AMP gives you SEO improvements, as do external links and accessible text tags. I try to serve the AMP version as default. But as soon as a user clicks on any links on my AMP page, I serve the normal SPA page. 
