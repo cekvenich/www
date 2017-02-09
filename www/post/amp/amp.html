@@ -33,11 +33,12 @@
         </tr>
       </table>
     </nav>
-    <!--#content-wrapper-->
-    <div class="mui-container-fluid"><h2 id="amp-and-amp-spa-at-the-same-time">AMP and AMP+SPA at the same time</h2>
+    <div id="content-wrapper">
+      <div class="mui-container-fluid">
+        <p></p><h2 id="amp-and-amp-spa-at-the-same-time">AMP and AMP+SPA at the same time</h2>
 <p>AMP is somehow viewed as hard. If you do social meta tags used for SEO, it should be easy. Also it help if you are already know how to do server side data binding and in browser data binding, not related to AMP, but just a basic skill - it is a skill that is a prerequisite. So if you have basic skills, AMP is cake.
 Mostly you&#39;d start w/ a SPA page, a regular page, that you also want to have an AMP version of.</p>
-<h4 id="deciding-what-to-serve">Deciding what to serve</h4>
+<h3 id="deciding-what-to-serve">Deciding what to serve</h3>
 <p>Some sites have a m. subdomain, where they server mobile version of their site - the server code sould be similar. You&#39;d write a node module like this to decide if it it should render amp or spa version:</p>
 <pre><code>exports.filter = function (req, res, next) {
     if (req.path.indexOf(&#39;.&#39;) !=-1) { // hasDot?
@@ -67,7 +68,7 @@ Mostly you&#39;d start w/ a SPA page, a regular page, that you also want to have
 <p>And you can use this module like this:</p>
 <pre><code>server.use(AFilter.filter)
 </code></pre><p>For starts, AMP and SPA version could be same. </p>
-<h4 id="creating-an-amp-page">Creating an AMP page</h4>
+<h3 id="creating-an-amp-page">Creating an AMP page</h3>
 <p>If you use Pug like I do, you can create a shell for all AMP pages:</p>
 <pre><code>doctype html
 html(⚡=&#39;&#39;)
@@ -101,7 +102,7 @@ style(amp-custom=&#39;&#39;)
 <ul>
 <li><a href="http://search.google.com/search-console/amp">http://search.google.com/search-console/amp</a></li>
 </ul>
-<h4 id="how-to-amp">How to AMP</h4>
+<h3 id="how-to-amp">How to AMP</h3>
 <p>You should also update you sitemap.xml like so:</p>
 <pre><code>&lt;url&gt;
     &lt;loc&gt;https://amp.masons-foundation.org/post/mserv/&lt;/loc&gt;
@@ -112,7 +113,8 @@ style(amp-custom=&#39;&#39;)
 </ul>
 <p>AMP gives you SEO improvements, as do external links and accessible text tags. I try to serve the AMP version as default. But as soon as a user clicks on any links on my AMP page, I serve the normal SPA page. </p>
 
+      </div>
     </div>
-    <p>Footer A</p>
+    <p> </p>
   </body>
 </html>

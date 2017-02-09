@@ -1,9 +1,10 @@
+
 ## AMP and AMP+SPA at the same time
 
 AMP is somehow viewed as hard. If you do social meta tags used for SEO, it should be easy. Also it help if you are already know how to do server side data binding and in browser data binding, not related to AMP, but just a basic skill - it is a skill that is a prerequisite. So if you have basic skills, AMP is cake.
 Mostly you'd start w/ a SPA page, a regular page, that you also want to have an AMP version of.
 
-#### Deciding what to serve
+### Deciding what to serve
 Some sites have a m. subdomain, where they server mobile version of their site - the server code sould be similar. You'd write a node module like this to decide if it it should render amp or spa version:
 
 	exports.filter = function (req, res, next) {
@@ -39,7 +40,7 @@ And you can use this module like this:
 
 For starts, AMP and SPA version could be same. 
 
-#### Creating an AMP page
+### Creating an AMP page
 If you use Pug like I do, you can create a shell for all AMP pages:
 
 	doctype html
@@ -78,7 +79,7 @@ While finishing the AMP page, you need to follow the AMP guidelines on tags. Of 
 You should test that you AMP page is compliant:
 - <http://search.google.com/search-console/amp>
 
-#### How to AMP
+### How to AMP
 You should also update you sitemap.xml like so:
 
 	<url>
