@@ -1,4 +1,0 @@
-
-### Upcoming classes schedule
-
-
