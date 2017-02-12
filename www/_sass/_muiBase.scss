@@ -150,7 +150,26 @@ body {
 
 }
 //The end of muicss site ======================================================
-@media (min-width: 600px) {
+$footerH:  $base-line-height * 2.5;
+footer, #footer {
+	position:fixed;
+	left:0px;
+	bottom:0px;
+	height: $footerH;
+	width:100%;
+	left:0px;
+	right:0px;
+	margin-bottom:0px;
+}
+body {
+	margin-bottom: $base-line-height * 10;
+}
+
+#navPrev, #navPrev a {
+	color: white;
+	text-decoration: none;
+}
+@media (min-width: 600px) { // cols
 article {
   -webkit-columns: 2;
 	 -moz-columns: 2;
