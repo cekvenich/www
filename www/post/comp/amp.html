@@ -32,12 +32,12 @@
       <table width="100%">
         <tr>
           <td>
-            <div id="brand">☰ &nbsp;<span>Massons-Foundation.org</span></div>
+            <div id="brand">☰ &nbsp;<span class="mui--hidden-xs">Massons-Foundation.org</span></div>
           </td>
           <td class="mui--text-right">
             <ul class="mui-list--inline" id="menu">
-              <li><a href="/train/bestWPolymer/">Home</a></li>
-              <li><a href="/train/schedule/">Schedule</a></li>
+              <li class="mui--hidden-xs"><a class="mui--hidden-xs" href="/train/bestWPolymer/">Home</a></li>
+              <li class="mui--hidden-xs"><a class="mui--hidden-xs" href="/train/schedule/">Schedule</a></li>
               <li><a href="/home/feed/">Feed</a></li>
               <li><a href="/home/fts/">Search</a></li>
               <li>&nbsp;</li>
@@ -60,7 +60,7 @@
         </ul>
       </nav>
     </div>
-    <!--#content-wrapper0-->
+    <div id="content-wrapper0"></div>
     <div id="content-wrapper">
       <div class="mui-container-fluid"><h1 id="component-based-web-app-development">Component based (Web-App) Development</h1>
 <p>By using components or custom tags, we can develop more complex applications that are easier to maintain. The page markup looks cleaner, and the components|tags are reusable. One example project: <a href="http://github.com/Polymer/shop">http://github.com/Polymer/shop</a>. There are several DOM/markup based components|tags choices, such as HTML standard web components, RIOT, and finally, Polymer. There are other choices that are not DOM/markup based that use Javascript. (Ex: React, Angular, Vue). I find Javascript-based components harder for designers and harder to style. So we do want the Web-App to look nice, so the  tutorial here is Polymer based, the one that is easiest to adopt and maintain.</p>
@@ -265,9 +265,11 @@ code. Ex, view source: <a href="http://cekvenich.site44.com/post/datab/index0.ht
       <div class="mui-panel">
         <div class="mui-container-fluid">
           <div class="mui-row">
-            <div class="mui-col-sm-4"><a href="https://gitter.im/topseed-demos/Lobby">Forum </a></div>
-            <div class="mui-col-sm-4"></div>
-            <div class="mui-col-sm-4"><a href="https://github.com/topseed/topseed-demos">Site tech</a></div>
+            <div class="mui-col-sm-1"></div>
+            <div class="mui-col-sm-3"><a href="https://gitter.im/topseed-demos/Lobby">Forum </a></div>
+            <div class="mui-col-sm-3"><a href="https://amp.masons-foundation.org/home/contactUs/">ContactUs</a></div>
+            <div class="mui-col-sm-3 mui--pull-right mui--hidden-xs"><a class="mui--hidden-xs" href="https://github.com/topseed/topseed-demos">Site tech</a></div>
+            <div class="mui-col-sm-1"></div>
           </div>
         </div>
       </div>
