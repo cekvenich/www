@@ -27,6 +27,10 @@ loadjs([
 
 //====================================================================
 function startApp(){
+	$('#navPrev').click(function(e) { 
+		console.log('#navPrev')
+		toggleSide()
+	})
 	const $body=$('body')
 	$body.fadeTo(20,1)//shell sets it to 0
 	_act.dispatch(_ACT, window.location)
