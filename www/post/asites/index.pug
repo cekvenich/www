@@ -1,7 +1,12 @@
+extends  ../../_part/_baseShellS
 
-extends  ../../_part/_shellA-base
+block head
+	include ../../_part/_headerS
 
-block content
+block top
+	include ../../_part/_topS
+
+block main
 	.mui-container-fluid
 		include story1.html
 
@@ -21,12 +26,22 @@ block content
 			x-vid#rmpChild(bitrate1='//cdn-484996.c.cdn77.org/asites/child.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 			x-vid#rmpVw2(bitrate1='//cdn-484996.c.cdn77.org/asites/vw2.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 			x-vid#rmpPress(bitrate1='//cdn-484996.c.cdn77.org/asites/press.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
-		br
+		br#d
 
 	script.
-		riot.compile(function(){ // wait for it
-			var comps = riot.mount('x-vid')
-			console.log(comps)
-		})//compile
+		function init() {
+				$( '#d' ).load('/_compHost/x-vid.html', function() {
+				console.log('loaded')
+				$('#c2').attr({ 'nam':'33'})
+				$('#c2').attr({ 'bla':'444'})
+			})
+		}
+		if(_loaded) init()
+		else {
+			_act.addOnce(function(arg1, arg2) {
+				init()
+				return false
+			})
+		}
 block footer
-	include  ../../_part/_footer
+	include ../../_part/_footerS

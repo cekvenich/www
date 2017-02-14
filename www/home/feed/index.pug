@@ -1,10 +1,12 @@
+extends  ../../_part/_baseShellS
 
-extends  ../../_part/_shellA-base
 block head
+	include ../../_part/_headerS
 
-block content
+block top
+	include ../../_part/_topS
 
-	p
+block main
 	.mui-container-fluid
 
 		home-card(ref='/post/app-shell/', img='/post/SPA/shell.png', headline='App-Shell')
@@ -29,14 +31,21 @@ block content
 
 		home-card(ref='/post/amp/', img='/post/amp/amp.jpg', headline='AMP')
 
-	p
+	p#d
 	script.
 		function init() {
-			riot.compile(function(){ // make component, and wait for it
-				var comps = riot.mount('home-card')
-			})//compile
+				$( '#d' ).load('/_compHost/home-card.html', function() {
+				console.log('loaded')
+				//$('#c2').attr({ 'nam':'33'})
+			})
 		}
-		init()
+		if(_loaded) init()
+		else {
+			_act.addOnce(function(arg1, arg2) {
+				init()
+				return false
+			})
+		}
 
 block footer
-	include  ../../_part/_footer
+	include ../../_part/_footerS

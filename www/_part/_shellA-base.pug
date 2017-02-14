@@ -4,7 +4,9 @@ include _head
 body
 	script(type='text/javascript').
 		document.body.style.opacity = '0.5'
-		
+	
+	link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en')
+
 	#ss1
 		nav#appbar.mui-container-fluid.mui--no-user-select
 			table(width='100%')
@@ -16,7 +18,7 @@ body
 					td.mui--text-right
 						ul#menu.mui-list--inline
 							li.mui--hidden-xs
-								a(href='/train/bestWPolymer/').mui--hidden-xs Home
+								a(href='/train/bestWComps/').mui--hidden-xs Home
 							li.mui--hidden-xs
 								a(href='/train/schedule/').mui--hidden-xs Schedule
 							li
@@ -32,7 +34,7 @@ body
 				.mui-divider
 				ul.mui-list--unstyled#sidenavstrong
 					li
-						a(href='/train/bestWPolymer/') Home
+						a(href='/train/bestWComps/') Home
 					li
 						a(href='/train/schedule/') Schedule
 					li

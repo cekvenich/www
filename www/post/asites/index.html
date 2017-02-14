@@ -53,72 +53,35 @@
       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
       <div id="content-wrapper0"> </div>
       <div id="content-wrapper">
-        <div class="mui-container-fluid">
-          <p><br></p>
-          <div class="mui-row">
-            <div class="mui-col-md-6">
-              <p></p>
-              <p>You can email us anytime and we will respond back right away. Optionaly you can include your phone #. </p>
-            </div>
-            <div class="mui-col-md-6">
-              <div class="mui-panel">
-                <form class="mui-form" id="frm1">
-                  <legend>Contact us</legend>
-                  <div class="mui-textfield">
-                    <input type="text" name="data.email" required="">
-                    <label>eMail</label>
-                  </div>
-                  <div class="mui-textfield">
-                    <input type="text" name="data.phone">
-                    <label>Phone #</label>
-                  </div>
-                  <div class="mui-textfield">
-                    <textarea name="data.msg" required=""></textarea>
-                    <label>Message</label>
-                  </div>
-                  <button class="mui-btn mui-btn--raised" type="submit" id="sendBtn">Send</button>
-                </form>
-                <div class="mui-panel" id="sent">
-                  Email sent. If the email and phone # is correct, you should hear from us in less than a few hours. If you don't hear back, please use send us a back up email to vic(at)eml.cc (.cc, not .com) to make sure we recived the message.
-                  
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="mui-container-fluid"><h1 id="these-are-some-nice-looking-web-apps-that-i-found">These are some nice looking web-apps that I found</h1>
+
+          <style>
+            .wall {
+            	display: flex;
+            	flex-wrap: wrap;
+            }
+            
+          </style>
+          <div class="wall">
+            <x-vid id="rmpArc" bitrate1="//cdn-484996.c.cdn77.org/asites/arc.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpLab" bitrate1="//cdn-484996.c.cdn77.org/asites/lab.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpChair" bitrate1="//cdn-484996.c.cdn77.org/asites/chair.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpTravel" bitrate1="//cdn-484996.c.cdn77.org/asites/travel.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpShi" bitrate1="//cdn-484996.c.cdn77.org/asites/shi.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpTweet" bitrate1="//cdn-484996.c.cdn77.org/asites/tweet.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpChild" bitrate1="//cdn-484996.c.cdn77.org/asites/child.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpVw2" bitrate1="//cdn-484996.c.cdn77.org/asites/vw2.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpPress" bitrate1="//cdn-484996.c.cdn77.org/asites/press.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+          </div><br id="d">
         </div>
         <script>
-          const ENDPOINT = 'https://www.masons-foundation.org/contPg/contact/'
           function init() {
-          	console.log('init')
-          	$("#sent").hide()
-          	$('#frm1').jsForm()
-          	
-          	$('#sendBtn').click(function(e) { 
-          		e.preventDefault()
-          		var data = JSON.stringify( $('#frm1').jsForm('get') )
-          		console.log(data)
-          		$("#sent").hide()
-          
-          		fetch(ENDPOINT, {
-          				method: 'post'
-          				, headers: {
-          					'Content-Type': 'application/json'
-          				}
-          				, body: data
-          			}).then(function(response) { 
-          				return (response.json())
-          				}).then(function(value) {
-          					console.log('back')
-          					console.log(value)
-          					$("#frm1").jsForm("clear")
-          					$("#sent").show()
-          			}).catch(function(err) {
-          				console.log('error')
-          				console.log(err)
-          		})//fetch()
-          	})//click
-          }//init
-          
+          		$( '#d' ).load('/_compHost/x-vid.html', function() {
+          		console.log('loaded')
+          		$('#c2').attr({ 'nam':'33'})
+          		$('#c2').attr({ 'bla':'444'})
+          	})
+          }
           if(_loaded) init()
           else {
           	_act.addOnce(function(arg1, arg2) {
@@ -126,7 +89,6 @@
           		return false
           	})
           }
-          
         </script>
       </div>
     </div>
