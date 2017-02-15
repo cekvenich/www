@@ -1,6 +1,37 @@
 template#x-vid
 
 	script.
+		customElements.define('x-vid', class extends HTMLElement {
+
+			//get bla() { return 'a'}
+			//set bla(val) { console.log(val) }
+
+			connectedCallback() { 
+				//console.log(this._compRoot)
+
+				var nam = this.getAttribute('data-nam')
+				console.log(nam)
+				
+				this.addEventListener('click', function() {
+					console.log('clicked')
+				})
+			}//()
+			//disconnectedCallback() {console.log('disco') }//()
+
+			constructor() {
+				super() // always call super first
+				//console.log('ctor')
+
+				//boiler plate:
+				this._compRoot = this.attachShadow({mode: 'open'})
+				var t = document.querySelector('#x-vid')
+				var instance = t.content.cloneNode(true)
+				this._compRoot.appendChild(instance)
+			}//()
+		})//
+
+
+
 		// First we specify bitrates to feed to the player
 		var bitrates = {
 			mp4: [
@@ -43,6 +74,3 @@ template#x-vid
 			players[ei] = rmp
 			rmp.init(vsettings)
 		}
-
-
-

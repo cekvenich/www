@@ -2,10 +2,10 @@
 loadjs([
 	'//code.jquery.com/jquery-2.2.4.min.js'
 	,'//cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js'
-	,'/zCDN/libJs/custom-elements.min.js'
 	,'/zCDN/libJs/jquery.smoothState.js'
-	,'/zCDN/libJs/jquery.jsForm.min.js'
+	//,'/zCDN/libJs/custom-elements.min.js'
 
+	,'/zCDN/libJs/jquery.jsForm.min.js'
 	,'/zCDN/libJs/jquery.fullPage.min.js'
 	,'/zCDN/libJs/jsrender.min.js'
 	,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'

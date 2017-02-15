@@ -30,17 +30,45 @@ template#home-card.homeCard
 			box-shadow: 0 3px 4px rgba(0,0,0,0.7);
 		}
 
-	a(href='{', ref='', }='')
-		.hc--img(style='background-image:url({ img })')
-		.hc--headline { headline }
-
-	a(href='/post/app-shell/')
-		.hc--img(style='background-image: url("arc.jpg")')
-		.hc--headline Best Practices training
+	a
+		.hc--img
+		.hc--headline
 
 	script.
 		//home-card(ref='/post/app-shell/', img='arc.jpg', headline='Best Practices training')
-		this.ref = opts.ref
-		this.img = opts.img
-		this.headline = opts.headline
+
+		console.log('here')
+
+		customElements.define('home-card', class extends HTMLElement {
+
+			//get bla() { return 'a'}
+			//set bla(val) { console.log(val)}
+
+			connectedCallback() { 
+				console.log(this._compRoot)
+
+				var ref = this.getAttribute('data-ref')
+				var a = this._compRoot.querySelector('a')
+				a.href = ref
+
+				var dimg = this.getAttribute('data-img')
+				var timg = this._compRoot.querySelector('.hc--img')
+				timg.style.backgroundImage = 'url(" ' + dimg + ' ")' 
+				
+				var headline = this.getAttribute('data-headline')
+				var theadline = this._compRoot.querySelector('hc--headline')
+				theadline.innerHTML = headline
+			}//()
+
+			constructor() {
+				super() // always call super first
+				console.log('ctor')
+
+				//boiler plate:
+				this._compRoot = this.attachShadow({mode: 'open'})
+				var t = document.querySelector('#home-card')
+				var instance = t.content.cloneNode(true)
+				this._compRoot.appendChild(instance)
+			}//()
+		})//
 

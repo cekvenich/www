@@ -66,12 +66,11 @@
           <home-card ref="/post/vwall/" img="/post/vwall/players.png" headline="Video Wall"></home-card>
           <home-card ref="/post/amp/" img="/post/amp/amp.jpg" headline="AMP"></home-card>
         </div>
-        <p id="d"></p>
+        <p id="dd"></p>
         <script>
           function init() {
-          		$( '#d' ).load('/_compHost/home-card.html', function() {
-          		console.log('loaded')
-          		//$('#c2').attr({ 'nam':'33'})
+          		$( '#dd' ).load('/_compHost/home-card.html?a=1', function() {
+          		console.log('loaded comp')
           	})
           }
           if(_loaded) init()

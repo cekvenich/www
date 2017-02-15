@@ -31,12 +31,11 @@ block main
 
 		home-card(ref='/post/amp/', img='/post/amp/amp.jpg', headline='AMP')
 
-	p#d
+	p#dd
 	script.
 		function init() {
-				$( '#d' ).load('/_compHost/home-card.html', function() {
-				console.log('loaded')
-				//$('#c2').attr({ 'nam':'33'})
+				$( '#dd' ).load('/_compHost/home-card.html?a=1', function() {
+				console.log('loaded comp')
 			})
 		}
 		if(_loaded) init()
