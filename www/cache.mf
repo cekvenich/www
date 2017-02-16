@@ -10,7 +10,7 @@ https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js
 https://cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js
 https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js
 
-#page assets
+#video page assets
 https://cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js
 https://cdn.radiantmediatechs.com/rmp/rr/vgs.json
 https://cdn.radiantmediatechs.com/rmp/v3/latest/css/rmp-s1.min.css
@@ -18,7 +18,6 @@ https://cdn.radiantmediatechs.com/rmp/v3/latest/css/fonts/rmp-font.woff?15ft5d
 https://fonts.gstatic.com/s/roboto/v15/oMMgfZMQthOryQo9n22dcuvvDin1pK8aKteLpeZ5c0A.woff2
 https://www.gstatic.com/cv/js/sender/v1/cast_sender.js
 https://www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg
-https://cdn-484996.c.cdn77.org/asites/arc.mp4
 
 NETWORK:
 *
