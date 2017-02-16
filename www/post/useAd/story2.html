@@ -75,8 +75,8 @@ So the prerequisites for this coding exercise is that you know how to write a we
 </code></pre><p>We place and load the tag; then we compile it and use the methods. The code for #spil has now been encapsulated - into a component.   The end.</p>
 <h3 id="5-that-s-all">5. That&#39;s all</h3>
 <p>Aside: I use head.js  - and head.js triggers load events, w/ a setup like so:</p>
-<pre><code>const _act = new signals.Signal()
-_act.addOnce(function(arg1, arg2) {
+<pre><code>const _stateA = new signals.Signal()
+_stateA.addOnce(function(arg1, arg2) {
     console.log(arg1, arg2)
     return false
 })

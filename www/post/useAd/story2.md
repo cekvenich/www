@@ -91,8 +91,8 @@ We place and load the tag; then we compile it and use the methods. The code for 
 
 Aside: I use head.js  - and head.js triggers load events, w/ a setup like so:
 
-	const _act = new signals.Signal()
-	_act.addOnce(function(arg1, arg2) {
+	const _stateA = new signals.Signal()
+	_stateA.addOnce(function(arg1, arg2) {
 		console.log(arg1, arg2)
 		return false
 	})

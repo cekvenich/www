@@ -182,7 +182,7 @@ code. Ex, view source: <http://cekvenich.site44.com/post/datab/index0.html>.
 		  }
 		  if(_loaded) init()
 		  else {
-			_act.addOnce(function(arg1, arg2) {
+			_stateA.addOnce(function(arg1, arg2) {
 				init()
 				return false
 			})

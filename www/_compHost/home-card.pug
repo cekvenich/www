@@ -45,6 +45,7 @@ script.
 		//set bla(val) { console.log(val)}
 
 		connectedCallback() { 
+			try {
 
 			var ref = this.getAttribute('data-ref')
 			var a = this._compRoot.querySelector('a')
@@ -57,6 +58,8 @@ script.
 			var headline = this.getAttribute('data-headline')
 			var theadline = this._compRoot.querySelector('.hc--headline')
 			theadline.innerHTML = headline
+
+			} catch(err) { console.log(err) }
 			//console.log(this._compRoot)
 		}//()
 

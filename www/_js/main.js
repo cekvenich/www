@@ -1,4 +1,7 @@
 'use strict'
+
+_loaded=false
+
 loadjs([
 	'//code.jquery.com/jquery-2.2.4.min.js'
 	,'//cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js'
@@ -33,7 +36,7 @@ function startApp(){
 	})
 	const $body=$('body')
 	$body.fadeTo(20,1)//shell sets it to 0
-	_stateA.dispatch(_stateA, window.location)
+	_stateA.dispatch(_PAGE, window.location)
 
 	//>===============================================================
 	function toggleSide(){

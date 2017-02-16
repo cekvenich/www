@@ -20,7 +20,7 @@ My basic code is this:
 		onStart: {
 			duration: 50,
 			render: function (url, $container)  {
-				_act.dispatch(_PRE, window.location, $container)//*a
+				_stateA.dispatch(_PRE, window.location, $container)//*a
 				$('#content-wrapper').fadeTo(100,.2)
 			}
 		},
@@ -31,7 +31,7 @@ My basic code is this:
 
 				$('#content-wrapper').fadeTo(200,1)
 
-				_act.dispatch(_ACT, window.location, $newContent)//*a
+				_stateA.dispatch(_stateA, window.location, $newContent)//*a
 
 			}//ren
 		}//ready()
