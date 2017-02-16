@@ -19,7 +19,7 @@ loadjs([
 	], { success: function(){
 		console.log('loaded')
 		_loaded=true
-		_act.dispatch(_LOADED, window.location)
+		_stateA.dispatch(_LOADED, window.location)
 
 		startApp()
 	}, async: false
@@ -33,7 +33,7 @@ function startApp(){
 	})
 	const $body=$('body')
 	$body.fadeTo(20,1)//shell sets it to 0
-	_act.dispatch(_ACT, window.location)
+	_stateA.dispatch(_stateA, window.location)
 
 	//>===============================================================
 	function toggleSide(){
@@ -63,7 +63,7 @@ function startApp(){
 			render: function (url, $container)  {
 				_inAction=true
 				//console.log('-> ')
-				_act.dispatch(_PRE, window.location, $container)//*a
+				_stateA.dispatch(_PRE, window.location, $container)//*a
 				pgSplit($('#content-wrapper'), 450 )
 			}//r
 		},//onS
@@ -72,7 +72,7 @@ function startApp(){
 			render: function ($container, $newContent) {
 				$('#content-wrapper').replaceWith($newContent.last())
 				_inAction= false
-				_act.dispatch(_ACT, window.location, $newContent)//*a
+				_stateA.dispatch(_stateA, window.location, $newContent)//*a
 				//console.log('% <-')
 			}//ren
 		}//ready()

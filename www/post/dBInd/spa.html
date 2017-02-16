@@ -128,7 +128,7 @@ I suggest you avoid data binding libraries that only do one or the other. </p>
           
           if(_loaded) init()
           else {
-          	_act.addOnce(function(arg1, arg2) {
+          	_stateA.addOnce(function(arg1, arg2) {
           		init()
           		return false
           	})
