@@ -1,7 +1,5 @@
 'use strict'
 
-_loaded=false
-
 loadjs([
 	'//code.jquery.com/jquery-2.2.4.min.js'
 	,'//cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js'
@@ -34,7 +32,8 @@ function startApp(){
 		console.log('#navPrev')
 		toggleSide()
 	})
-	const $body=$('body')
+
+	var $body=$('body')
 	$body.fadeTo(20,1)//shell sets it to 0
 	_stateA.dispatch(_PAGE, window.location)
 
@@ -68,12 +67,16 @@ function startApp(){
 				//console.log('-> ')
 				_stateA.dispatch(_PRE, window.location, $container)//*a
 				pgSplit($('#content-wrapper'), 450 )
+				//$('#content-wrapper').fadeTo(100,.2)
+
 			}//r
 		},//onS
 		onReady: {
 			duration: 0,
 			render: function ($container, $newContent) {
 				$('#content-wrapper').replaceWith($newContent.last())
+				//$('#content-wrapper').fadeTo(200,1)
+
 				_inAction= false
 				_stateA.dispatch(_stateA, window.location, $newContent)//*a
 				//console.log('% <-')
