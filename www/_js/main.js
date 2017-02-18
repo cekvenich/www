@@ -1,29 +1,26 @@
 'use strict'
 
-loadjs([
-	'//code.jquery.com/jquery-2.2.4.min.js'
-	,'//cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js'
-	,'/zCDN/libJs/jquery.smoothState.js'
-	,'/zCDN/libJs/custom-elements.min.js'
+loadjs.ready(['dependencyNotChrome', 'keyLibs'], {// loaded setup libs
+	success: function(){
+	loadjs([
+		//dbind:
+		,'/zCDN/libJs/jquery.jsForm.min.js'
+		,'/zCDN/libJs/jsrender.min.js'
 
-	,'/zCDN/libJs/jquery.jsForm.min.js'
-	,'/zCDN/libJs/jquery.fullpage.min.js'
-	,'/zCDN/libJs/jsrender.min.js'
-	,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
-	,'//cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js'
+		,'/zCDN/libJs/jquery.fullpage.min.js'
+		,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
+		//'//cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js'
+		//,'/zCDN/libJs/zingtouch.min.js'
 
-	//'//cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js'
-	//,'/zCDN/libJs/zingtouch.min.js'
+		,'//cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js'
+		, '/_js/split.js'
 
-	, '/_js/split.js'
-
-	], { success: function(){
-		console.log('loaded')
-		_loaded=true
-		_stateA.dispatch(_LOADED, window.location)
-
-		startApp()
-	}, async: false
+		], { success: function(){
+			console.log('loaded libs')
+			startApp()
+		}
+	})//loadjs
+	}//suc
 })
 
 //====================================================================
@@ -88,10 +85,12 @@ function startApp(){
 
 	//setupFlick()
 	
+	_loaded=true
+	_stateA.dispatch(_LOADED, window.location)
+
 	let endTime = (new Date()).getTime() - _loadStarted
 	console.log('load time ' + endTime)
 }//startApp()
-
 //====================================================================
 
 function setupFlick() {
