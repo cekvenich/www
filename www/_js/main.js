@@ -2,9 +2,10 @@
 
 loadjs.ready(['dependencyNotChrome', 'keyLibs'], {// loaded setup libs
 	success: function(){
+	console.log('loading libs')
 	loadjs([
 		//dbind:
-		,'/zCDN/libJs/jquery.jsForm.min.js'
+		'/zCDN/libJs/jquery.jsForm.min.js'
 		,'/zCDN/libJs/jsrender.min.js'
 
 		,'/zCDN/libJs/jquery.fullpage.min.js'
@@ -84,7 +85,7 @@ function startApp(){
 	const smoothState= $('#ss1').smoothState(ssoptions)
 
 	//setupFlick()
-	
+	// READY ///////////////////////////////////////////////////////////
 	_loaded=true
 	_stateA.dispatch(_LOADED, window.location)
 
