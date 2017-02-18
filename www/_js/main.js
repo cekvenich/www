@@ -33,7 +33,7 @@ function startApp(){
 
 	var $body=$('body')
 	$body.fadeTo(20,1)//shell sets it to 0
-	_stateA.dispatch(_PAGE, window.location)
+	A.act(A.PAGE)
 
 	//>===============================================================
 	function toggleSide(){
@@ -50,8 +50,7 @@ function startApp(){
 	}
 	initSideDraw()
 
-	//>====================================================================
-	//SS
+	//>SS======================================================
 	let ssoptions={
 		debug: true,
 		prefetch: true,
@@ -61,9 +60,9 @@ function startApp(){
 		onStart: {
 			duration: 0, 
 			render: function (url, $container)  {
-				_inAction=true
+				A.inAction=true
 				//console.log('-> ')
-				_stateA.dispatch(_PRE, window.location, $container)//*a
+				A.act(A.PRE) //action
 				pgSplit($('#content-wrapper'), 450 )
 				//$('#content-wrapper').fadeTo(100,.2)
 
@@ -75,8 +74,8 @@ function startApp(){
 				$('#content-wrapper').replaceWith($newContent.last())
 				//$('#content-wrapper').fadeTo(200,1)
 
-				_inAction= false
-				_stateA.dispatch(_stateA, window.location, $newContent)//*a
+				A.inAction= false
+				A.act(A.PAGE)// main action
 				//console.log('% <-')
 			}//ren
 		}//ready()
@@ -86,8 +85,8 @@ function startApp(){
 
 	//setupFlick()
 	// READY ///////////////////////////////////////////////////////////
-	_loaded=true
-	_stateA.dispatch(_LOADED, window.location)
+	A.loaded=true
+	A.act(A.LOADED)
 
 	let endTime = (new Date()).getTime() - _loadStarted
 	console.log('load time ' + endTime)

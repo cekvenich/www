@@ -132,13 +132,8 @@ And our back end:</p>
           function init() {
           }
           
-          if(_loaded) init()
-          else {
-          	_stateA.addOnce(function(arg1, arg2) {
-          		init()
-          		return false
-          	})
-          }
+          A.onLoaded(init)
+          
           
         </script>
       </div>

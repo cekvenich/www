@@ -172,14 +172,8 @@ For on-site classes, contact us for pricing. We offer a flat price inclusive of 
         <script>
           function init() {
           }
+          A.onLoaded(init)
           
-          if(_loaded) init()
-          else {
-          	_stateA.addOnce(function(arg1, arg2) {
-          		init()
-          		return false
-          	})
-          }
           
         </script>
       </div>
