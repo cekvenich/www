@@ -5,13 +5,13 @@ loadjs.ready(['dependencyNotChrome', 'keyLibs'], {// loaded setup libs
 	//console.log('loading libs')
 	loadjs([
 		//dbind:
-		'/zCDN/libJs/jquery.jsForm.min.js'
-		,'/zCDN/libJs/jsrender.min.js'
+		'/_js/libJs/jquery.jsForm.min.js'
+		,'/_js/libJs/jsrender.min.js'
 
-		,'/zCDN/libJs/jquery.fullpage.min.js'
+		,'/_js/libJs/jquery.fullpage.min.js'
 		,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
 		//'//cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js'
-		//,'/zCDN/libJs/zingtouch.min.js'
+		//,'/_js/libJs/zingtouch.min.js'
 
 		,'//cdn.radiantmediatechs.com/rmp/v3/latest/js/rmp.min.js'
 		, '/_js/split.js'
