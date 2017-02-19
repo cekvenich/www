@@ -1,10 +1,10 @@
 template#x-vid
 
 script.
+
 	customElements.define('x-vid', class extends HTMLElement {
 
 		connectedCallback() { 
-			try {
 			var bitrates = {
 				mp4: [
 				''
@@ -37,7 +37,6 @@ script.
 			this._rmp = new RadiantMP(ei)
 			this._rmp.init(vsettings)
 
-			} catch(err) { console.log(err) }
 			//console.log(this._compRoot)
 
 		}//()

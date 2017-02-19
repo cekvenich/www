@@ -37,15 +37,14 @@ template#home-card.homeCard
 		.hc--headline
 
 script.
-	//home-card(ref='/post/app-shell/', img='arc.jpg', headline='Best Practices training')
-
+	if(!isRegistered('home-card'))
 	customElements.define('home-card', class extends HTMLElement {
+		//home-card(ref='/post/app-shell/', img='arc.jpg', headline='Best Practices training')
 
 		//get bla() { return 'a'}
 		//set bla(val) { console.log(val)}
 
 		connectedCallback() { 
-			try {
 
 			var ref = this.getAttribute('data-ref')
 			var a = this._compRoot.querySelector('a')
@@ -54,13 +53,11 @@ script.
 			var dimg = this.getAttribute('data-img')
 			var timg = this._compRoot.querySelector('.hc--img')
 			timg.style.backgroundImage = 'url(" ' + dimg + ' ")' 
-			
+
 			var headline = this.getAttribute('data-headline')
 			var theadline = this._compRoot.querySelector('.hc--headline')
 			theadline.innerHTML = headline
 
-			} catch(err) { console.log(err) }
-			//console.log(this._compRoot)
 		}//()
 
 		constructor() {
@@ -68,13 +65,14 @@ script.
 			console.log('ctor')
 
 			//boiler plate:
-			this._compRoot = this.attachShadow({mode: 'open'})
+			let s = this.attachShadow({mode: 'open'})
+			this._compRoot = s
 			var t = document.querySelector('#home-card')
 			var instance = t.content.cloneNode(true)
 			this._compRoot.appendChild(instance)
+
 		}//()
 
 	//var _compA = new signals.Signal()
 
-	})//
-
+	})//comp`

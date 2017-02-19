@@ -4,7 +4,6 @@
   customElements.define('x-vid', class extends HTMLElement {
   
   	connectedCallback() { 
-  		try {
   		var bitrates = {
   			mp4: [
   			''
@@ -37,7 +36,6 @@
   		this._rmp = new RadiantMP(ei)
   		this._rmp.init(vsettings)
   
-  		} catch(err) { console.log(err) }
   		//console.log(this._compRoot)
   
   	}//()
@@ -48,5 +46,8 @@
   		super() // always call super first
   		//console.log('ctor')
   	}//()
+  
+  //var _compA = new signals.Signal()
+  
   })//
 </script>
