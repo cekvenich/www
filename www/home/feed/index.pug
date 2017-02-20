@@ -31,14 +31,12 @@ block main
 
 		home-card(ref='/post/amp/', img='/post/amp/amp.jpg', headline='AMP')
 
-	script(type='riot/tag', src='/_uiComps/home-card.html')
+
 	script.
-		function init() {
-			riot.compile(function(){ // make component, and wait for it
-				var comps = riot.mount('home-card')
-			})//r
+		function initHF() {
+			var comps = riot.mount('home-card')
 		}//init
-		A.onLoaded(init)
+		A.onLoaded(initHF)
 
 
 block footer
