@@ -57,71 +57,25 @@
       <div id="content-wrapper0"> </div>
       <div id="content-wrapper">
         <div class="mui-container-fluid">
-          <p><br></p>
-          <div class="mui-row">
-            <div class="mui-col-md-6">
-              <p></p>
-              <p>You can email us anytime and we will respond back right away. Optionaly you can include your phone #. </p>
-            </div>
-            <div class="mui-col-md-6">
-              <div class="mui-panel">
-                <form class="mui-form" id="frm1">
-                  <legend>Contact us</legend>
-                  <div class="mui-textfield">
-                    <input type="text" name="data.email" required="">
-                    <label>eMail</label>
-                  </div>
-                  <div class="mui-textfield">
-                    <input type="text" name="data.phone">
-                    <label>Phone #</label>
-                  </div>
-                  <div class="mui-textfield">
-                    <textarea name="data.msg" required=""></textarea>
-                    <label>Message</label>
-                  </div>
-                  <button class="mui-btn mui-btn--raised" type="submit" id="sendBtn">Send</button>
-                </form>
-                <div class="mui-panel" id="sent">
-                  Email sent. If the email and phone # is correct, you should hear from us in less than a few hours. If you don't hear back, please use send us a back up email to vic(at)eml.cc (.cc, not .com) to make sure we recived the message.
-                  
-                </div>
-              </div>
-            </div>
-          </div>
+          <home-card data-ref="/post/app-shell/" data-img="/post/SPA/shell.png" data-headline="App-Shell"></home-card>
+          <home-card data-ref="/post/asites/" data-img="/post/asites/arc.jpg" data-headline="Sites I like"></home-card>
+          <home-card data-ref="/post/comp/" data-img="/post/comp/web-comp.png" data-headline="Web Components"></home-card>
+          <home-card data-ref="/post/dBind/" data-img="/post/dBind/layout.png" data-headline="Data Binding a List"></home-card>
+          <home-card data-ref="/post/mserv/" data-img="/post/mserv/rest_test.png" data-headline="Fetch a micro service"></home-card>
+          <home-card data-ref="/post/IDE/" data-img="/post/IDE/DaaS.png" data-headline="IDE"></home-card>
+          <home-card data-ref="/post/seo/" data-img="/post/seo/setup.png" data-headline="SEO"></home-card>
+          <home-card data-ref="/post/SPA/" data-img="/post/SPA/SPA.png" data-headline="SPA"></home-card>
+          <home-card data-ref="/post/useAd/" data-img="/post/useAd/chick.png" data-headline="Ad"></home-card>
+          <home-card data-ref="/post/vwall/" data-img="/post/vwall/players.png" data-headline="Video Wall"></home-card>
+          <home-card data-ref="/post/amp/" data-img="/post/amp/amp.jpg" data-headline="AMP"></home-card>
         </div>
+        <script type="riot/tag" src="/_compHost/home-card.html"></script>
         <script>
-          const ENDPOINT = 'https://www.masons-foundation.org/contPg/contact/'
           function init() {
-          	console.log('init')
-          	$("#sent").hide()
-          	$('#frm1').jsForm()
-          	
-          	$('#sendBtn').click(function(e) { 
-          		e.preventDefault()
-          		var data = JSON.stringify( $('#frm1').jsForm('get') )
-          		console.log(data)
-          		$("#sent").hide()
-          
-          		fetch(ENDPOINT, {
-          				method: 'post'
-          				, headers: {
-          					'Content-Type': 'application/json'
-          				}
-          				, body: data
-          			}).then(function(response) { 
-          				return (response.json())
-          				}).then(function(value) {
-          					console.log('back')
-          					console.log(value)
-          					$("#frm1").jsForm("clear")
-          					$("#sent").show()
-          			}).catch(function(err) {
-          				console.log('error')
-          				console.log(err)
-          		})//fetch()
-          	})//click
+          	riot.compile(function(){ // make component, and wait for it
+          		var comps = riot.mount('home-card')
+          	})//compile
           }//init
-          
           A.onLoaded(init)
           
           

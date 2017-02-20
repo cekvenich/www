@@ -1,0 +1,84 @@
+
+<home-card><a>
+    <div class="hc--img"></div>
+    <div class="hc--headline"></div></a>
+  <style>
+    :scope { 
+    	contain: content; /*CSS containment */
+    
+    	height: 250px;
+    	width: 350px;
+    	border-radius: 3px;
+    	background-color: gray;
+    	overflow: hidden;
+    	cursor: pointer;
+    	box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+    	display: inline-table;
+    	margin: 7px;
+    }
+    .homeCard a, .homeCard a:visited,
+    .homeCard a:hover, .homeCard a:active {
+    	text-decoration: none;
+    }
+    .hc--img {
+    	height: 210px;
+    	width: 350px;
+    	background-position: left top;
+    	background-size: cover;
+    	background-repeat: no-repeat;
+    }
+    .hc--headline {
+    	padding: 6px;
+    	background-color: white;
+    }
+    home-card:hover{
+    	box-shadow: 0 3px 4px rgba(0,0,0,0.7);
+    }
+    
+    
+  </style>
+</home-card>
+<script>
+  this.on('update', function(){
+  
+  })
+  this.on('mount', function(){
+  	
+  })
+  this.on('unmount', function() {
+  
+  })
+  
+  connectedCallback() { 
+  
+  	var ref = this.getAttribute('data-ref')
+  	var a = this._compRoot.querySelector('a')
+  	a.href = ref
+  
+  	var dimg = this.getAttribute('data-img')
+  	var timg = this._compRoot.querySelector('.hc--img')
+  	timg.style.backgroundImage = 'url(" ' + dimg + ' ")' 
+  
+  	var headline = this.getAttribute('data-headline')
+  	var theadline = this._compRoot.querySelector('.hc--headline')
+  	theadline.innerHTML = headline
+  
+  }//()
+  
+  constructor() {
+  	super() // always call super first
+  	console.log('ctor')
+  
+  	//boiler plate:
+  	let s = this.attachShadow({mode: 'open'})
+  	this._compRoot = s
+  	var t = document.querySelector('#home-card')
+  	var instance = t.content.cloneNode(true)
+  	this._compRoot.appendChild(instance)
+  
+  }//()
+  
+  //var _compA = new signals.Signal()
+  
+  })//comp
+</script>

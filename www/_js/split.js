@@ -3,7 +3,7 @@
 console.log('split loaded')
 //====================================================================
 function pgSplit($cont_, speed) {
-	console.log('spliting:')
+	//console.log('spliting:')
 	//$cont_.css('height', $(document).height())
 	$('#content-wrapper').fadeTo(1,.2)//hide
 	$('#content-wrapper').fadeTo(speed/2,1)
@@ -49,7 +49,7 @@ function pgSplit($cont_, speed) {
 	$('#firstSl').transition({x: lft, easing: 'linear', duration: speed})
 	$('#cloneSl').transition({x: haf, easing: 'linear', duration: speed})
 	setTimeout(function(){ 
-		console.log(':cleanup')
+		//console.log(':cleanup')
 		$('#content-wrapper0').empty()
 		$('#content-wrapper0').fadeTo(1,1)//show
 	}, speed)
