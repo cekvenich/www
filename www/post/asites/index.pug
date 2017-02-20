@@ -17,29 +17,30 @@ block main
 			}
 
 		.wall
-			x-vid#rmpArc(id='rmpArc', bitrate1='//cdn-484996.c.cdn77.org/asites/arc.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpArc(zid='rmpArc', bitrate1='//cdn-484996.c.cdn77.org/asites/arc.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 
-			x-vid#rmpLab(id='rmpLab', bitrate1='//cdn-484996.c.cdn77.org/asites/lab.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpLab(zid='rmpLab', bitrate1='//cdn-484996.c.cdn77.org/asites/lab.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 
-			x-vid#rmpChair(id='rmpChair', bitrate1='//cdn-484996.c.cdn77.org/asites/chair.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpChair(zid='rmpChair', bitrate1='//cdn-484996.c.cdn77.org/asites/chair.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 
-			x-vid#rmpTravel(id='rmpTravel', bitrate1='//cdn-484996.c.cdn77.org/asites/travel.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpTravel(zid='rmpTravel', bitrate1='//cdn-484996.c.cdn77.org/asites/travel.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 
-			x-vid#rmpShi(id='rmpShi', bitrate1='//cdn-484996.c.cdn77.org/asites/shi.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpShi(zid='rmpShi', bitrate1='//cdn-484996.c.cdn77.org/asites/shi.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 
-			x-vid#rmpTweet(id='rmpTweet', bitrate1='//cdn-484996.c.cdn77.org/asites/tweet.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpTweet(zid='rmpTweet', bitrate1='//cdn-484996.c.cdn77.org/asites/tweet.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 
-			x-vid#rmpChild(id='rmpChild', bitrate1='//cdn-484996.c.cdn77.org/asites/child.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpChild(zid='rmpChild', bitrate1='//cdn-484996.c.cdn77.org/asites/child.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 
-			x-vid#rmpVw2(id='rmpVw2', bitrate1='//cdn-484996.c.cdn77.org/asites/vw2.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
+			x-vid#rmpVw2(zid='rmpVw2', bitrate1='//cdn-484996.c.cdn77.org/asites/vw2.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 
-			x-vid#rmpPress(id='rmpPress', bitrate1='//cdn-484996.c.cdn77.org/asites/press.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
-
+			x-vid#rmpPress(zid='rmpPress', bitrate1='//cdn-484996.c.cdn77.org/asites/press.mp4', poster='//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg')
 
 	script.
-
 		function initVL() {
-			var comps = riot.mount('x-vid')
+			riot.compile(function(){ // make component, and wait for it
+				console.log('x-vic')
+				var comps = riot.mount('x-vid')
+			})//r
 		}//()
 		
 		A.onLoaded(initVL)

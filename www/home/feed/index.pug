@@ -31,10 +31,12 @@ block main
 
 		home-card(ref='/post/amp/', img='/post/amp/amp.jpg', headline='AMP')
 
-
 	script.
 		function initHF() {
-			var comps = riot.mount('home-card')
+			riot.compile(function(){ // make component, and wait for it
+				console.log('home-card')
+				var comps = riot.mount('home-card')
+			})//r
 		}//init
 		A.onLoaded(initHF)
 
