@@ -1,0 +1,31 @@
+// http://html5rocks.com/en/tutorials/webcomponents/customelements
+
+// load GSAP if you want UI fx: //s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.0_643d6911392a3398cb1607993edabfa7_min.js
+
+head
+	script(src='//cdn.jsdelivr.net/webcomponentsjs/0.7.22/webcomponents.min.js')
+	script(src='//cdn.jsdelivr.net/jquery/3.1.0/jquery.slim.min.js')
+
+body
+	h2 HTML5 WebComponents w/ Sass
+	h3 Binding and BEM enabled
+
+	link(rel='import', href='comp/card-rating.html')
+
+	div
+		card-rating1#rat1
+		card-rating2#rat2
+
+	button#but1 Click meh.
+
+	script.
+		rat1 = document.getElementById('rat1')
+		rat2 = document.getElementById('rat2')
+
+		$('#but1').click(function(){
+			console.log('c')
+			// a binding - implemnted in the imported component
+			rat1.setAttribute('stars', 2)
+			rat2.setAttribute('stars', 2)
+			rat2.setAttribute('stars', 3)
+		})

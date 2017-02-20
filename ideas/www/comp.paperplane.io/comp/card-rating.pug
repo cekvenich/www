@@ -1,0 +1,60 @@
+
+template#tcard-rating
+	style
+		:sass
+			:host
+				color: blue
+			.star-icon
+				color: gray
+				font-size: 30px
+				position: relative
+			.star-icon.fill:before
+				color: yellow
+				content: '\2605' // full star
+				font-size: 32px
+				text-shadow: 5px 2px 2px gray
+				position: absolute
+				left: -4px
+				top: -6px
+
+	.ratings--starts
+		span#s1.star-icon.fill ☆
+		span#s2.star-icon ☆
+		span#s3.star-icon ☆
+		span#s4.star-icon ☆
+	.ratings--date
+		span Released:
+		span#dat 1/1/1
+
+	slot
+
+	include _mix.pug
+
+script.
+
+	function stars($compCtx, el) {
+		$compCtx.find('#s'+el).addClass('fill')
+	}
+
+	class SCardEl extends HTMLElement {
+		//get stars() 		{  return 'a'	  }
+		//set stars(val) 	{	console.log(val) }
+		static get observedAttributes() { return ['stars'] }
+		attributeChangedCallback(name, oldVal, newVal) {
+			console.log(name+newVal)
+			stars($(this.shadowRoot), newVal)// make it $
+		}
+
+		constructor() {
+			super()
+			this.addEventListener('click', function(evt) {
+				console.log('klk')
+			})
+			//boiler plate:
+			var tempCImport1 = document.getElementById('Tcard-rating').import //declared in import
+			var tempC1  	  = tempCImport1.getElementById('tcard-rating')
+			this.attachShadow({mode: 'open'})
+			this.shadowRoot.appendChild(document.importNode(tempC1.content, true))
+		}//cons
+	}// SCardEl class
+	customElements.define('card-rating', SCardEl)

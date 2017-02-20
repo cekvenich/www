@@ -1,0 +1,53 @@
+
+<template id="tcard-rating">
+  <style>:host {
+  color: blue; }
+
+.star-icon {
+  color: gray;
+  font-size: 30px;
+  position: relative; }
+
+.star-icon.fill:before {
+  color: yellow;
+  content: '\2605';
+  font-size: 32px;
+  text-shadow: 5px 2px 2px gray;
+  position: absolute;
+  left: -4px;
+  top: -6px; }
+
+  </style>
+  <div class="ratings--starts"><span class="star-icon fill" id="s1">☆</span><span class="star-icon" id="s2">☆</span><span class="star-icon" id="s3">☆</span><span class="star-icon" id="s4">☆</span></div>
+  <div class="ratings--date"><span>Released:</span><span id="dat">1/1/1</span></div>
+  <slot></slot>
+  <hr/>
+</template>
+<script>
+  function stars($compCtx, el) {
+  	$compCtx.find('#s'+el).addClass('fill')
+  }
+  
+  class SCardEl extends HTMLElement {
+  	//get stars() 		{  return 'a'	  }
+  	//set stars(val) 	{	console.log(val) }
+  	static get observedAttributes() { return ['stars'] }
+  	attributeChangedCallback(name, oldVal, newVal) {
+  		console.log(name+newVal)
+  		stars($(this.shadowRoot), newVal)// make it $
+  	}
+  
+  	constructor() {
+  		super()
+  		this.addEventListener('click', function(evt) {
+  			console.log('klk')
+  		})
+  		//boiler plate:
+  		var tempCImport1 = document.getElementById('Tcard-rating').import //declared in import
+  		var tempC1  	  = tempCImport1.getElementById('tcard-rating')
+  		this.attachShadow({mode: 'open'})
+  		this.shadowRoot.appendChild(document.importNode(tempC1.content, true))
+  	}//cons
+  }// SCardEl class
+  customElements.define('card-rating', SCardEl)
+</script>

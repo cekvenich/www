@@ -1,0 +1,29 @@
+
+<!-- http://html5rocks.com/en/tutorials/webcomponents/customelements-->
+<!-- http://github.com/webcomponents/webcomponentsjs/tree/master/src-->
+<!-- GSAP //s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.0_643d6911392a3398cb1607993edabfa7_min.js-->
+<head>
+  <script src="//cdn.jsdelivr.net/webcomponentsjs/0.7.22/webcomponents.min.js"></script>
+  <script src="//cdn.jsdelivr.net/jquery/3.1.0/jquery.slim.min.js"></script>
+</head>
+<body>
+  <h2>HTML5 WebComponents: Binding and BEM enabled</h2>
+  <link rel="import" href="comp/card-rating.html"/>
+  <div>
+    <card-rating1 id="rat1"></card-rating1>
+    <card-rating2 id="rat2"></card-rating2>
+  </div>
+  <button id="but1">Click meh.</button>
+  <script>
+    rat1 = document.getElementById('rat1')
+    rat2 = document.getElementById('rat2')
+
+    $('#but1').click(function(){
+    	console.log('c')
+    	// a binding - implemnted in the imported component
+    	rat1.setAttribute('stars', 2)
+    	rat2.setAttribute('stars', 2)
+    	rat2.setAttribute('stars', 3)
+    })
+  </script>
+</body>
