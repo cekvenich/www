@@ -40,9 +40,7 @@ block main
 	script.
 
 		function init() {
-			riot.compile(function(){ // make component, and wait for it
-				var comps = riot.mount('x-vid')
-			})//compile
+			var comps = riot.mount('x-vid')
 		}//()
 		
 		A.onLoaded(init)

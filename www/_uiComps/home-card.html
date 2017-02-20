@@ -1,5 +1,5 @@
-home-card.homeCard
-	style.
+<home-card class='homeCard'>
+	<style>
 		home-card {
 			height: 250px;
 			width: 350px;
@@ -29,13 +29,19 @@ home-card.homeCard
 			home-card:hover{
 			box-shadow: 0 3px 4px rgba(0,0,0,0.7);
 		}
+		
+	</style>
 
-	a(href='{', ref='', }='')
-		.hc--img(style='background-image:url({ img })')
-		.hc--headline { headline }
+	<a href= { ref } >
+		<div class='hc--img' style='background-image:url({ img })'></div>
+		<div class='hc--headline'>{ headline }</div>
+	</a>
 
-	script.
-		//home-card(ref='/post/app-shell/', img='arc.jpg', headline='Best Practices training')
-		this.ref = opts.ref
-		this.img = opts.img
+	<script>
+
 		this.headline = opts.headline
+		this.ref =	opts.ref
+		this.img = opts.img
+	</script>
+
+</home-card>

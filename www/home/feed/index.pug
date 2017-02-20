@@ -9,34 +9,34 @@ block top
 block main
 	.mui-container-fluid
 
-		home-card(data-ref='/post/app-shell/', data-img='/post/SPA/shell.png', data-headline='App-Shell')
+		home-card(ref='/post/app-shell/', img='/post/SPA/shell.png', headline='App-Shell')
 
-		home-card(data-ref='/post/asites/', data-img='/post/asites/arc.jpg', data-headline='Sites I like')
+		home-card(ref='/post/asites/', img='/post/asites/arc.jpg', headline='Sites I like')
 
-		home-card(data-ref='/post/comp/', data-img='/post/comp/web-comp.png', data-headline='Web Components')
+		home-card(ref='/post/comp/', img='/post/comp/web-comp.png', headline='Web Components')
 
-		home-card(data-ref='/post/dBind/', data-img='/post/dBind/layout.png', data-headline='Data Binding a List')
+		home-card(ref='/post/dBind/', img='/post/dBind/layout.png', headline='Data Binding a List')
 
-		home-card(data-ref='/post/mserv/', data-img='/post/mserv/rest_test.png', data-headline='Fetch a micro service')
+		home-card(ref='/post/mserv/', img='/post/mserv/rest_test.png', headline='Fetch a micro service')
 
-		home-card(data-ref='/post/IDE/', data-img='/post/IDE/DaaS.png', data-headline='IDE')
+		home-card(ref='/post/IDE/', img='/post/IDE/DaaS.png', headline='IDE')
 
-		home-card(data-ref='/post/seo/', data-img='/post/seo/setup.png', data-headline='SEO')
+		home-card(ref='/post/seo/', img='/post/seo/setup.png', headline='SEO')
 
-		home-card(data-ref='/post/SPA/', data-img='/post/SPA/SPA.png', data-headline='SPA')
+		home-card(ref='/post/SPA/', img='/post/SPA/SPA.png', headline='SPA')
 
-		home-card(data-ref='/post/useAd/', data-img='/post/useAd/chick.png', data-headline='Ad')
+		home-card(ref='/post/useAd/', img='/post/useAd/chick.png', headline='Ad')
 
-		home-card(data-ref='/post/vwall/', data-img='/post/vwall/players.png', data-headline='Video Wall')
+		home-card(ref='/post/vwall/', img='/post/vwall/players.png', headline='Video Wall')
 
-		home-card(data-ref='/post/amp/', data-img='/post/amp/amp.jpg', data-headline='AMP')
+		home-card(ref='/post/amp/', img='/post/amp/amp.jpg', headline='AMP')
 
-	script(type='riot/tag', src='/_compHost/home-card.html')
+	script(type='riot/tag', src='/_uiComps/home-card.html')
 	script.
 		function init() {
 			riot.compile(function(){ // make component, and wait for it
 				var comps = riot.mount('home-card')
-			})//compile
+			})//r
 		}//init
 		A.onLoaded(init)
 
