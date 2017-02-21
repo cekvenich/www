@@ -1,7 +1,12 @@
+extends  ../../_part/_baseShellS
 
-extends  ../../_part/_shellA-base
+block head
+	include ../../_part/_headerS
 
-block content
+block top
+	include ../../_part/_topS
+
+block main
 	style.
 		input[type=image], .gsc-search-button-v2 {
 			height: 29px;
@@ -34,4 +39,4 @@ block content
 		A.onLoaded(init)
 
 block footer
-	include  ../../_part/_footer
+	include ../../_part/_footerS

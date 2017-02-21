@@ -51,42 +51,41 @@
         </nav>
       </div>
       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic&amp;lang=en">
-      <div id="content-wrapper0"> 
-        <div id="content-wrapper">
-          <div class="mui-container-fluid"><h1 id="these-are-some-nice-looking-web-apps-that-i-found">These are some nice looking web-apps that I found</h1>
+      <div id="content-wrapper0"> </div>
+      <div id="content-wrapper">
+        <div class="mui-container-fluid"><h1 id="these-are-some-nice-looking-web-apps-that-i-found">These are some nice looking web-apps that I found</h1>
 
-            <style>
-              .wall {
-              	display: flex;
-              	flex-wrap: wrap;
-              }
-              
-            </style>
-            <div class="wall">
-              <x-vid id="rmpArc" zid="rmpArc" bitrate1="//cdn-484996.c.cdn77.org/asites/arc.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-              <x-vid id="rmpLab" zid="rmpLab" bitrate1="//cdn-484996.c.cdn77.org/asites/lab.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-              <x-vid id="rmpChair" zid="rmpChair" bitrate1="//cdn-484996.c.cdn77.org/asites/chair.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-              <x-vid id="rmpTravel" zid="rmpTravel" bitrate1="//cdn-484996.c.cdn77.org/asites/travel.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-              <x-vid id="rmpShi" zid="rmpShi" bitrate1="//cdn-484996.c.cdn77.org/asites/shi.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-              <x-vid id="rmpTweet" zid="rmpTweet" bitrate1="//cdn-484996.c.cdn77.org/asites/tweet.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-              <x-vid id="rmpChild" zid="rmpChild" bitrate1="//cdn-484996.c.cdn77.org/asites/child.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-              <x-vid id="rmpVw2" zid="rmpVw2" bitrate1="//cdn-484996.c.cdn77.org/asites/vw2.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-              <x-vid id="rmpPress" zid="rmpPress" bitrate1="//cdn-484996.c.cdn77.org/asites/press.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-            </div>
+          <style>
+            .wall {
+            	display: flex;
+            	flex-wrap: wrap;
+            }
+            
+          </style>
+          <div class="wall">
+            <x-vid id="rmpArc" zid="rmpArc" bitrate1="//cdn-484996.c.cdn77.org/asites/arc.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpLab" zid="rmpLab" bitrate1="//cdn-484996.c.cdn77.org/asites/lab.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpChair" zid="rmpChair" bitrate1="//cdn-484996.c.cdn77.org/asites/chair.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpTravel" zid="rmpTravel" bitrate1="//cdn-484996.c.cdn77.org/asites/travel.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpShi" zid="rmpShi" bitrate1="//cdn-484996.c.cdn77.org/asites/shi.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpTweet" zid="rmpTweet" bitrate1="//cdn-484996.c.cdn77.org/asites/tweet.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpChild" zid="rmpChild" bitrate1="//cdn-484996.c.cdn77.org/asites/child.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpVw2" zid="rmpVw2" bitrate1="//cdn-484996.c.cdn77.org/asites/vw2.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+            <x-vid id="rmpPress" zid="rmpPress" bitrate1="//cdn-484996.c.cdn77.org/asites/press.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
           </div>
-          <script>
-            function initVL() {
-            	riot.compile(function(){ // make component, and wait for it
-            		console.log('x-vic')
-            		var comps = riot.mount('x-vid')
-            	})//r
-            }//()
-            
-            A.onLoaded(initVL)
-            
-            
-          </script>
         </div>
+        <script>
+          function initVL() {
+          	riot.compile(function(){ // make component, and wait for it
+          		console.log('x-vic')
+          		var comps = riot.mount('x-vid')
+          	})//r
+          }//()
+          
+          A.onLoaded(initVL)
+          
+          
+        </script>
       </div>
     </div>
     <p><br></p>

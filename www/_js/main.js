@@ -25,30 +25,26 @@ loadjs.ready(['dependencyNotChrome', 'keyLibs'], {// loaded setup libs
 
 //====================================================================
 function startApp(){
-	$('#navPrev').click(function(e) { 
-		console.log('#navPrev')
-		toggleSide()
-	})
-	// READY ///////////////////////////////////////////////////////////
-	A.loaded=true
-	A.act(A.LOADED)
 	
-	//>===============================================================
 	function toggleSide(){
 		console.log('tog')
 		var $sidedrawer=$('#sidedrawer')
 		$sidedrawer.toggleClass('active')
 	}
 	function initSideDraw() {
-		console.log('initSD')
 		setTimeout(function(){
 			$('#brand').on('click', toggleSide)
 			$('#sidedrawer').on('click', toggleSide)
+			console.log('initSD')
+
 		}, 200)
 	}
 	initSideDraw()
+	// READY ///////////////////////////////////////////////////////////
+	A.loaded=true
+	A.act(A.LOADED)
 
-	console.log('v17.02a')
+	console.log('v17.021a')
 	//>SS======================================================
 	let ssoptions={
 		debug: true,
@@ -64,7 +60,7 @@ function startApp(){
 				A.inAction=true
 
 				pgSplit($('#content-wrapper'), 450 )
-				//$('#content-wrapper1').fadeTo(1000/60,.2)
+				$('#content-wrapper').fadeTo(1000/60,.2)
 
 			}//r
 		},//onS
@@ -73,7 +69,8 @@ function startApp(){
 			render: function ($container, $newContent) {
 				$('#content-wrapper').replaceWith($newContent.last())
 				//$container.html($newContent)
-				//$('content-wrapper1').fadeTo(1000/30,1)
+				$('content-wrapper').fadeTo(1000/30,1)
+				initSideDraw()
 
 				A.act(A.PAGE)// main action
 				A.inAction= false
