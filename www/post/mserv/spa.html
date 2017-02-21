@@ -18,10 +18,6 @@
     <script type="riot/tag" src="/_uiComps/home-card.html"></script>
     <script type="riot/tag" src="/_uiComps/x-vid.html"></script>
     <div id="ss1">
-      <script type="text/javascript">
-        document.body.style.opacity = '0.7'
-        
-      </script>
       <nav class="mui-container-fluid mui--no-user-select" id="appbar">
         <table width="100%">
           <tr>
@@ -55,9 +51,9 @@
         </nav>
       </div>
       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic&amp;lang=en">
-      <div id="content-wrapper0"> </div>
-      <div id="content-wrapper">
-        <div class="mui-container-fluid"><h1 id="fetch-and-middleware-api-microservices">Fetch and Middleware API/MicroServices</h1>
+      <div id="content-wrapper0"> 
+        <div id="content-wrapper">
+          <div class="mui-container-fluid"><h1 id="fetch-and-middleware-api-microservices">Fetch and Middleware API/MicroServices</h1>
 <p>Here we will fetch() and use a middleware API. Fetch() is the new js API that replaces Ajax/XHR. For older browsers it has a polyfill listed on CanIUse.com.</p>
 <h2 id="0-warm-up-deploy-to-cloud-">0. (Warm up) Deploy to cloud.</h2>
 <p>Running your own back end or database software is not a good practice. There are many back end providers for Node+Express and database api: Firebase, Backendless, AWS and Google Cloud. You choice may depends on what back end you will need, as each cloud has a different back end offering. For example, do you like GAE BigQuery/DataStore or AWS Simple DB offerings. You can use any cloud/BaaS that you like, but avoid hosting your own servers, ex: Mongo in the cloud - where you have to scale or secure it. Much better to Bass</p>
@@ -129,15 +125,16 @@ And our back end:</p>
 <h4 id="tst">Tst</h4>
 <p>Cekvenich Crkvencic Vic</p>
 
+          </div>
+          <script>
+            function init() {
+            }
+            
+            A.onLoaded(init)
+            
+            
+          </script>
         </div>
-        <script>
-          function init() {
-          }
-          
-          A.onLoaded(init)
-          
-          
-        </script>
       </div>
     </div>
     <p><br></p>

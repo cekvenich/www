@@ -18,10 +18,6 @@
     <script type="riot/tag" src="/_uiComps/home-card.html"></script>
     <script type="riot/tag" src="/_uiComps/x-vid.html"></script>
     <div id="ss1">
-      <script type="text/javascript">
-        document.body.style.opacity = '0.7'
-        
-      </script>
       <nav class="mui-container-fluid mui--no-user-select" id="appbar">
         <table width="100%">
           <tr>
@@ -55,9 +51,9 @@
         </nav>
       </div>
       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic&amp;lang=en">
-      <div id="content-wrapper0"> </div>
-      <div id="content-wrapper">
-        <div class="mui-container-fluid"><h1 id="data-binding">Data Binding</h1>
+      <div id="content-wrapper0"> 
+        <div id="content-wrapper">
+          <div class="mui-container-fluid"><h1 id="data-binding">Data Binding</h1>
 <p>One of the things that nodes has over JSP/ASP/PHP and such is that you can reuse more front end/browser and server side code. And data binding is one of key skills to have. </p>
 <h3 id="prerequesites">Prerequesites</h3>
 <p>Surprisingly, this exercise can be a broad topic. In this case, I need you to know how to do pre-processing before starting, learned elsewhere. For example Sass and Pug (found in CodePen and lots of google github examples). Learning pre-processing allows us to manage the potential of sprawl. 
@@ -124,15 +120,16 @@ Notice on the far left of the image we have index.js, that we run via:</p>
 I suggest you avoid data binding libraries that only do one or the other. </p>
 <p>There are component libraries that do data binding, they require you to write a component if you want to do data binding. I suggest you use components for re-use and encapsulation of UI. If it does not work in a plain page, it won&#39;t work well when you make it re-usable. (there is an article here on proper use of standard web components)</p>
 
+          </div>
+          <script>
+            function init() {
+            }
+            
+            A.onLoaded(init)
+            
+            
+          </script>
         </div>
-        <script>
-          function init() {
-          }
-          
-          A.onLoaded(init)
-          
-          
-        </script>
       </div>
     </div>
     <p><br></p>
