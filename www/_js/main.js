@@ -44,7 +44,7 @@ function startApp(){
 	A.loaded=true
 	A.act(A.LOADED)
 
-	console.log('v17.022a')
+	console.log('v17.02a')
 	//>SS======================================================
 	let ssoptions={
 		debug: true,
