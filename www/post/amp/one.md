@@ -5,7 +5,7 @@ AMP is somehow viewed as hard. If you do social meta tags used for SEO, it shoul
 Mostly you'd start w/ a SPA page, a regular page, that you also want to have an AMP version of.
 
 ### Deciding what to serve
-Some sites have a m. subdomain, where they server mobile version of their site - the server code sould be similar. You'd write a node module like this to decide if it it should render amp or spa version:
+Some sites have a m. subdomain, where they server mobile version of their site - the server code should be similar. You'd write a node module like this to decide if it it should render amp or spa version:
 
 	exports.filter = function (req, res, next) {
 		if (req.path.indexOf('.') !=-1) { // hasDot?
