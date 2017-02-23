@@ -4,14 +4,11 @@
 Preparation
 - Prerequisites review
 - Single page apps vs server-side web applications
-- Where Polymer fits in
-- Why Polymer
-- Data binding without Polymer
+- Data binding 
 
 Getting started
 - Arrow functions =>
-- Simplest Polymer App
-- Code Study: Polymer Demo Shop
+- Simplest App
 - CSS/Sass
 - In browser inspection tooling
 - Development tools for class use
@@ -41,8 +38,6 @@ Application flow
 - Url state and history
 - Loading assets
 
-Polymer Optimization
-- Smaller/faster
 
 
 
