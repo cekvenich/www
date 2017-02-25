@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" manifest="/cache.mf">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="/_sass/main.css" rel="stylesheet" type="text/css">
+    <script src="//cdn.jsdelivr.net/js-signals/1.0.0/signals.min.js" type="text/javascript"></script>
+    <script src="/zCDN/libJs/loadjs.min.js" type="text/javascript"></script>
+    <script src="/zCDN/libJs/bowser.min.js" type="text/javascript"></script>
+    <script src="/_js/setup.js" type="text/javascript"></script>
+    <script src="/_js/main.js" async="" type="text/javascript"></script>
+    <meta name="description" content="">
+    <script>_loadStarted = (new Date()).getTime()</script>
+  </head>
+</html>
+<body>
+  <script type="text/javascript">
+    document.body.style.opacity = '0.7'
+    
+  </script>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic&amp;lang=en">
+  <div id="ss1">
+    <nav class="mui-container-fluid mui--no-user-select" id="appbar">
+      <table width="100%">
+        <tr>
+          <td>
+            <div id="brand">☰ &nbsp;<span class="mui--hidden-xs">Massons-Foundation.org</span><a href="https://www.masons-foundation.org/home/feed/" id="navPrev"> &nbsp; ☚ &nbsp;</a></div>
+          </td>
+          <td class="mui--text-right">
+            <ul class="mui-list--inline" id="menu">
+              <li class="mui--hidden-xs"><a class="mui--hidden-xs" href="/train/bestWComps/">Home</a></li>
+              <li class="mui--hidden-xs"><a class="mui--hidden-xs" href="/train/schedule/">Schedule</a></li>
+              <li><a href="/home/feed/">Feed</a></li>
+              <li><a href="/home/fts/">Search</a></li>
+              <li>&nbsp;</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </nav>
+    <div id="sidedrawer">
+      <nav class="mui--no-user-select" id="sidenav">
+        <h2>
+          <div class="mui--text-title" id="sidedrawer-brand">☰ &nbsp; Massons</div>
+        </h2>
+        <div class="mui-divider"></div>
+        <ul class="mui-list--unstyled" id="sidenavstrong">
+          <li><a href="/train/bestWComps/">Home</a></li>
+          <li><a href="/train/schedule/">Schedule</a></li>
+          <li><a href="/home/feed/">Feed</a></li>
+          <li><a href="/home/fts/">Search</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="content-wrapper0"></div>
+    <div id="content-wrapper">
+      <div class="mui-container-fluid"><h1 id="component-based-web-app-development">Component based (Web-App) Development</h1>
+<p>By using components or custom tags, we can develop more complex applications that are easier to maintain. The page markup looks cleaner, and the components|tags are reusable. One example project: <a href="http://github.com/Polymer/shop">http://github.com/Polymer/shop</a>. There are several DOM/markup based components|tags choices, such as HTML standard web components, RIOT, and finally, Polymer. There are other choices that are not DOM/markup based that use Javascript. (Ex: React, Angular, Vue). I find Javascript-based components harder for designers and harder to style. So we do want the Web-App to look nice, so the  tutorial here is Polymer based, the one that is easiest to adopt and maintain.</p>
+<h3 id="1-webmaster">1. WebMaster</h3>
+<p>We need an IDE such as VS Code (or CodeAnywhere), and a localhost web server. I use &#39;WebServer for Chrome&#39; (or Site44.com ). Download a simple component
+ <a href="http://murder.site44.com/_compHost/small-block.html">http://murder.site44.com/_compHost/small-block.html</a>.
+Put that small-block.html file in a folder. And create a blank index.html in that folder. Serve that folder from web server. (ex: &#39;WebServer for Chrome&#39;). Open that server (ex: <a href="http://127.0.0.1:8887">http://127.0.0.1:8887</a> ) in browser and display &#39;developer tools&#39; in your browser.</p>
+<p>(If you want to make Polymer components folder: npm install -g polymer-cli;  polymer init starter-kit; and delete what you don&#39;t need )</p>
+<h3 id="2-use-a-component-from-a-page-">2. Use a component (from a page)</h3>
+<p>Components|tags have two parts: 1) using one from a page and 2) the component itself. Anyone can or should be able to use a component - that is the point of it. So a good idea to learn how to use one first. Here we make an index.html, and in <code>&lt;head&gt;</code> you&#39;ll need a bit of code:</p>
+<pre><code>&lt;script src=&#39;/_compHost/webcomponentsjs/webcomponents-lite.js&#39;&gt;&lt;/script&gt;
+&lt;link rel=&#39;import&#39; href=&#39;/_compHost/polymer/polymer.html&#39;&gt;
+
+&lt;link rel=&quot;import&quot; href=&quot;/_compHost/small-block.html&quot;&gt;
+</code></pre><p>Load your tags in head. 
+(We can get the two files from Polymer main page as download or if you have to: via bower, we just need those two folders)
+In <code>&lt;body&gt;</code> you can use a pre-existing tag:</p>
+<pre><code>&lt;div&gt;
+    &lt;small-block id=&#39;b1&#39; bkimg=&#39;index.jpg&#39; titl=&#39;Item: one&#39;&gt;&lt;/small-block&gt;
+&lt;/div&gt;
+</code></pre><p>You can see the main part in body, we use the component <code>&lt;small-block&gt;</code>.
+We pass some arguments to the component:  bkimg=&quot;/post/one/index.jpg&quot; titl=&quot;Item: One&quot;.</p>
+<p>So that is how you use it. Everyone on the team should know how to use a component. And if you want to learn how to make one, I suggest you first learn how to use one from a page first, before your start making components. Here is the full html: <a href="https://murder.site44.com/home/compEx/first.html">https://murder.site44.com/home/compEx/first.html</a> - view source, and copy, to get it to work in your local environment.</p>
+<h3 id="3-draft-a-component">3. Draft a component</h3>
+<p>Some on your dev team should know how to make a component. Also this is good thing to outsource - as web components don&#39;t call data, that gets pass in. Lets go. Here we first get our html block to work normally, without any component code, just on a page. If it does not work in plain html, it won&#39;t start working once you make it a component. You can go to <a href="https://murder.site44.com/home/compEx/index0.html">https://murder.site44.com/home/compEx/index0.html</a> and view source of a normal code - before we make it a component:</p>
+<pre><code>    &lt;style&gt;
+    .small-block {
+        min-width: 350px;
+        min-height: 250px;
+        position: relative;
+        overflow: hidden;
+        background-color: LightGrey;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 350%;
+        transition: .3s;
+    }
+    .small-block .small-block__stripe {
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .small-block .small-block__headline {
+        line-height: 40px;
+        font-size: 30px;
+        color: white;
+        margin: 10px;
+        margin-top: 5px;
+    }
+    .small-block:hover {
+        background-size: 370%;
+        transition: .4s;
+    }
+    &lt;/style&gt;
+    &lt;a href=&quot;/post/one&quot;&gt;
+        &lt;div class=&quot;small-block&quot; style=&quot;background-image: url(/post/one/index.jpg)&quot;&gt;
+            &lt;div class=&quot;small-block__stripe&quot;&gt;
+                &lt;div class=&quot;small-block__headline&quot;&gt;Item: One&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;/post/two&quot;&gt;
+        &lt;div class=&quot;small-block&quot; style=&quot;background-image: url(/post/two/index.jpg)&quot;&gt;
+            &lt;div class=&quot;small-block__stripe&quot;&gt;
+                &lt;div class=&quot;small-block__headline&quot;&gt;Item: Two&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/a&gt;
+</code></pre><p>Our component block has a few lines of DOM, and it has style, and on hover it zooms in.</p>
+<p>Lets see if you can copy the source from <a href="https://murder.site44.com/home/compEx/index0.html">https://murder.site44.com/home/compEx/index0.html</a> and get it to work w/o any component code first - in your local environment. After it works normally: then we make a part into a component.</p>
+<h3 id="4-make-your-first-component-comp">4. Make your first component|comp</h3>
+<p>Now that you have a block of DOM, create an empty .html file.</p>
+<p>You have already download a tag file, now you can edit it.</p>
+<pre><code>&lt;dom-module id=&#39;small-block&#39;&gt;
+&lt;template&gt;
+&lt;style&gt;
+    :host {
+        background: gray;
+    }
+    .small-block {
+        width: 350px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 350%;
+        transition: .3s;
+    }
+    .small-block .small-block__stripe {
+        width: 100%;
+        height: 50px;
+        margin-top: 200px;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .small-block .small-block__headline {
+        line-height: 40px;
+        font-size: 30px;
+        color: white;
+        margin: 10px;
+        margin-top: 5px;
+    }
+    .small-block:hover {
+        background-size: 370%;
+        transition: .4s;
+    }
+&lt;/style&gt;
+
+&lt;div class=&#39;small-block&#39; style=&#39;background-image: url({{ bkimg }})&#39;&gt;
+    &lt;div class=&#39;small-block__stripe&#39;&gt;
+        &lt;div class=&#39;small-block__headline&#39;&gt; {{ titl }} &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/template&gt;
+&lt;script&gt;
+    Polymer.log = console.log.bind(console)
+    Polymer({
+        is: &#39;small-block&#39;
+
+    })
+&lt;/script&gt;
+
+&lt;/dom-module&gt;
+</code></pre><p>In addition to the style, we have some non standard DOM, ex:: <code>{{ bkimg }}</code>. 
+That is for properties passed in.</p>
+<p>Now you can glance the docs on Polymer web site to learn more. I found it best to use B.E.M. naming w/ components and make blocks (B of BEM) into component. Welcome to the world of component based development.</p>
+<h3 id="5-make-a-data-binding-comp">5. Make a data binding comp</h3>
+<p>Once you have some experience and created a few components, you try to do something more. Lets says you use a data-binding library. There are many, one of them is <a href="http://listjs.com/docs">http://listjs.com/docs</a>.
+You can follow the same pattern we have here, first get it to work with out any component|tag
+code. Ex, view source: <a href="http://cekvenich.site44.com/post/datab/index0.html">http://cekvenich.site44.com/post/datab/index0.html</a>.</p>
+<pre><code>    &lt;ul class=&quot;list&quot;&gt;&lt;/ul&gt;
+    &lt;script&gt;
+      var options = {
+        valueNames: [ &#39;name&#39;, &#39;born&#39; ],
+        item: &#39;&lt;li&gt;&lt;h3 class=&quot;name&quot;&gt;&lt;/h3&gt;&lt;p class=&quot;born&quot;&gt;&lt;/p&gt;&lt;/li&gt;&#39;
+      }
+
+      var values = [
+        {
+            name: &#39;Jonny Strömberg&#39;,
+            born: 1986
+        },
+        {
+            name: &#39;Jonas Arnklint&#39;,
+            born: 1985
+        },
+        {
+            name: &#39;Martina Elm&#39;,
+            born: 1986
+        }
+      ];
+
+      function init() {
+        console.log(&#39;i db&#39;)
+        var userList = new List(&#39;users&#39;, options, values);
+      }
+      if(_loaded) init()
+      else {
+        _stateA.addOnce(function(arg1, arg2) {
+            init()
+            return false
+        })
+        }
+    &lt;/script&gt;
+</code></pre><p>Once you are able to get data binding to work w/o component|tag, you can try to get it to work as a component. Here we just call a function. The solution: <a href="http://cekvenich.site44.com/post/datab/">http://cekvenich.site44.com/post/datab/</a> uses a component. If you view source, you can see the component(bind-list.html) file. Notice we are also using head.load to load the script and waiting for the event that all the needed scripts are loaded. (view /_js/main.js )</p>
+<pre><code>    &lt;link rel=&quot;import&quot; href=&quot;/_compHost/bind-list.html&quot;&gt;
+    &lt;/head&gt;&lt;body&gt;
+        &lt;bind-list&gt;&lt;/bind-list&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var data = [
+        {
+            name: &#39;Jonny Strömberg&#39;,
+            born: 1986
+        },
+        {
+            name: &#39;Jonas Arnklint&#39;,
+            born: 1985
+        },
+        {
+            name: &#39;Martina Elm&#39;,
+            born: 1986
+        }
+        ]
+
+        var bl = document.querySelector(&#39;bind-list&#39;)
+        bl.init(data) // data comes from page
+</code></pre><p>Note that you should <em>ALWAYS</em> pass data from page to the component - and not get the data from inside the component. One reason is that you will need to SEO your page, and SEO means ~no-script. Your tags should have style and interactivity, and encapsulate that.</p>
+<p>By using components, you simplify the DOM in page so that you can make the complex web-apps more maintainable. </p>
+<p>Also - if you do something more sophisticated, you can just use Web Componets directly. </p>
+
+      </div>
+    </div>
+  </div>
+  <p><br></p>
+  <footer id="footer">
+    <p></p>
+    <div class="mui-panel">
+      <div class="mui-container-fluid">
+        <div class="mui-row">
+          <div class="mui-col-sm-1 mui--hidden-xs"></div>
+          <div class="mui-col-sm-3 mui--hidden-xs"><a class="mui--hidden-xs" href="https://gitter.im/topseed-demos/Lobby">Forum </a></div>
+          <div class="mui-col-sm-3"><a href="https://amp.masons-foundation.org/home/contactUs/">ContactUs</a></div>
+          <div class="mui-col-sm-3 mui--pull-right mui--hidden-xs"><a class="mui--hidden-xs" href="https://github.com/topseed/topseed-demos">Site tech</a></div>
+          <div class="mui-col-sm-1 mui--hidden-xs"></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-82096733-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </footer>
+</body>
