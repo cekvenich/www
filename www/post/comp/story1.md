@@ -10,8 +10,9 @@ While you can do data binding via a component, you should first be comfortable o
 An example component would look like this.
 ![](/post/comp/compEx.png). If you are using BEM (<http://getbem.com/naming>) naming, then block size is a guide line. Also often times, a component is interactive. 
 
-Every year, there is a new web component library.
+Every year, there is a newly popular web component library in .js.
 ![](/post/comp/fail.gif).
 
 And you will mostly learn to use a few of them:
 ![](/post/comp/poly.png).
+
