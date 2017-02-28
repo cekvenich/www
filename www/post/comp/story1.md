@@ -1,18 +1,26 @@
-## Web components / Advanced with code example
+## Web Components / Advanced With Code Example
 
-In general, you should not be doing web components if your team has not mastered fundamentals of web development, else you'll get your project in trouble. So this content may not be for you.
+Your team is ready to look at web components if you have mastered the fundamentals of web development 
+(solid HTML5, CSS and JavaScript). If not, this content may not be for you.
 ![](/post/comp/3.png).
 
-### Background
+You should also have done databinding before if your component is to use databinding, and you may be
+familiar with: http://listjs.com and http://github.com/corinis/jsForm 
 
-While you can do data binding via a component, you should first be comfortable of doing data binding without components (ex: http://listjs.com and http://github.com/corinis/jsForm )
+### Introduction
 
-An example component would look like this.
-![](/post/comp/compEx.png). If you are using BEM (<http://getbem.com/naming>) naming, then block size is a guide line. Also often times, a component is interactive. 
+A good component may look something like this: 
+![](/post/comp/compEx.png). 
 
-Every year, there is a newly popular web component library in .js.
+A component should have more functionality than e.g. a single HTML button.
+You don't need a component if you can use just CSS to get your elements to do everything you need.
+Components are often interactive. If you use BEM naming (<http://getbem.com/naming>), 
+block size provides a good indication of whether you will want to create a component or not.
+Reuse is where components shine. 
+
+Every year brings new and instantly popular JavaScript web component libraries.
 ![](/post/comp/fail.gif).
 
-And you will mostly learn to use a few of them:
+Over time, you will probably learn a few of them:
 ![](/post/comp/poly.png).
 
