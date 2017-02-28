@@ -28,8 +28,7 @@ When doing mobile version of the page, such as AMP, you can use iframe, like the
 
 - Draft a working page w/o component first
 - Don't fetch data from component, fetch in page, and send to component
-- Page 'sets' data to component, component emits events to notify page
-- Encapsulate
+- Component emits events to notify page
 - Use BEM seized components.
 - To avoid page jank, try to size the component in the page CSS, and hide the component till ready.
 - Don't nest components
