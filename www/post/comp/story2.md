@@ -4,7 +4,7 @@ We will turn a "start rating" feature into a Web Component:
 - https://github.com/nashio/star-rating-svg
 
 First we draft a page without a component. Inspect it here:
-<https://1595566120.rsc.cdn77.org/post/comp/index0.html>
+<https://1595566120.rsc.cdn77.org/pages/comp/index0.html>
 
 Each star 'element' has an intial rating. You can mouse-over or click to change the rating.
 
@@ -14,7 +14,7 @@ Also see the calls to  $('#rating...').starRating('setRating', ...). They set in
 star elements.
 
 By using components we can develop interactive applications that are easier 
-to maintain. The compoment will encapsulate its code. As a result, the page markup will look cleaner 
+to maintain. The component will encapsulate its code. As a result, the page markup will look cleaner 
 and if done right, the component will be re-useable.
 
 RIOT.js is one of several web component libraries. We use it here because it is easy to learn. You can always
@@ -24,10 +24,10 @@ We want to be loosely coupled to the particular web component's library architec
 independent observer in case the web component needs to send a message to the containing page 
 (<http://github.com/millermedeiros/js-signals/wiki> )
 
-Now it's time to create the compontent with the RIOT syntax. View the HTML source of this URL to see the component code:
+Now it's time to create the component with the RIOT syntax. View the HTML source of this URL to see the component code:
 - <http://1595566120.rsc.cdn77.org/_uiComps/star-rating.html>
 
-And use it on a page: <https://1595566120.rsc.cdn77.org/post/comp/>
+And use it on a page: <https://1595566120.rsc.cdn77.org/pages/comp/>
 The page should be now easier to maintain. 
 
 To avoid page jank, we ensure that the component is not visible until ready. In this example 
@@ -38,6 +38,10 @@ This should get you on the road to mastery.
 ![](/post/comp/master.gif) 
 
 More on RIOT js: <http://channel9.msdn.com/Blogs/semjs/semjs20160411rio>
+
+When doing mobile version of the page, such as AMP, you can use iframes, like these guys did for example: 
+![](/post/comp/amp.png) 
+
 
 ### Best Practices and Conclusion
 
@@ -53,11 +57,6 @@ More on RIOT js: <http://channel9.msdn.com/Blogs/semjs/semjs20160411rio>
 10. Components should pick up the style of the page. When you put it on another web site it should look 'native'.
 11. UI Designer should implement the web components.
 
-When doing mobile version of the page, such as AMP, you can use iframes, like these guys did for example: 
-![](/post/comp/amp.png) 
 
-Keep in mind
-<http://codepen.io/AllThingsSmitty/pen/pNLVWm>
-Are you inspired?
 
 
