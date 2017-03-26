@@ -1,0 +1,23 @@
+CACHE MANIFEST
+# load stable assets once and freeze on client, even if asset changes, it won't ping
+
+#index assets
+https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js
+https://cdn.jsdelivr.net/riot/3.3.2/riot+compiler.min.js
+https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js
+https://cdn.jsdelivr.net/js-signals/1.0.0/signals.min.js
+
+https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js
+https://cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js
+https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js
+
+#video assets
+https://cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js
+https://cdn.radiantmediatechs.com/rmp/v4/latest/css/rmp-s1.min.css
+https://cdn.radiantmediatechs.com/rmp/rr/vgs.json
+https://www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg
+
+
+NETWORK:
+*
+

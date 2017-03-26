@@ -1,0 +1,35 @@
+<h1 id="s-p-a-single-page-applications-">S. P. A. (Single Page Applications)</h1>
+<p>Most Web Apps are being converted to SPA.</p>
+<p><img src="/post/SPA/SPA.png" alt=""></p>
+<h2 id="1-smoothstate-js">1. SmoothState.js</h2>
+<p>I use SmoothState.js </p>
+<p><img src="/post/SPA/ss.png" alt=""></p>
+<p>As you navigate, only a part of the page is loaded, and there is no flicker. Check their
+examaple <a href="https://rawgit.com/miguel-perez/smoothState.js/master/demos/barebones/index.html">https://rawgit.com/miguel-perez/smoothState.js/master/demos/barebones/index.html</a></p>
+<p>My basic code is this:</p>
+<pre><code>    onStart: {
+        duration: 50,
+        render: function (url, $container)  {
+            _stateA.dispatch(_PRE, window.location, $container)//*a
+            $(&#39;#content-wrapper&#39;).fadeTo(100,.2)
+        }
+    },
+    onReady: {
+        duration: 100,
+        render: function ($container, $newContent) {
+            $container.html($newContent) // VIEW!!!
+
+            $(&#39;#content-wrapper&#39;).fadeTo(200,1)
+
+            _stateA.dispatch(_stateA, window.location, $newContent)//*a
+
+        }//ren
+    }//ready()
+</code></pre><h2 id="2-spa-allows-for-page-transitions">2. SPA allows for page transitions</h2>
+<p>If you navigate <a href="https://www.masons-foundation.org/home/home2/">https://www.masons-foundation.org/home/home2/</a> you can see a page effect.
+Having interactive navigation makes the user more engaged with the content of your web app.</p>
+<h2 id="3-take-it-easy-on-yourself">3 Take it easy on yourself</h2>
+<p>Before SPA, you could use PHP|ASP|JSP or such to reuse code, such as top menu and footer.
+Now we use a concept of App-Shell:</p>
+<p><img src="/post/SPA/shell.png" alt=""></p>
+<p>And easy way to do that is via pug: <a href="https://www.youtube.com/watch?v=wzAWI9h3q18">https://www.youtube.com/watch?v=wzAWI9h3q18</a></p>
