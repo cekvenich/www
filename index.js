@@ -1,7 +1,7 @@
 'use strict'
 const express = require('express')
 const server = express()
-//const path = require('path')
+
 const fs = require('fs')
 const bodyParser = require('body-parser')
 server.use(bodyParser.json())
@@ -9,7 +9,8 @@ server.use(bodyParser.json())
 const cors = require('cors')
 const compression = require('compression')
 
-const Decider = require('./util/Decider')
+const Decider = require('./utils/Decider')
+const contPg = require('./route/contPg')
 
 server.use(cors())
 server.use(compression())
@@ -37,26 +38,18 @@ server.get('/post/amp0/', function (req, res) {
 })//()
 
 //front route: ////////////////
-const contPg = require('./route/contPg')
 server.use('/contPg', contPg) 
 
 // ###################### static
-const cms = require('./util/CMS')
-server.use('/ms', cms) 
-
 server.use(Decider.decide)
 server.use(express.static('www'))
 
 //###################### start the server
 const PORT1 = 8080
 server.listen(PORT1, '0.0.0.0', function() {
-	console.log('App listening on port')
+	console.log('App listening on port '+PORT1)
 	console.log('Press Ctrl+C to quit.')
 })
-const PORT2 = 8082
-server.listen(PORT2, '0.0.0.0', function() {
-	console.log('App listening on port')
-	console.log('Press Ctrl+C to quit.')
-})
+
 
 

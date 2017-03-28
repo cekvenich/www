@@ -1,14 +1,16 @@
+const express = require('express')
+const router = express.Router()
+
 const mapi_key = 'key-f1b2dcd4c4da8dba0d141870debd47a1'
 const mdomain = 'sandboxa69cff3f59b4431784370a43cf1afa32.mailgun.org'
 const mailgun = require('mailgun-js')({apiKey: mapi_key, domain: mdomain})
 
-const express = require('express')
-const router = express.Router()
-// /////////////////////////////////////////////////////
+const C = require('../config/ServerConfig')
+const ServerConfig = new C()
+const Util = require('topseed-util')
+const U = new Util() 
 
-function setNone(res) {
-	res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate')
-}
+// /////////////////////////////////////////////////////
 
 function sendContact(email, msg, phone) {
 	const mail = {
@@ -26,7 +28,6 @@ router.post('/contact', function (req, res) {
 	const dat = req.body
 	console.log(dat)
 	const pro = sendContact(dat.email, dat.msg, dat.phone)
-	setNone(res)
 
 	pro.then(function (data) {// wait for it to be sent then come back
 			//console.log(data)
