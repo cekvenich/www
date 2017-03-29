@@ -51,6 +51,8 @@ server.listen(PORT1, '0.0.0.0', function() {
 	console.log('App listening on port '+PORT1)
 	console.log('Press Ctrl+C to quit.')
 })
-
-
-
+const PORT2 = 8082
+server.listen(PORT2, '0.0.0.0', function() {
+	console.log('App listening on port ' +PORT2)
+	console.log('Press Ctrl+C to quit.')
+})

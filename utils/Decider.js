@@ -17,7 +17,10 @@ const AMP = 'indexA.html'
 function serveAmp(req) { // should we serve mobile/AMP
 	console.log(req.subdomains)
 	//if (req.path.startsWith('/home/')) return !ServerConfig.AMP_IS_LANDING
-	//if (req.socket.localPort == 8082) return ServerConfig.AMP_IS_LANDING
+	if (req.socket.localPort == 8082) return true
+		else 
+	return false
+
 	if (req.subdomains.indexOf(ServerConfig.WEB_SUBDOMAIN) > -1)  return ServerConfig.AMP_IS_LANDING
 	if (req.subdomains.indexOf(ServerConfig.AMP_SUBDOMAIN) > -1)  return true
 	if (req.query.w == '1') return false
