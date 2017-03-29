@@ -1,17 +1,17 @@
 const express = require('express')
 const router = express.Router()
 
-const mapi_key = 'key-f1b2dcd4c4da8dba0d141870debd47a1'
-const mdomain = 'sandboxa69cff3f59b4431784370a43cf1afa32.mailgun.org'
-const mailgun = require('mailgun-js')({apiKey: mapi_key, domain: mdomain})
-
-const C = require('../config/ServerConfig')
-const ServerConfig = new C()
 const Util = require('topseed-util')
 const U = new Util() 
 
-// /////////////////////////////////////////////////////
+const C = require('../config/ServerConfig')
+const ServerConfig = new C()
 
+const mailgun = require('mailgun-js')({apiKey: ServerConfig.mapi_key, domain: ServerConfig.mdomain})
+
+
+
+// /////////////////////////////////////////////////////
 function sendContact(email, msg, phone) {
 	const mail = {
 		from: 'Excited User <me@samples.mailgun.org>',

@@ -29,9 +29,10 @@ console.log('AF v17.021a')
 exports.decide = function (req, res, next) {
 	res.header('X-TimeSent', U.getDt() )
 	U.cacheLong(res) // default is long, later we set to quick if needed
-	//console.log('Decider ->')
 	
-	if (req.path.indexOf('.') >0 ) { // hasDot?
+	console.log(req.path)
+
+	if (req.path.indexOf('.') > 0 ) { // hasDot?
 		next() // it is a static asset, ex: .jpg, .css
 	} else { // no dot, it is a path:
 		try {
