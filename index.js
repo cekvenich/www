@@ -42,8 +42,7 @@ server.use('/contPg', contPg)
 
 // ###################### static
 server.use(Decider.decide)
-console.log('next')
-server.use(express.static('www'))
+server.use(express.static('webroot'))
 
 //###################### start the server
 const PORT1 = 8080
