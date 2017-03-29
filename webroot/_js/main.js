@@ -3,7 +3,8 @@
 loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 	success: function(){
 	loadjs([
-		'https://cdn.rawgit.com/topseed/topseed-npm/master/v1/deps/jquery.smoothState.js',
+		'https://cdn.rawgit.com/topseed/topseed-npm/master/v1/deps/jquery.smoothState.js'
+		, 'https://cdn.rawgit.com/topseed/topseed-npm/master/v1/deps/riot_compiler.min.js'
 
 		//dbind:
 		,'/_js/libJs/jquery.jsForm.min.js'
@@ -76,11 +77,5 @@ function startApp(){
 //====================================================================
 
 function setupFlick() {
-	console.log('flick')
-	var mainEl = document.getElementById('content-wrapper');
-	var ztReg1 = new ZingTouch.Region(mainEl)
-	ztReg1.bind(mainEl, 'tap', function(sw){
-		console.log(sw)
-	}, false);
 
 }
