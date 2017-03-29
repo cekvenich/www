@@ -25,7 +25,7 @@ function serveAmp(req) { // should we serve mobile/AMP
 }
 
 //**************** */
-console.log('AF v17.021a')
+console.log('v17.03')
 exports.decide = function (req, res, next) {
 	res.header('X-TimeSent', U.getDt() )
 	U.cacheLong(res) // default is long, later we set to quick if needed
@@ -36,6 +36,7 @@ exports.decide = function (req, res, next) {
 		next() // it is a static asset, ex: .jpg, .css
 	} else { // no dot, it is a path:
 		try {
+			console.log('in decider')
 			var agent = useragent.lookup(req.headers['user-agent'])
 			console.log(agent.toAgent())
 			res.header('Content-Type', 'text/html')

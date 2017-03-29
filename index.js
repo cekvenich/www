@@ -42,6 +42,7 @@ server.use('/contPg', contPg)
 
 // ###################### static
 server.use(Decider.decide)
+console.log('next')
 server.use(express.static('www'))
 
 //###################### start the server
