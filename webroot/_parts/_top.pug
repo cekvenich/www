@@ -1,4 +1,3 @@
-
 nav#appbar.mui-container-fluid.mui--no-user-select
 	table(width='100%')
 		tr
@@ -7,19 +6,20 @@ nav#appbar.mui-container-fluid.mui--no-user-select
 					span.mui--hidden-xs Massons-Foundation.org
 			td.mui--text-right
 				ul#menu.mui-list--inline
-					li.mui--hidden-xs
-						a(href='/home/feed/') Feed
+					li
+						a(href='/home/feed/') Home
 					li
 						a(href='/home/fts/') Search
 					li &nbsp;
 
-#sidedrawer
+#sidedrawer.mui--z1
 	nav#sidenav.mui--no-user-select
-		h2
-			#sidedrawer-brand.mui--text-title ☰ &nbsp; Massons
+		a#sidedrawer-brand(href='#') ☰  &nbsp;
+			span Massons
 		.mui-divider
 		ul.mui-list--unstyled#sidenavstrong
 			li
-				a(href='/home/feed/') Feed
+				a(href='/home/feed/') Home
 			li
 				a(href='/home/fts/') Search
+
