@@ -9,9 +9,10 @@ server.use(bodyParser.json())
 server.use(cors())
 server.use(compression())
 
-const scribe = require('scribe-js')()
+const scribe = require('scribe-js')({ })
+
 const console = process.console
-server.use(scribe.express.logger()) //Log each request
+//server.use(scribe.express.logger()) //Log each request for now
 server.use('/logs', scribe.webPanel())
 const debug = require('debug')('my-app')
 debug('oh hi')

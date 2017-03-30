@@ -15,7 +15,7 @@ const SPA = 'index.html'
 const AMP = 'indexA.html'
 
 function serveAmp(req) { // should we serve mobile/AMP
-	console.log(req.subdomains)
+	console.log('subs',req.subdomains)
 	//if (req.path.startsWith('/home/')) return !ServerConfig.AMP_IS_LANDING
 	if (req.socket.localPort == 8082) return true
 		else 
@@ -49,7 +49,7 @@ exports.decide = function (req, res, next) {
 			const pgPath = U.getPath(ROOT,req)
 			const isAmp = serveAmp(req)
 
-			console.log(isAmp+'found '+pgPath)
+			console.log('amp',isAmp,'path ',pgPath)
 
 			if (isAmp && fs.existsSync(pgPath + AMP)) { //AMP
 				U.cacheQuick(res)
