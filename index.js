@@ -1,20 +1,23 @@
 'use strict'
-
 const express = require('express')
 const server = express()
-
 const fs = require('fs')
 const bodyParser = require('body-parser')
-server.use(bodyParser.json())
-
 const cors = require('cors')
 const compression = require('compression')
+server.use(bodyParser.json())
+server.use(cors())
+server.use(compression())
+
+const scribe = require('scribe-js')()
+const console = process.console
+server.use(scribe.express.logger()) //Log each request
+server.use('/logs', scribe.webPanel())
+const debug = require('debug')('my-app')
+debug('oh hi')
 
 const Decider = require('./utils/Decider')
 const contPg = require('./route/contPg')
-
-server.use(cors())
-server.use(compression())
 
 // ###################### dynamic data for some pgs here:
 server.get('/post/amp0/', function (req, res) {
