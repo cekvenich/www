@@ -17,17 +17,17 @@
 		, "body-parser": ">=1.1"
 		, "is_js": ">=0.9"
 		, "useragent": ">=2.1"
-		, "bugsnag": ">=1.9"
 		, "riot": ">=3.2"
 		, "cheerio": ">=0.22"
+		, "scribe-js": ">=2.0"
+		, "debug": ">=2.6"
+		, "bugsnag": ">=1.9"
 		, "node-fetch": ">=1.6"
 		, "topseed-util": "=1.0.3"
 
-		, "node-fetch": ">=1.6"
 		, "jsonwebtoken": ">= 7.2"
 		, "mailgun-js": ">=0.8"
 		, "@google-cloud/datastore": ">=0.6"
-
 
 	}
 }
