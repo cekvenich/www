@@ -1,5 +1,4 @@
 const fs = require('fs')
-const useragent = require('useragent')
 const isj = require('is_js')
 const Util = require('topseed-util')
 const U = new Util() 
@@ -7,7 +6,6 @@ const U = new Util()
 const C = require('../config/ServerConfig')
 const ServerConfig = new C()
 
-useragent(true)
 
 // ###################### middle filter
 const ROOT = './' + ServerConfig.WEBROOT
@@ -41,9 +39,14 @@ exports.decide = function (req, res, next) {
 		next() // it is a static asset, ex: .jpg, .css
 	} else { // no dot, it is a path:
 		try {
-			//console.log('in decider')
-			var agent = useragent.lookup(req.headers['user-agent'])
+
+			console.log(req.socket.localPort)
+			console.log(U.getAgent(req))
+
+
 			//console.log(agent.toAgent())
+			
+
 			res.header('Content-Type', 'text/html')
 
 			const pgPath = U.getPath(ROOT,req)

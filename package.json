@@ -16,7 +16,6 @@
 		, "compression": ">=1.6"
 		, "body-parser": ">=1.1"
 		, "is_js": ">=0.9"
-		, "useragent": ">=2.1"
 		, "riot": ">=3.4"
 		, "cheerio": ">=0.22"
 		, "moment": ">=2.18"
@@ -24,7 +23,7 @@
 		, "debug": ">=2.6"
 		, "bugsnag": ">=1.9"
 		, "node-fetch": ">=1.6"
-		, "topseed-util": "=1.0.6"
+		, "topseed-util": "=1.0.7"
 
 		, "jsonwebtoken": ">= 7.2"
 		, "mailgun-js": ">=0.8"
