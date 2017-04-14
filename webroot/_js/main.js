@@ -27,18 +27,17 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 	}//suc
 })
 
-//====================================================================
+//==========================================================
 function startApp(){
 
 	A.loaded=true
 	A.act(A.LOADED)
 
-	console.log('v17.03a')
-	//>SS======================================================
+	//>SS==================================================
 	var ssoptions={
 		debug: true,
 		prefetch: true,
-		cacheLength: 3,
+		cacheLength: 2,
 		repeatDelay: 450,
 
 		onStart: {
@@ -48,7 +47,7 @@ function startApp(){
 				A.act(A.PRE) //action
 				A.inAction=true
 
-				pgSplit($('#content-wrapper'), 450 )
+				//pgSplit($('#content-wrapper'), 450 )
 				$('#content-wrapper').fadeTo(1000/60,.2)
 
 			}//r
@@ -56,8 +55,8 @@ function startApp(){
 		onReady: {
 			duration: 0,
 			render: function ($container, $newContent) {
-				$('#content-wrapper').replaceWith($newContent.last())
-				//$container.html($newContent)
+				//$('#content-wrapper').replaceWith($newContent.last())
+				$container.html($newContent)
 				$('content-wrapper').fadeTo(1000/30,1)
 
 				A.act(A.PAGE)// main action
@@ -74,7 +73,7 @@ function startApp(){
 	var endTime = (new Date()).getTime() - _loadStarted
 	console.log('load time ' + endTime)
 }//startApp()
-//====================================================================
+//==========================================================
 
 function setupFlick() {
 
