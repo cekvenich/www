@@ -1,10 +1,7 @@
-extends  ../../_parts/_baseShell
+extends  ../../_part/_baseShell
 
 block head
-	include ../../_parts/_header
-
-block top
-	include ../../_parts/_top
+	include ../../_part/_header
 
 block main
 	.mui-container-fluid
@@ -18,8 +15,6 @@ block main
 		home-card(ref='/post/dBind/', img='/post/dBind/layout.png', headline='Data Binding a List')
 
 		home-card(ref='/post/mserv/', img='/post/mserv/rest_test.png', headline='Fetch a micro service')
-
-		home-card(ref='/post/IDE/', img='/post/IDE/DaaS.png', headline='IDE')
 
 		home-card(ref='/post/seo/', img='/post/seo/setup.png', headline='SEO')
 
@@ -41,4 +36,4 @@ block main
 		A.onLoaded(initHF)
 
 block footer
-	include ../../_parts/_footer
+	include ../../_part/_footer
