@@ -47,7 +47,7 @@ function startApp(){
 				A.act(A.PRE) //action
 				A.inAction=true
 
-				//pgSplit($('#content-wrapper'), 450 )
+				pgSplit($('#content-wrapper'), 450 )
 				$('#content-wrapper').fadeTo(1000/60,.2)
 
 			}//r
@@ -55,8 +55,9 @@ function startApp(){
 		onReady: {
 			duration: 0,
 			render: function ($container, $newContent) {
-				//$('#content-wrapper').replaceWith($newContent.last())
-				$container.html($newContent)
+				console.log('here')
+				$('#content-wrapper').replaceWith($newContent.last())
+				//$container.html($newContent)
 				$('content-wrapper').fadeTo(1000/30,1)
 
 				A.act(A.PAGE)// main action
