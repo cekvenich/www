@@ -3,7 +3,7 @@
 console.log('split loaded')
 //====================================================================
 function pgSplit($cont_, speed) {
-	console.log('spliting:')
+	//console.log('spliting:')
 	$('#content-wrapper').fadeTo(1,.2)//hide
 	$('#content-wrapper').fadeTo(speed/2,1)
 	//$cont_.css('height', $(document).height())

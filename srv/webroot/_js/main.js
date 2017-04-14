@@ -55,8 +55,7 @@ function startApp(){
 		onReady: {
 			duration: 0,
 			render: function ($container, $newContent) {
-				console.log('here')
-				$('#content-wrapper').replaceWith($newContent.last())
+				$('#content-wrapper').replaceWith($newContent)
 				//$container.html($newContent)
 				$('content-wrapper').fadeTo(1000/30,1)
 
