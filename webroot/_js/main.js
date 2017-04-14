@@ -18,7 +18,7 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 
 		], { success: function(){
 			console.log('loaded libs')
-			Bugsnag.apiKey = 'd69b92d5cad0a35d9ae02d108b071688'
+			//Bugsnag.apiKey = 'd69b92d5cad0a35d9ae02d108b071688'
 			//Bugsnag.notify('ErrorName', 'Test Error')
 
 			startApp()
