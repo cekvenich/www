@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ⚡="">
+  <head>
+  </head>
+  <body>
+    <div id="ss1">
+      <div id="appbar"><a href="#sidedrawer" id="appbar--brand">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">M-Foundation.org</span></a>
+        <div id="appbar--push"></div>
+        <ul class="mui-list--inline" id="appbar--menu">
+          <li><a href="/home/feed/">Home</a></li>
+          <li><a href="/home/fts/">Search</a></li>
+        </ul>
+      </div>
+      <div class="mui--z1" id="sidedrawer"><a href="#" id="sidedrawer--brand">&nbsp; ☰ &nbsp;<span>M-Foundation.org</span></a>
+        <div class="mui-divider"></div>
+        <ul class="mui-list--unstyled" id="sidedrawer--menu">
+          <li><a href="/home/feed/">Home</a></li>
+          <li><a href="/home/fts/">Search</a></li>
+        </ul>
+      </div>
+      <div id="content-wrapper">
+        <div class="mui-container-fluid">
+          <style>
+            img {
+            	width: 75%;
+            }
+          </style><h1 id="s-p-a-single-page-applications-">S. P. A. (Single Page Applications)</h1>
+<p>Most Web Apps are being converted to SPA.</p>
+<p><img src="/post/SPA/SPA.png" alt=""></p>
+<h2 id="1-smoothstate-js">1. SmoothState.js</h2>
+<p>I use SmoothState.js </p>
+<p><img src="/post/SPA/ss.png" alt=""></p>
+<p>As you navigate, only a part of the page is loaded, and there is no flicker. Check their
+examaple <a href="https://rawgit.com/miguel-perez/smoothState.js/master/demos/barebones/index.html">https://rawgit.com/miguel-perez/smoothState.js/master/demos/barebones/index.html</a></p>
+<p>My basic code is this:</p>
+<pre><code>    onStart: {
+        duration: 50,
+        render: function (url, $container)  {
+            _stateA.dispatch(_PRE, window.location, $container)//*a
+            $(&#39;#content-wrapper&#39;).fadeTo(100,.2)
+        }
+    },
+    onReady: {
+        duration: 100,
+        render: function ($container, $newContent) {
+            $container.html($newContent) // VIEW!!!
+
+            $(&#39;#content-wrapper&#39;).fadeTo(200,1)
+
+            _stateA.dispatch(_stateA, window.location, $newContent)//*a
+
+        }//ren
+    }//ready()
+</code></pre><h2 id="2-spa-allows-for-page-transitions">2. SPA allows for page transitions</h2>
+<p>If you navigate <a href="https://www.masons-foundation.org/home/home2/">https://www.masons-foundation.org/home/home2/</a> you can see a page effect.
+Having interactive navigation makes the user more engaged with the content of your web app.</p>
+<h2 id="3-take-it-easy-on-yourself">3 Take it easy on yourself</h2>
+<p>Before SPA, you could use PHP|ASP|JSP or such to reuse code, such as top menu and footer.
+Now we use a concept of App-Shell:</p>
+<p><img src="/post/SPA/shell.png" alt=""></p>
+<p>And easy way to do that is via pug: <a href="https://www.youtube.com/watch?v=wzAWI9h3q18">https://www.youtube.com/watch?v=wzAWI9h3q18</a></p>
+
+        </div>
+      </div>
+      <div id="footer">
+        <div id="footer_div"><a href="https://gitter.im/topseed-demos/Lobby" target="_blank">Forum </a>
+          <div id="footer_div--push"></div>
+          <div id="footer_div--right"><a href="https://github.com/topseed/topseed-demos" target="_blank">Kitchen Sink</a></div>
+        </div>
+        <link rel="prefetch" href="https://cse.google.com/cse.js?cx=015406677380205718189:esv77diws9e">
+        <link rel="prefetch" href="https://www.masons-foundation.org/home/feed/">
+        <link rel="prerender" href="https://www.masons-foundation.org/home/feed/">
+        <script type="text/javascript">
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          
+          ga('create', 'UA-82096733-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
