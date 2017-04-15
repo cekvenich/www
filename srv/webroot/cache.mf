@@ -5,10 +5,6 @@ CACHE MANIFEST
 
 
 #video assets
-https://cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js
-https://cdn.radiantmediatechs.com/rmp/v4/latest/css/rmp-s1.min.css
-https://cdn.radiantmediatechs.com/rmp/rr/vgs.json
-https://www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg
 
 
 NETWORK:
