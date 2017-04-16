@@ -4,8 +4,8 @@ console.log('split loaded')
 //====================================================================
 function pgSplit($cont_, speed) {
 	//console.log('spliting:')
-	$('#content-wrapper').fadeTo(1,.2)//hide
-	$('#content-wrapper').fadeTo(speed/2,1)
+	//$('#content-wrapper').fadeTo(1,.2)//hide
+	//$('#content-wrapper').fadeTo(speed/2,1)
 	//$cont_.css('height', $(document).height())
 
 	// compute endpoints math to split screen
@@ -45,13 +45,13 @@ function pgSplit($cont_, speed) {
 	$('#cloneSl').css('min-height',he)
 	$('#cloneSl').css('background','gray')
 
-	$('#content-wrapper0').fadeTo(speed*3,.7)
+	//$('#content-wrapper0').fadeTo(speed*3,.7)
 	$('#firstSl').transition({x: lft, easing: 'linear', duration: speed})
 	$('#cloneSl').transition({x: haf, easing: 'linear', duration: speed})
 	setTimeout(function(){ 
 		console.log(':cleanup')
 		$('#content-wrapper0').empty()
-		$('#content-wrapper0').fadeTo(1,1)//show
+		//$('#content-wrapper0').fadeTo(1,1)//show
 	}, speed)
 
 }//()

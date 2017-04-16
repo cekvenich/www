@@ -2,8 +2,6 @@
 loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 	success: function(){
 
-		loadjs.done('ready') // page ready
-
 		loadjs([
 			
 			'https://cdn.rawgit.com/topseed/topseed-npm/master/v1/deps/riot_compiler.min.js'
@@ -29,7 +27,7 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 
 function startApp(){
 	// READY ///////////////////////////////////////////////////////////
-	loadjs.done('main')
+	loadjs.done('ready') // page ready
 
 	SP.ScontentID ='#content-wrapper'
 	SP.smoothPg.add(function(typ, $new, delta, $html) {
