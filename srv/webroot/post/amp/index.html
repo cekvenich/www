@@ -118,7 +118,7 @@ style(amp-custom=&#39;&#39;)
           function init() {
           }
           
-          sP.onSetup(init)
+          		loadjs.ready(['ready'], {// loaded setup libs 			success: function(){ 				init() 			} 		})//init)
           
         </script>
       </div>

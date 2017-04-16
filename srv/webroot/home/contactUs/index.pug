@@ -64,8 +64,11 @@ block main
 			})//click
 		}//init
 
-		sP.onSetup(init)
-
+		loadjs.ready(['ready'], {// loaded setup libs
+			success: function(){
+				init()
+			}
+		})
 
 block footer
 	include ../../_part/_footerS

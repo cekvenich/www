@@ -39,15 +39,17 @@ block main
 	script(src='//cdn.muut.com/1/moot.min.js')
 
 	script.
-		function initVL() {
+		function init() {
 			riot.compile(function(){ // make component, and wait for it
 				console.log('x-vic')
 				var comps = riot.mount('x-vid')
 			})//r
 		}//()
 		
-		sP.onSetup(initVL)
-
-
+		loadjs.ready(['ready'], {// loaded setup libs
+			success: function(){
+				init()
+			}
+		})
 block footer
 	include ../../_part/_footer

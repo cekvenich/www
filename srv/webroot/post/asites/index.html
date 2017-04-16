@@ -60,16 +60,18 @@
         <div class="mui-container-fluid"><a class="muut" href="https://muut.com/i/masons/comments" type="dynamic">Comments</a></div>
         <script src="//cdn.muut.com/1/moot.min.js"></script>
         <script>
-          function initVL() {
+          function init() {
           	riot.compile(function(){ // make component, and wait for it
           		console.log('x-vic')
           		var comps = riot.mount('x-vid')
           	})//r
           }//()
           
-          sP.onSetup(initVL)
-          
-          
+          loadjs.ready(['ready'], {// loaded setup libs
+          	success: function(){
+          		init()
+          	}
+          })
         </script>
       </div>
       <div id="footer">

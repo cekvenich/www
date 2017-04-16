@@ -70,8 +70,11 @@
           	s.parentNode.insertBefore(gcse, s);
           }
           
-          sP.onSetup(init)
-          
+          loadjs.ready(['ready'], {// loaded setup libs
+          	success: function(){
+          		init()
+          	}
+          })
         </script>
       </div>
       <div id="footer">

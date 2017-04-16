@@ -45,14 +45,17 @@
           <home-card ref="/post/amp/" img="/post/amp/amp.jpg" headline="AMP"></home-card>
         </div>
         <script>
-          function initHF() {
+          function init() {
           	riot.compile(function(){ // make component, and wait for it
           		console.log('home-card')
           		var comps = riot.mount('home-card')
           	})//r
           }//init
-          sP.onSetup(initHF)
-          
+          loadjs.ready(['ready'], {// loaded setup libs
+          	success: function(){
+          		init()
+          	}
+          })
         </script>
       </div>
       <div id="footer">
