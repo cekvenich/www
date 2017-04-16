@@ -116,8 +116,11 @@ style(amp-custom=&#39;&#39;)
         function init() {
         }
         
-        		loadjs.ready(['ready'], {// loaded setup libs 			success: function(){ 				init() 			} 		})//init)
-        
+        loadjs.ready(['ready'], {// loaded setup libs
+        	success: function(){
+        		init()
+        	}
+        })
       </script>
     </div>
     <div id="footer">
