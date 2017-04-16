@@ -11,8 +11,19 @@ this.on('before-unmount', function(){
 })
 this.on('unmount', function(){
 	console.log('u')
-
 })
+
+/*
+
+		console.log('removing players')
+		if(players) {
+			while (players.length>0) { // stop each player
+				var rmp = players.pop()
+				rmp.stop()
+				rmp.destroy()
+			}//while
+		}//fi
+*/
 
 // Then we set our player settings
 var vsettings = {
@@ -33,27 +44,8 @@ var vsettings = {
 
 this.on('mount', function(){
 	vidInit(this.opts)
-	// page action
-	A.stateA.add(function(arg1, arg2) {
-		try { 	// //cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.debug.js
-		console.log(arg1, document.URL )
-		var shouldRemove = false
-		if((document.URL.indexOf('/feed')!= -1) && (A.PAGE == arg1)) 
-			shouldRemove = true
 
-		if(!shouldRemove) return
-		console.log('removing players')
-		if(players) {
-			while (players.length>0) { // stop each player
-				var rmp = players.pop()
-				rmp.stop()
-				rmp.destroy()
-			}//while
-		}//fi
-		} catch (er) {console.log(er)}
-	})
 })
-
 
 
 var players = []
