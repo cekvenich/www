@@ -24,22 +24,19 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 	}//suc
 })
 
+
 function startApp(){
 	// READY ///////////////////////////////////////////////////////////
 	loadjs.done('ready') // page ready
+	setupBar()
 
 	SP.ScontentID ='#content-wrapper'
 	SP.smoothPg.add(function(typ, $new, delta, $html) {
 
 		if(SP.PRE==typ)  {//start
-			//console.log($new)
+			console.log($new)
 
-			//shit:
-			//$( '#sidedrawer:target').css('transform', 'translateX(0px)')
-			history.replaceState(null,document.title, $new)
-
-			//go
-			pgSplit($('#content-wrapper'), 450 )
+			pgSplit($('#content-wrapper'), 350 )
 			//$('#content-wrapper').fadeTo(100,.2)
 
 		}
@@ -53,6 +50,22 @@ function startApp(){
 
 }//startApp()
 
+var _sdOpen = false // side drawer
+function barToggle(e) {
+	console.log(_sdOpen)
+	if(_sdOpen) {
+		$( '#sidedrawer').css('transform', 'translateX(0px)')
+		_sdOpen=false
+		return
+	}
+	_sdOpen=true
+	$( '#sidedrawer').css('transform', 'translateX(201px)')
+}//()
+function setupBar() {
+	$('#sidedrawer:target').css('transform', 'translateX(0px)')//clear css style
+	$('#sidedrawer').on('click', 'a', barToggle)
+	$('#appbar--brand').on('click', 'a', barToggle)
+}//()
 
 function setupFlick() {
 
