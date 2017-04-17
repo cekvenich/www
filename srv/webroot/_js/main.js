@@ -3,8 +3,7 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 	success: function(){
 
 		loadjs([
-			
-			'https://cdn.rawgit.com/topseed/topseed-npm/master/v1/deps/riot_compiler.min.js'
+			'https://cdn.rawgit.com/puppetmaster3/smoothState.js/master/deps/riot_compiler.min.js'
 			,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
 
 			,'//cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js'
