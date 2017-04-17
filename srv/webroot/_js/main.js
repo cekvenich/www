@@ -28,7 +28,7 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 function startApp(){
 	// READY ///////////////////////////////////////////////////////////
 	loadjs.done('ready') // page ready
-	setupBar()
+	setupDrawer()
 
 	SP.ScontentID ='#content-wrapper'
 	SP.smoothPg.add(function(typ, $new, delta, $html) {
@@ -38,6 +38,7 @@ function startApp(){
 
 			pgSplit($('#content-wrapper'), 350 )
 			//$('#content-wrapper').fadeTo(100,.2)
+			drawerClose()
 
 		}
 		if(SP.PAGE==typ)  {//ready
@@ -50,23 +51,9 @@ function startApp(){
 
 }//startApp()
 
-var _sdOpen = false // side drawer
-function barToggle(e) {
-	console.log(_sdOpen)
-	if(_sdOpen) {
-		$( '#sidedrawer').css('transform', 'translateX(0px)')
-		_sdOpen=false
-		return
-	}
-	_sdOpen=true
-	$( '#sidedrawer').css('transform', 'translateX(201px)')
-}//()
-function setupBar() {
-	$('#sidedrawer:target').css('transform', 'translateX(0px)')//clear css style
-	$('#sidedrawer').on('click', 'a', barToggle)
-	$('#appbar--brand').on('click', 'a', barToggle)
-}//()
+function setupFlick() {
 
+}
 
 // /////////////////////////
 function preLImg(arg) { // helper function start loading an image so browser has it ready
@@ -74,7 +61,26 @@ function preLImg(arg) { // helper function start loading an image so browser has
 	imag.src = arg
 }
 
-
-function setupFlick() {
-
-}
+// sidedrawer ////////////////////////////////////////////////
+function setupDrawer() {
+	$('#sidedrawer:target').css('transform', 'translateX(0px)')//clear css style
+	$('#sidedrawer').on('click', 'a', drawerClose)
+	$('#appbar--brand').on('click', 'a', drawerOpen)
+}//()
+var _sdOpen = false // side drawer
+function drawerOpen(px, e) {
+	console.log('c')
+	$( '#sidedrawer').css('transform', 'translateX(201px)')
+	_sdOpen=true
+	var url = location.pathname
+	var h = SP.stripHash(url)
+	console.log(h)
+}//()
+function drawerClose(e) {
+	console.log('c')
+	$( '#sidedrawer').css('transform', 'translateX(0px)')
+	_sdOpen=false
+	var url = location.pathname
+	var h = SP.stripHash(url)
+	console.log(h)
+}//()
