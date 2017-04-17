@@ -806,7 +806,7 @@ body { min-height: 100vh; color: #000; background-color: white; overflow-y: auto
 
 #sidedrawer--brand { vertical-align: middle; height: 36px; line-height: 36px; }
 
-#sidedrawer--menu li { overflow: hidden; line-height: 36px; padding-left: 30px; transition: background-color .15s ease; }
+#sidedrawer--menu li { overflow: hidden; line-height: 36px; padding-left: 30px; }
 
 #sidedrawer--menu li:hover { background-color: #FF5722; }
 

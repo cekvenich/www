@@ -32,7 +32,13 @@ function startApp(){
 	SP.smoothPg.add(function(typ, $new, delta, $html) {
 
 		if(SP.PRE==typ)  {//start
-			console.log($new)
+			//console.log($new)
+
+			//shit:
+			//$( '#sidedrawer:target').css('transform', 'translateX(0px)')
+			history.replaceState(null,document.title, $new)
+
+			//go
 			pgSplit($('#content-wrapper'), 450 )
 			//$('#content-wrapper').fadeTo(100,.2)
 
