@@ -67,6 +67,14 @@ function setupBar() {
 	$('#appbar--brand').on('click', 'a', barToggle)
 }//()
 
+
+// /////////////////////////
+function preLImg(arg) { // helper function start loading an image so browser has it ready
+	var imag = new Image()
+	imag.src = arg
+}
+
+
 function setupFlick() {
 
 }
