@@ -63,7 +63,6 @@ function preLImg(arg) { // helper function start loading an image so browser has
 
 // sidedrawer ////////////////////////////////////////////////
 function setupDrawer() {
-	$('#sidedrawer:target').css('transform', 'translateX(0px)')//clear css style
 	$('#sidedrawer').on('click', 'a', drawerClose)
 	$('#appbar--brand').on('click', 'a', drawerOpen)
 }//()
@@ -72,15 +71,11 @@ function drawerOpen(px, e) {
 	console.log('c')
 	$( '#sidedrawer').css('transform', 'translateX(201px)')
 	_sdOpen=true
-	var url = location.pathname
-	var h = SP.stripHash(url)
-	console.log(h)
+	SP.clearUrl()
 }//()
 function drawerClose(e) {
 	console.log('c')
 	$( '#sidedrawer').css('transform', 'translateX(0px)')
 	_sdOpen=false
-	var url = location.pathname
-	var h = SP.stripHash(url)
-	console.log(h)
+	SP.clearUrl()
 }//()
