@@ -49,6 +49,8 @@ function startApp(){
 
 	})
 
+
+
 }//startApp()
 
 function setupFlick() {
@@ -63,8 +65,13 @@ function preLImg(arg) { // helper function start loading an image so browser has
 
 // sidedrawer ////////////////////////////////////////////////
 function setupDrawer() {
-	$('#sidedrawer').on('click', 'a', drawerClose)
-	$('#appbar--brand').on('click', 'a', drawerOpen)
+	$('#sidedrawer').on('click', drawerClose)
+	$('#appbar--brand').on('click', drawerOpen)
+
+	//clear hash
+	$("a[href='#sidedrawer']").removeAttr('href')
+	$("a[href='#']").removeAttr('href')
+
 }//()
 var _sdOpen = false // side drawer
 function drawerOpen(px, e) {
