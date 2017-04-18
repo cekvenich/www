@@ -64,23 +64,14 @@ function preLImg(arg) { // helper function start loading an image so browser has
 function setupDrawer() {
 	$('#sidedrawer').on('click', drawerClose)
 	$('#appbar--brand').on('click', drawerOpen)
-
 	//clear hash
 	$("a[href='#sidedrawer']").removeAttr('href')
 	$("a[href='#']").removeAttr('href')
 	console.log('d set')
-
 }//()
-var _sdOpen = false // side drawer
 function drawerOpen(px, e) {
-	console.log('O?')
 	$( '#sidedrawer').css('transform', 'translateX(201px)')
-	_sdOpen=true
-	SP.clearUrl()
 }//()
 function drawerClose(e) {
-	console.log('C!')
 	$( '#sidedrawer').css('transform', 'translateX(0px)')
-	_sdOpen=false
-	SP.clearUrl()
 }//()
