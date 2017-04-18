@@ -34,7 +34,7 @@ function startApp(){
 	SP.smoothPg.add(function(typ, $new, delta, $html) {
 
 		if(SP.PRE==typ)  {//start
-			console.log($new)
+			console.log('SP',$new)
 
 			pgSplit($('#content-wrapper'), 350 )
 			//$('#content-wrapper').fadeTo(100,.2)
@@ -59,14 +59,10 @@ function preLImg(arg) { // helper function start loading an image so browser has
 	var imag = new Image()
 	imag.src = arg
 }
-
 // sidedrawer ////////////////////////////////////////////////
 function setupDrawer() {
 	$('#sidedrawer').on('click', drawerClose)
 	$('#appbar--brand').on('click', drawerOpen)
-	//clear hash
-	$("a[href='#sidedrawer']").removeAttr('href')
-	$("a[href='#']").removeAttr('href')
 	console.log('d set')
 }//()
 function drawerOpen(px, e) {
