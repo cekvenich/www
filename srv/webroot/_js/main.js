@@ -46,11 +46,8 @@ function startApp(){
 			//$('#content-wrapper').fadeTo(100,1)
 
 		}
-
 	})
-
-
-
+	console.log('started')
 }//startApp()
 
 function setupFlick() {
@@ -71,17 +68,18 @@ function setupDrawer() {
 	//clear hash
 	$("a[href='#sidedrawer']").removeAttr('href')
 	$("a[href='#']").removeAttr('href')
+	console.log('d set')
 
 }//()
 var _sdOpen = false // side drawer
 function drawerOpen(px, e) {
-	console.log('c')
+	console.log('O?')
 	$( '#sidedrawer').css('transform', 'translateX(201px)')
 	_sdOpen=true
 	SP.clearUrl()
 }//()
 function drawerClose(e) {
-	console.log('c')
+	console.log('C!')
 	$( '#sidedrawer').css('transform', 'translateX(0px)')
 	_sdOpen=false
 	SP.clearUrl()
