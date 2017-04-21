@@ -9,7 +9,7 @@ $mui-appbar-height:              $headerH;
 $mui-appbar-height-xs-portrait:  $headerH;
 $mui-appbar-height-xs-landscape: $headerH;
 
-$mui-base-font-family:    'Noto Sans', sans-serif !default; // supports i18n 
+$mui-base-font-family:  -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
 $mui-base-font-color:     $primary-text-color;
 $mui-base-font-size:      $base-line-height * .65; // golden ratio as % of line-height
 $mui-base-font-smoothing: true;
@@ -129,12 +129,12 @@ body {
 	margin-top: $headerH;
 	flex-grow: 1;
 	width: 100vw;
-	font-family: 'Noto Serif', serif;
+	//font-family: 'Noto Serif', serif;
 	background-color: white;
 }
 
 #content-wrapper * {
-	font-family: 'Noto Serif', serif;
+	//font-family: 'Noto Serif', serif;
 }
 
 
