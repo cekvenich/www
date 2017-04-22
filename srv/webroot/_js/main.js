@@ -3,10 +3,12 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 	success: function(){
 
 		loadjs([
-			'https://cdn.rawgit.com/puppetmaster3/smoothState.js/master/deps/riot_compiler.min.js'
+			'//cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js'
+
+			,'https://cdn.rawgit.com/puppetmaster3/smoothState.js/master/deps/riot_compiler.min.js'
 			,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
 
-			,'//cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js'
+			,'//cse.google.com/cse.js?cx=015406677380205718189:esv77diws9e'
 			, '/_js/split.js'
 
 			//images
