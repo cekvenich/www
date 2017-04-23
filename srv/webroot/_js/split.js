@@ -32,16 +32,20 @@ function pgSplit($cont_, speed) {
 
 	// =============================================================
 	//css clip computed
-	$('#firstSl').css('clip',fr) // clip it
+	$('#firstSl').css('clip', fr) // clip it
 	$('#firstSl').css('position','absolute')
-	$('#firstSl').css('z-index',40)
+	$('#firstSl').css('z-index',8)
+	$('#firstSl').css('top', '45px')
 	$('#firstSl').css('min-height', he)
+	$('#firstSl *').css('min-height', he)
 	$('#firstSl').css('background','gray')
 
-	$('#cloneSl').css('clip',cr)
+	$('#cloneSl').css('clip', cr)
 	$('#cloneSl').css('position','absolute')
-	$('#cloneSl').css('z-index',41)
+	$('#cloneSl').css('z-index',9)
+	$('#cloneSl').css('top', '45px')
 	$('#cloneSl').css('min-height',he)
+	$('#cloneSl *').css('min-height',he)
 	$('#cloneSl').css('background','gray')
 
 	//$('#content-wrapper0').fadeTo(speed*3,.7)

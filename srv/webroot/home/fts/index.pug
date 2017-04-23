@@ -23,16 +23,19 @@ block main
 			let he  = ($(window).height() - 180) + 'px'
 			$('#fts').css('min-height',he)
 			console.log('fts '+ he)
-
-			var cx = '015406677380205718189:esv77diws9e';
-			var gcse = document.createElement('script');
-			gcse.type = 'text/javascript';
-			gcse.async = false;
-			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(gcse, s);
-
 			loadjs(['//cse.google.com/cse.js?cx=015406677380205718189:esv77diws9e'])
+
+			setTimeout(function(){
+				console.log('ok')
+				var cx = '015406677380205718189:esv77diws9e';
+				var gcse = document.createElement('script');
+				gcse.type = 'text/javascript';
+				gcse.async = false;
+				gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(gcse, s);
+			},100)
+
 		}
 
 		loadjs.ready(['ready'], {// loaded setup libs
