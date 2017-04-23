@@ -18,7 +18,7 @@ const debug = require('debug')('my-app')
 debug('oh hi')
 
 const Decider = require('./utils/Decider')
-const contPg = require('./route/contPg')
+const contPg = require('./sroute/contPg')
 
 // ###################### dynamic data for some pgs here:
 server.get('/post/amp0/', function (req, res) {
