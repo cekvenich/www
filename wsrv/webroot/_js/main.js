@@ -11,7 +11,6 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 			,'//cse.google.com/cse.js?cx=015406677380205718189:esv77diws9e'
 			, '/_js/split.js'
 
-			//images
 			,'/_js/libJs/jquery.fullpage.min.css'
 			,'/_js/libJs/jquery.fullpage.min.js'
 
