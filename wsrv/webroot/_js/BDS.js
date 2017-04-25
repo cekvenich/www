@@ -1,6 +1,6 @@
 'use strict'
-console.log('CDS')
-class CDS {
+console.log('BDS')
+class BDS {
 
 /*		
 clearCookies() {
@@ -20,7 +20,7 @@ static writeC(nam, str) {
 
 	var hash = window.btoa(jstr)
 	Cookies.set(nam, hash, { expires: exp})
-	Cookies.set(CDS.DT_, new Date(), { expires: 10 })// so we know when it will time out
+	Cookies.set(BDS.DT_, new Date(), { expires: 10 })// so we know when it will time out
 }//()
 */
 
@@ -28,8 +28,8 @@ static get XBASIC() { return  'X-BASIC'}
 static get XJT() { return  'X-JWT'}
 
 static fetch(fetch_,ROOT_, url_, data_) {
-	//var xjt_ = Cookies.get(CDS.XJT)
-	//var xb_  = Cookies.get(CDS.XBASIC)
+	//var xjt_ = Cookies.get(BDS.XJT)
+	//var xb_  = Cookies.get(BDS.XBASIC)
 	console.log('fetching ', url_)
 	return fetch_(ROOT_ + url_ , { //1 call
 			method: 'post'
@@ -54,6 +54,6 @@ static fetch(fetch_,ROOT_, url_, data_) {
 } // class
 // browser and native:
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
-	module.exports = CDS //node
+	module.exports = BDS //node
 
 
