@@ -27,7 +27,7 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 
 function startApp(){
 	// READY ///////////////////////////////////////////////////////////
-	loadjs.done('ready') // page ready
+	loadjs.done('app-ready') // page ready
 	setupDrawer()
 
 	SP.ScontentID ='#content-wrapper'
