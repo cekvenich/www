@@ -46,10 +46,7 @@ block main
 			})//r
 		}//()
 		
-		loadjs.ready(['app-ready'], {// loaded setup libs
-			success: function(){
-				init()
-			}
-		})
+		onAppReady(init)
+
 block footer
 	include ../../_part/_footer

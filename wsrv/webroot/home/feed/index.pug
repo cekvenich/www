@@ -27,11 +27,8 @@ block main
 				var comps = riot.mount('home-card')
 			})//r
 		}//init
-		loadjs.ready(['app-ready'], {// loaded setup libs
-			success: function(){
-				init()
-			}
-		})
+		onAppReady(init)
+
 block footer
 	include ../../_part/_footer
 
