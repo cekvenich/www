@@ -11,6 +11,8 @@ Icon\r
 **/.idea/
 **/*.config
 
+package-lock.json
+
 
 ###################### Other
 **/.project
