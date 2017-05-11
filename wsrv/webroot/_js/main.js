@@ -5,13 +5,13 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 		loadjs([
 			'//cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js'
 			,'//cdn.jsdelivr.net/riot/3.4.4/riot+compiler.min.js'
-			,'/_js/libJs/jquery.jsForm.min.js'
+			,'/_js/vendor/jquery.jsForm.min.js'
 
 			,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
 			, '/_js/split.js'
 
-			,'/_js/libJs/jquery.fullpage.min.css'
-			,'/_js/libJs/jquery.fullpage.min.js'
+			,'/_js/vendor/jquery.fullpage.min.css'
+			,'/_js/vendor/jquery.fullpage.min.js'
 
 			,'//cse.google.com/cse.js?cx=015406677380205718189:esv77diws9e'
 
