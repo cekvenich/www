@@ -1,5 +1,5 @@
 #appbar
-	#appbar--brand &nbsp; ☰ &nbsp;
+	#appbar--brand(onclick='openDrawer()') &nbsp; ☰ &nbsp;
 		span.mui--hidden-xs M-Foundation.org
 	#appbar--push
 	ul#appbar--menu.mui-list--inline
@@ -8,7 +8,7 @@
 		li
 			a(href='/home/fts/') Search
 
-#sidedrawer
+#sidedrawer(onclick='closeDrawer()')
 	#sidedrawer--brand &nbsp; ☰ &nbsp;
 		span M-Foundation.org
 	.mui-divider
@@ -17,3 +17,11 @@
 			a(href='/home/feed/') Home
 		li
 			a(href='/home/fts/') Search
+
+script.
+	function openDrawer(px, e) {
+		$('#sidedrawer').css('transform', 'translateX(201px)')
+	}
+	function closeDrawer(e) {
+		$('#sidedrawer').css('transform', 'translateX(0px)')
+	}

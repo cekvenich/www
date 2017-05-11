@@ -17,14 +17,14 @@
     <script type="riot/tag" src="/_uiComps/home-card.html"></script>
     <script type="riot/tag" src="/_uiComps/x-vid.html"></script>
     <div id="appbar">
-      <div id="appbar--brand">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">M-Foundation.org</span></div>
+      <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">M-Foundation.org</span></div>
       <div id="appbar--push"></div>
       <ul class="mui-list--inline" id="appbar--menu">
         <li><a href="/home/feed/">Home</a></li>
         <li><a href="/home/fts/">Search</a></li>
       </ul>
     </div>
-    <div id="sidedrawer">
+    <div id="sidedrawer" onclick="closeDrawer()">
       <div id="sidedrawer--brand">&nbsp; ☰ &nbsp;<span>M-Foundation.org</span></div>
       <div class="mui-divider"></div>
       <ul class="mui-list--unstyled" id="sidedrawer--menu">
@@ -32,6 +32,14 @@
         <li><a href="/home/fts/">Search</a></li>
       </ul>
     </div>
+    <script>
+      function openDrawer(px, e) {
+      	$('#sidedrawer').css('transform', 'translateX(201px)')
+      }
+      function closeDrawer(e) {
+      	$('#sidedrawer').css('transform', 'translateX(0px)')
+      }
+    </script>
     <div id="content-wrapper0"> </div>
     <div id="content-wrapper">
       <div class="mui-container-fluid">
