@@ -20,16 +20,17 @@ block main
 
 		home-card(ref='/post/amp/', img='/post/amp/amp.jpg', headline='AMP')
 
+
 	script.
-		
-		function init() {
+		ST.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
 			riot.compile(function(){ // make component, and wait for it
 				console.log('home-card')
 				var comps = riot.mount('home-card')
 			})//r
 		}//init
 
-		onAppReady(init)
 
 block footer
 	include ../../_part/_footer

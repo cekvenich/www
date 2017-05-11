@@ -4,18 +4,16 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 
 		loadjs([
 			'//cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js'
+			,'//cdn.jsdelivr.net/riot/3.4.4/riot+compiler.min.js'
+			,'/_js/libJs/jquery.jsForm.min.js'
 
-			,'https://cdn.rawgit.com/puppetmaster3/smoothState.js/master/deps/riot_compiler.min.js'
 			,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
-
-			,'//cse.google.com/cse.js?cx=015406677380205718189:esv77diws9e'
 			, '/_js/split.js'
 
 			,'/_js/libJs/jquery.fullpage.min.css'
 			,'/_js/libJs/jquery.fullpage.min.js'
 
-			//data
-			,'/_js/libJs/jquery.jsForm.min.js'
+			,'//cse.google.com/cse.js?cx=015406677380205718189:esv77diws9e'
 
 			], { success: function(){
 				console.log('loaded libs')
@@ -27,26 +25,23 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 
 function startApp(){
 	// READY ///////////////////////////////////////////////////////////
-	signalAppReady()
-	setupDrawer()
-
-	SP.ScontentID ='#content-wrapper'
-	SP.smoothPg.add(function(typ, $new, delta, $html) {
-
-		if(SP.PRE==typ)  {//start
-			console.log('SP',$new)
-
+	ST.signalAppReady()
+	
+	TT.ScontentID ='#content-wrapper'
+	TT.handle(function(evt) {
+		console.log(':')
+		if(TT.PRE==evt.typ)  {//start
+			console.log(evt.$new)
 			pgSplit($('#content-wrapper'), 350 )
 			//$('#content-wrapper').fadeTo(100,.2)
-			drawerClose()
-
 		}
-		if(SP.PAGE==typ)  {//ready
-			$(SP.ScontentID).html($new)
+		if(TT.PAGE==evt.typ)  {//new pg loaded
+			$(TT.ScontentID).html(evt.$new)
 			//$('#content-wrapper').fadeTo(100,1)
 
 		}
 	})
+
 	console.log('started')
 }//startApp()
 
@@ -59,15 +54,4 @@ function preLImg(arg) { // helper function start loading an image so browser has
 	var imag = new Image()
 	imag.src = arg
 }
-// sidedrawer ////////////////////////////////////////////////
-function setupDrawer() {
-	$('#sidedrawer').on('click', drawerClose)
-	$('#appbar--brand').on('click', drawerOpen)
-	console.log('d set')
-}//()
-function drawerOpen(px, e) {
-	$( '#sidedrawer').css('transform', 'translateX(201px)')
-}//()
-function drawerClose(e) {
-	$( '#sidedrawer').css('transform', 'translateX(0px)')
-}//()
+

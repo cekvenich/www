@@ -38,15 +38,17 @@ block main
 
 	script(src='//cdn.muut.com/1/moot.min.js')
 
+
 	script.
-		function init() {
+		ST.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
 			riot.compile(function(){ // make component, and wait for it
 				console.log('x-vic')
 				var comps = riot.mount('x-vid')
 			})//r
 		}//()
 		
-		onAppReady(init)
 
 block footer
 	include ../../_part/_footer

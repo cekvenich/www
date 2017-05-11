@@ -6,11 +6,14 @@ block main
 	.mui-container-fluid
 		include one.html
 
+
 	script.
-		function init() {
+		ST.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
 		}
 
-		onAppReady(init)
+
 
 block footer
 	include ../../_part/_footer

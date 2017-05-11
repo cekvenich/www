@@ -6,8 +6,8 @@
     <link rel="icon" href="/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
-    <script src="https://cdn.rawgit.com/puppetmaster3/smoothState.js/master/deps/loadjs.min.js" type="text/javascript"></script>
-    <script src="https://cdn.rawgit.com/puppetmaster3/smoothState.js/master/setup/setup-1.21.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-2.1.js" type="text/javascript"></script>
     <script src="/_js/main.js" async="" type="text/javascript"></script><!--[if IE]> -->
     <link rel="stylesheet" href="/_sass/main.css" type="text/css"><!-- <![endif]-->
     <meta name="description" content="">
@@ -55,14 +55,17 @@
         </div>
       </div>
       <script>
-        function init() { 
+        ST.onAppReady(UIinit)
+        
+        function UIinit() {
+        	console.log('x')
         	let he  = ($(window).height() - 180) + 'px'
         	$('#fts').css('min-height',he)
         	console.log('fts '+ he)
         	loadjs(['//cse.google.com/cse.js?cx=015406677380205718189:esv77diws9e'])
         
         	setTimeout(function(){
-        		console.log('ok')
+        		console.log('fts')
         		var cx = '015406677380205718189:esv77diws9e';
         		var gcse = document.createElement('script');
         		gcse.type = 'text/javascript';
@@ -70,11 +73,10 @@
         		gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
         		var s = document.getElementsByTagName('script')[0];
         		s.parentNode.insertBefore(gcse, s);
-        	},200)
+        	},300)
         
         }
         
-        onAppReady(init)
         
       </script>
     </div>

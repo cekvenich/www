@@ -30,8 +30,12 @@ block main
 
 	script.
 		const ENDPOINT = 'https://www.masons-foundation.org/contPg/contact/'
-		function init() {
-			console.log('init')
+
+	script.
+		ST.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
+
 			$("#sent").hide()
 			$('#frm1').jsForm()
 			
@@ -60,9 +64,6 @@ block main
 				})//fetch()
 			})//click
 		}//init
-
-		onAppReady(init)
-
 
 block footer
 	include ../../_part/_footer

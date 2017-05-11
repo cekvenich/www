@@ -12,6 +12,15 @@ const ROOT = './' + ServerConfig.WEBROOT
 const SPA = 'index.html'
 const AMP = 'indexA.html'
 
+function ifError(err, msg, res) {
+	if (err)  {
+		console.log(msg+': ' + err)
+		res.redirect('/index.html')// error - go home
+		res.end()
+		return true
+	} else return false
+}
+
 function serveAmp(req) { // should we serve mobile/AMP
 	console.log('subs',req.subdomains)
 	//if (req.path.startsWith('/home/')) return !ServerConfig.AMP_IS_LANDING
@@ -62,12 +71,12 @@ exports.decide = function (req, res, next) {
 				})// readfile
 			} else { //non-amp
 				fs.readFile(pgPath + SPA, 'utf8', function(err, data) {
-					U.ifError(err, 'spa', res)
+					ifError(err, 'spa', res)
 					res.send(data)
 				})
 			} 
 		} catch(err) {
-			U.ifError(err, 'catch', res)
+			ifError(err, 'catch', res)
 		}
 	} 
 }//()
