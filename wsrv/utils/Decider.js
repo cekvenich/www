@@ -23,11 +23,8 @@ function ifError(err, msg, res) {
 
 function serveAmp(req) { // should we serve mobile/AMP
 	console.log('subs',req.subdomains)
-	//if (req.path.startsWith('/home/')) return !ServerConfig.AMP_IS_LANDING
-	if (req.socket.localPort == 8082) return true
-		else 
-	return false
-
+	if (req.socket.localPort == ServerConfig.WWW_PORT) return true
+	if (req.socket.localPort == ServerConfig.AMP_PORT) return false
 	if (req.subdomains.indexOf(ServerConfig.WEB_SUBDOMAIN) > -1)  return ServerConfig.AMP_IS_LANDING
 	if (req.subdomains.indexOf(ServerConfig.AMP_SUBDOMAIN) > -1)  return true
 	if (req.query.w == '1') return false
@@ -49,32 +46,37 @@ exports.decide = function (req, res, next) {
 	} else { // no dot, it is a path:
 		try {
 
+			U.cacheQuick(res)
+
 			console.log(req.socket.localPort)
 			console.log(U.getAgent(req))
 
-
 			//console.log(agent.toAgent())
-			
 
 			res.header('Content-Type', 'text/html')
 
 			const pgPath = U.getPath(ROOT,req)
-			const isAmp = serveAmp(req)
+			const returnAmp = serveAmp(req)
 
-			console.log('amp',isAmp,'path ',pgPath)
+			console.log('amp',returnAmp,'path ',pgPath)
 
-			if (isAmp && fs.existsSync(pgPath + AMP)) { //AMP
-				U.cacheQuick(res)
-				fs.readFile(pgPath + AMP, 'utf8', function(err, data) {
-					U.ifError(err, 'amp', res)
+			const requestedResource = pgPath + (returnAmp?AMP:SPA);
+			const fallbackResource = pgPath + (returnAmp?SPA:AMP);
+			
+			//attempt to get the requested version, show the other version if not exists
+			if (fs.existsSync(requestedResource)) { 
+				//console.log('found '+requestedResource)
+				fs.readFile(requestedResource, 'utf8', function(err, data) {
+					ifError(err, returnAmp?'amp':'spa', res)
 					res.send(data)
 				})// readfile
-			} else { //non-amp
-				fs.readFile(pgPath + SPA, 'utf8', function(err, data) {
-					ifError(err, 'spa', res)
+			} else { //the other version
+				fs.readFile(fallbackResource, 'utf8', function(err, data) {
+					ifError(err, returnAmp?'spa':'amp', res)
 					res.send(data)
 				})
-			} 
+			}
+
 		} catch(err) {
 			ifError(err, 'catch', res)
 		}

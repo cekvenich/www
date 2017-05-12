@@ -1,4 +1,8 @@
 'use strict'
+
+const C = (require('./config/ServerConfig'))
+global.ServerConfig = new C();
+
 const express = require('express')
 const server = express()
 const fs = require('fs')
@@ -25,16 +29,16 @@ server.use('/contPg', contPg)
 
 // ###################### static
 server.use(Decider.decide)
-server.use(express.static('webroot'))
+server.use(express.static(ServerConfig.WEBROOT))
 
 //###################### start the server
-const PORT1 = 8080
-server.listen(PORT1, '0.0.0.0', function() {
-	console.log('App listening on port '+PORT1)
+
+server.listen(ServerConfig.WWW_PORT, '0.0.0.0', function() {
+	console.log('App listening on port '+ServerConfig.WWW_PORT)
 	console.log('Press Ctrl+C to quit.')
 })
-const PORT2 = 8082
-server.listen(PORT2, '0.0.0.0', function() {
-	console.log('App listening on port ' +PORT2)
+
+server.listen(ServerConfig.AMP_PORT2, '0.0.0.0', function() {
+	console.log('App listening on port ' +ServerConfig.AMP_PORT)
 	console.log('Press Ctrl+C to quit.')
 })
