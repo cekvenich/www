@@ -2,13 +2,13 @@
 It is great for complex enterprise single page applications, SPA. Web apps apps are also easy to deploy to Mobile App Store and AMP. So it's not just a web app, it is also good for IOS/Android and AMP.
 
 ## More than a Class
-Best Practices  covers introductory trough advanced topics. 
+Best Practices covers introductory through advanced topics. 
 
 ## Our Office, Online, or Your Site
 Our live, in-person class lasts 2 days, of 8 hours per day.
 
 ## Why Best Practices ?
-Our team does front end develoment of complex business applications for years. In the process of mastering these tools and teaching internally, we have learned to anticipate and answer questions, and to help developers through the challenge of learning quickly.
+Our team has been doing front end develoment of complex business applications for years. In the process of mastering these tools and teaching internally, we have learned to anticipate and answer questions, and to help developers through the challenge of learning quickly.
 
 Unlike video or lecture-style courses, our courses include extensive, hands-on work; we provide multiple instructors to larger classes to ensure a great workshop experience. Even the online edition of the class is intensively "hands-on".
 
@@ -17,7 +17,7 @@ Best Practices Workshop is an excellent starting point for corporate developer t
 
 - Designers. Enough said. 
 
-- Mid to Sr level back-end developers who are new to JavaScript but want to learn  Best Practices as quickly as possible. Developers who are confident in the fundamentals of JavaScript and want to become more employable by practicing best practices. 
+- Mid to Sr level back-end developers who are new to JavaScript but want to learn Best Practices as quickly as possible. Developers who are confident in the fundamentals of JavaScript and want to become more employable by practicing best practices. 
 
 - Developers who are frustrated with the disjointed approach to learning front end development and want a linear, coherent path.
 
