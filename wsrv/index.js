@@ -38,7 +38,7 @@ server.listen(ServerConfig.WWW_PORT, '0.0.0.0', function() {
 	console.log('Press Ctrl+C to quit.')
 })
 
-server.listen(ServerConfig.AMP_PORT2, '0.0.0.0', function() {
+server.listen(ServerConfig.AMP_PORT, '0.0.0.0', function() {
 	console.log('App listening on port ' +ServerConfig.AMP_PORT)
 	console.log('Press Ctrl+C to quit.')
 })
