@@ -1,0 +1,7 @@
+<head><link href="/bpA/sass/main.css" rel="stylesheet" type="text/css"/><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic&amp;lang=en"/><script src="//cdn.jsdelivr.net/jquery/3.2.0/jquery.min.js" type="text/javascript"></script></head><body><div class="mui-container-fluid"><form class="mui-form" id="frm1"><legend>Create site</legend><div class="mui-row"><div class="mui-col-sm-6"><div class="mui-textfield"><input type="text" name="data.siteName"/><label>Site's full name</label></div></div></div></form><button class="mui-btn mui-btn--raised" type="submit" id="create">Create site</button></div><script>$('#create').click(function(e) { 
+	e.preventDefault()
+	var siteName = $('input[name="data.siteName"]').val()
+	window.opener.createSite(siteName) 
+	window.close()
+	return false
+})//save</script></body>

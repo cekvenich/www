@@ -1,0 +1,156 @@
+extends  ../parts/_baseShellS
+
+block head
+	include ../parts/_headerS
+
+block top
+	include ../parts/_topS
+
+block main
+	.mui-container-fluid
+		p
+		.mui-panel
+			form.mui-form--inline#frm1
+
+				div 
+					legend Admin
+					.mui-textfield
+						input(type='text', name='data.email')
+						label Email
+
+					.mui-textfield
+							input(type='text', name='data.name')
+							label Name
+
+					.mui-textfield
+						input(type='text', name='data.site')
+						label Site
+
+					.mui-textfield
+						input(type='text', name='data.phone')
+						label Phone
+
+					.mui-textfield
+						input(type='text', name='data.role')
+						label Role
+
+				div
+
+					.mui-textfield
+						input(type='text', name='data.socialLink')
+						label Link
+
+					.mui-textfield
+						input(type='text', name='data.picUrl')
+						label Picture
+
+					.mui-textfield
+						input(type='text', name='data.section')
+						label Section
+
+					.mui-textfield
+						input(type='text', name='data.geo')
+						label Location
+
+					.mui-textfield
+						input(type='text', name='data.tags')
+						label Tag list
+
+					.mui-textfield
+						input(type='text', name='data.lastDat')
+						label Date
+
+			p
+			button.mui-btn.mui-btn--raised(type='submit')#save save
+			button.mui-btn.mui-btn--raised(type='submit')#refresh refresh
+			button.mui-btn.mui-btn--raised(type='submit')#new new
+
+		table#dg0.display(cellspacing='0', width='100%')
+			thead
+				tr
+					th Email
+					th Name
+					th Site
+					th Role
+					th Last Date
+
+	//- role: god, domain admin, editor, author, paid member, pending member
+	script.
+		function init() {
+
+			console.log('init')
+			dtInit()
+
+			$('#frm1').jsForm()
+
+			$('#save').click(function(e) { 
+				e.preventDefault()
+				save()
+			})
+		}//()
+
+		function dtInit() {
+			_table = $('#dg0').DataTable(
+				{	'columns': [
+						{ 'data': 'email' },
+						{ 'data': 'name' },
+						{ 'data': 'site' },
+						{ 'data': 'role' },
+						{ 'data': 'lastDat' }
+					]
+					,'searching': false
+					,'info': false
+					,'lengthChange': false
+					,'paging': false
+					,ordering: true
+			} )
+
+			$('#dg0').on('click', 'tr', function () {
+				var col1 = $(this).find('td:nth-child(1)')//email
+				load(col1.text())
+
+				$('#dg0 tr').removeClass('selected')
+				$(this).toggleClass('selected')
+			} )
+
+			search()
+		}//()
+
+		onAppReady(init)
+
+		function load(email_) {
+			console.log(email_)
+			let qry = {
+				email : email_
+			}
+
+			X.fetch(ROOT, 'RMA/loadA', qry)
+				.then(function(data) { // 3 done:
+					console.log('loaded:')
+					$('#frm1').jsForm('fill', data)
+
+			}).catch(function(err) { //error
+				console.error(err)
+			})//fetch()
+		}//load
+
+		function search() {
+			let qry = {
+				dom : 'vic'
+				,email : 'vic@eml.cc'
+			}
+
+			X.fetch(ROOT, 'RMA/searchA', qry)
+				.then(function(data) { // 3 done:
+					console.log('loaded:')
+					//console.log( data)
+					_table.rows.add( data ) .draw()
+			}).catch(function(err) { //error
+				console.error(err)
+			})//fetch()
+		}//search
+
+	p
+	p
+block footer
+	include ../parts/_footerS

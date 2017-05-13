@@ -1,0 +1,26 @@
+head
+	link(rel='stylesheet', href='/bpA/sass/main.css',  type='text/css')
+	link( href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic&lang=en')
+
+	script(src='//cdn.jsdelivr.net/jquery/3.2.0/jquery.min.js')
+
+body
+	.mui-container-fluid
+		form.mui-form#frm1
+					legend Create site
+					.mui-row
+						.mui-col-sm-6
+							.mui-textfield
+								input(type='text', name='data.siteName')
+								label Site's full name
+
+		button.mui-btn.mui-btn--raised(type='submit')#create Create site
+
+	script.
+		$('#create').click(function(e) { 
+			e.preventDefault()
+			var siteName = $('input[name="data.siteName"]').val()
+			window.opener.createSite(siteName) 
+			window.close()
+			return false
+		})//save

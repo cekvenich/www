@@ -1,0 +1,140 @@
+extends  ../parts/_baseShellS
+
+block head
+	include ../parts/_headerS
+
+block top
+	include ../parts/_topS
+
+block main
+	.mui-container-fluid
+		p
+		.mui-panel
+			form.mui-form#frm1
+				legend Member
+				.mui-row
+					.mui-col-sm-6
+						.mui-textfield
+							input(type='text', name='data.name')
+							label Name
+
+						.mui-textfield
+							input(type='text', name='data.email', readonly='')
+							label Email
+
+						.mui-textfield
+							input(type='text', name='data.siteCode', readonly='')
+							label Site
+
+						.mui-textfield
+							input(type='text', name='data.phone')
+							label Phone
+
+					.mui-col-sm-6
+						.mui-textfield
+							input(type='text', name='data.socialLink')
+							label Link
+
+						.mui-textfield
+							input(type='text', name='data.picUrl')
+							label Picture
+
+						.mui-textfield
+							input(type='text', name='data.section')
+							label Section
+
+						.mui-textfield
+							input(type='text', name='data.geo')
+							label Location
+
+						.mui-textfield
+							input(type='text', name='data.tags')
+							label Tag list
+
+		button.mui-btn.mui-btn--raised(type='submit')#save Save
+		button.mui-btn.mui-btn--raised(type='submit')#createSite Create Site
+		button.mui-btn.mui-btn--raised(type='submit')#site Edit Site
+		button.mui-btn.mui-btn--raised(type='submit')#cms CMS
+		button.mui-btn.mui-btn--raised(type='submit')#password Change pswd.
+
+	script.
+		function createSite(siteName) {
+			console.log('closing' + siteName)
+			var dat = {}
+			dat.siteName = siteName //= 'Bla bla'
+			dat.cheifsEmail = $('input[name="data.email"]').val()
+
+			X.fetch(ROOT, 'SITE/createSite', dat)
+				.then(function(siteCode) { // 3:
+					console.log(JSON.stringify(siteCode))
+					$('input[name="data.siteCode"]').val(siteCode)
+					save()
+					Cookies.set('siteCode', siteCode)
+					window.location.href='../site/Site.html'
+
+			}).catch(function(err) { //error
+				console.error('err')
+				console.error(err)
+			})//fetch()
+		}
+
+		function init() {
+			console.log('init M')
+			$('#frm1').jsForm()
+			load()
+
+			$('#save').click(function(e) { 
+				e.preventDefault()
+				save()
+			})//save
+
+			$('#cms').click(function(e) { 
+				e.preventDefault()
+				Cookies.set('siteCode', $('input[name="data.siteCode"]').val())
+				window.location.href='../site/ContentList.html'
+			})//cms
+
+			$('#site').click(function(e) { 
+				e.preventDefault()
+				Cookies.set('siteCode', $('input[name="data.siteCode"]').val())
+				window.location.href='../site/Site.html'
+			})//save
+
+			$('#createSite').click(function(e) {
+				$.popupWindow('popCreateSite.html', { center: 'parent', name: 'Create Site', top: 50, location: false
+					, onUnload: function() {
+						console.log('onUnload')
+					}//()
+				 })
+			})//createSite clicked
+
+		}//()
+
+		function save() {
+			var dat=  $('#frm1').jsForm('get') 
+
+			X.fetch(ROOT, 'RM/save', dat)
+				.then(function(value) { // 3:
+					console.log(JSON.stringify(value))
+			}).catch(function(err) { //error
+				console.error('err')
+				console.error(err)
+			})//fetch()
+		}
+		function load() {
+			var dat = {}
+			X.fetch(ROOT, 'RM/load', dat)
+				.then(function(value) { // 3:
+					//console.log(JSON.stringify(value))
+					$('#frm1').jsForm('fill', value)
+					Cookies.set('siteCode', $('input[name="data.siteCode"]').val())
+
+			}).catch(function(err) { //error
+				console.error('err')
+				console.error(err)
+			})//fetch()
+		}//()
+		onAppReady(init)
+
+block footer
+	include ../parts/_footerS

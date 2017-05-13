@@ -1,0 +1,60 @@
+extends  ../parts/_baseShellS
+
+block head
+	include ../parts/_headerS
+
+block top
+	include ../parts/_topS
+
+block main
+	.mui-container-fluid
+		p
+			br
+		.mui-row
+			.mui-col-sm-6
+				p Oh hi
+
+			.mui-col-sm-6
+				.mui-panel
+					form.mui-form#frm1
+						legend Submit Validation Code
+						.mui-textfield
+							input#em(type='text', name='data.email', readonly='')
+							label Email
+						.mui-textfield
+							input(type='code', name='data.code')
+							label Code
+					button.mui-btn.mui-btn--raised(type='submit')#submit Submit
+					#msg1 The code is correct.
+
+	script.
+		function init() {
+			console.log('init')
+			console.log(Cookies.get('email'))
+
+			$('#frm1').jsForm()
+
+			$('input[name="data.email"]').val(Cookies.get('email'))
+
+			$('#submit').click(function(e) { 
+				e.preventDefault()
+				const dat = $('#frm1').jsForm('get')
+				console.log(dat)
+				X.fetch(ROOT, 'RM/validate', dat)
+					.then(function(value) { // 3:
+
+						console.log(JSON.stringify(value))
+						window.location.href='Memb.html'
+
+				}).catch(function(err) { //error
+					console.error('err')
+					console.error(err)
+
+				})//fetch()
+			})
+		}
+
+		onAppReady(init)
+
+block footer
+	include ../parts/_footerS

@@ -1,0 +1,178 @@
+extends  ../parts/_baseShell
+
+block head
+	include ../parts/_header
+
+block main
+	.mui-container-fluid
+		p
+		.mui-panel
+			form.mui-form--inline#frm1
+
+				div 
+					legend Content
+					.mui-textfield
+						input(type='text', name='data.section')
+						label Section
+
+					.mui-textfield
+							input(type='text', name='data.urn')
+							label Short Name
+
+					.mui-textfield
+						input(type='text', name='data.headline')
+						label Headline
+
+				div
+				hr
+				div
+
+					.mui-textfield
+						input(type='text', name='data.main_img')
+						label Image url
+
+					.mui-textfield
+						input(type='text', name='data.email')
+						label Author's email
+
+					.mui-textfield
+						input(type='text', name='data.firstDat')
+						label Date
+
+				div
+					.mui-textfield
+						input(type='text', name='data.templateW')
+						label Template
+
+				div
+					.mui-textfield
+						input(type='text', name='data.templateM')
+						label Template-Mobile
+
+				div
+					.mui-textfield
+						input(type='text', name='data.description')
+						label Tag list
+
+			p
+			button.mui-btn.mui-btn--raised(type='submit')#save Save
+			button.mui-btn.mui-btn--raised(type='submit')#edit Edit
+			button.mui-btn.mui-btn--raised(type='submit')#det Details
+
+			button.mui-btn.mui-btn--raised(type='submit')#refresh Refresh
+			button.mui-btn.mui-btn--raised(type='submit')#new Save New Content
+	
+		table#dg0.display(cellspacing='0', width='100%')
+			thead
+				tr
+					th URL
+					th Section
+					th Author
+					th Date
+
+	script.
+		// rating, pinned_level, ads_seeked, demographic_seeked, popularity, alt_keyword, mentions, tags, location, lang, date_start, date_end, member_level, Tag list
+
+		function init() {
+
+			console.log('init')
+			dtInit()
+			$('#frm1').jsForm()
+			$('#save').click(function(e) { 
+				e.preventDefault()
+				save()
+			})
+			$('#edit').click(function(e) { 
+				e.preventDefault()
+				window.location.href='Edit.html'
+			})
+			$('#new').click(function(e) { 
+				e.preventDefault()
+				saveNew()
+			})
+		}//()
+
+		function dtInit() {
+			_table = $('#dg0').DataTable(
+				{	'columns': [
+						{ 'data': 'urn' },
+						{ 'data': 'section' },
+						{ 'data': 'email' },
+						{ 'data': 'firstDat' }
+					]
+					,'searching': false
+					,'info': false
+					,'lengthChange': false
+					,'paging': false
+					,ordering: true
+			} )
+
+			$('#dg0').on('click', 'tr', function () {
+				var col1 = $(this).find('td:nth-child(1)')//urn
+				var col2 = $(this).find('td:nth-child(2)')//section
+				load(col2.text(),col1.text())
+				$('#dg0 tr').removeClass('selected')
+				$(this).toggleClass('selected')
+			} )
+
+			search()
+		}//()
+
+		function saveNew() {
+			var dat=  $('#frm1').jsForm('get') 
+			var siteCode = Cookies.get('siteCode')
+			dat.siteCode = siteCode
+
+			X.fetch(ROOT, 'CONTENT/newContent', dat)
+				.then(function(value) { // 3:
+					console.log(JSON.stringify(value))
+					search()
+			}).catch(function(err) { //error
+				console.error('err')
+				console.error(err)
+			})//fetch()
+		}
+
+		function load(section, urn) {
+			console.log(section, urn)
+			var siteCode = Cookies.get('siteCode')
+			let qry = {
+				siteCode : siteCode,
+				section : section,
+				urn : urn
+			}
+			X.fetch(ROOT, 'CONTENT/load', qry)
+				.then(function(data) { // 3 done:
+					console.log('loaded:')
+					Cookies.set('Cid', data.id)
+					Cookies.set('siteCode', data.siteCode)
+					$('#frm1').jsForm('fill', data)
+
+			}).catch(function(err) { //error
+				console.error(err)
+			})//fetch()
+		}//load
+
+		function search() {
+			var siteCode = Cookies.get('siteCode')
+			let qry = {
+				siteCode : siteCode
+			}
+
+			X.fetch(ROOT, 'CONTENT/search', qry)
+				.then(function(data) { // 3 done:
+					console.log('loaded:')
+					//console.log( data)
+					_table.clear()
+					_table.rows.add( data ) .draw()
+			}).catch(function(err) { //error
+				console.error(err)
+			})//fetch()
+		}//search
+
+		onAppReady(init)
+
+	p
+	p
+block footer
+	include ../parts/_footer

@@ -1,0 +1,81 @@
+extends  ../parts/_baseShellS
+
+block head
+	include ../parts/_headerS
+
+block top
+	include ../parts/_topS
+
+block main
+	.mui-container-fluid
+		form.mui-form--inline#frm1
+		p
+		textarea#md(placeholder='Type here ...')
+		p
+		.mui-panel
+			.mui-textfield
+				input(type='text', name='data.headline')
+				label Headline
+			div
+
+		.mui-textfield
+			input(type='text', name='data.main_img')
+			label Image url
+
+		p
+		button.mui-btn.mui-btn--raised(type='submit')#save Save
+		p
+			br
+		p
+			br
+
+	script.
+
+		function init() {
+			console.log('init')
+			$('#frm1').jsForm()
+
+			$('#save').click(function(e) { 
+				e.preventDefault()
+				save()
+			})
+			var md = document.getElementById('md') 
+			ed = new SimpleMDE({ element: md })
+			load()
+		}//()
+
+
+		function save() {
+			var data=  $('#frm1').jsForm('get') 
+			data.md = ed.value()
+			X.fetch(ROOT, 'CONTENT/save', data)
+				.then(function(value) { // 3:
+					console.log(JSON.stringify(value))
+			}).catch(function(err) { //error
+				console.error('err')
+				console.error(err)
+			})//fetch()
+		}
+
+		function load(section, urn) {
+			console.log(section, urn)
+			var siteCode = Cookies.get('siteCode')
+			var id =  Cookies.get('Cid')
+			let qry = {
+				siteCode : siteCode,
+				id : id
+			}
+			X.fetch(ROOT, 'CONTENT/loadById', qry)
+				.then(function(data) { // 3 done:
+					console.log('loaded:')
+					$('#frm1').jsForm('fill', data)
+					ed.value(data.md)
+			}).catch(function(err) { //error
+				console.error(err)
+			})//fetch()
+		}//load
+
+		onAppReady(init)
+
+block footer
+	include ../parts/_footerS

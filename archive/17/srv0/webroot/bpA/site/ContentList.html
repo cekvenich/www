@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><link rel="icon" href="/favicon.ico"><meta http-equiv="X-UA-Compatible" content="IE=edge"><link href="/bpA/sass/main.css" rel="stylesheet" type="text/css"><style type="riot"></style><script src="https://www.masons-foundation.org/_js/libJs/loadjs.min.js" type="text/javascript"></script><script src="//cdn.jsdelivr.net/js-signals/1.0.0/signals.min.js" type="text/javascript"></script><script src="https://www.masons-foundation.org/_js/libJs/bowser.min.js" type="text/javascript"></script><script src="/bpA/js/setup.js" type="text/javascript"></script><script src="/bpA/js/main.js" async="" type="text/javascript"></script><meta name="description" content=""><script>_loadStarted = (new Date()).getTime()</script></head><body><div id="ss1"><nav class="mui-container-fluid mui--no-user-select" id="appbar"><table width="100%"><tr><td><div id="brand">☰ &nbsp;</div></td><td class="mui--text-right"><span>bP CMS &nbsp;</span></td></tr></table></nav><div id="sidedrawer"><nav class="mui--no-user-select" id="sidenav"><h2><div class="mui--text-title" id="sidedrawer-brand">☰ &nbsp; bP CMS</div></h2><div class="mui-divider"></div><ul class="mui-list--unstyled" id="sidenavstrong"><li><a href="/post/one/">Site</a></li><li><a href="/post/two/?w=1">Content(P)</a></li><li><a href="/post/two/?w=1">Media</a></li><li><a href="/post/one/">Styles</a></li><li><a href="/post/one/">Layouts</a></li><li><a href="/post/one/">Sections</a></li><li><a href="/post/two/?w=1">Promos(C)</a></li><li><a href="/post/two/?w=1">Injected(A)</a></li><li><a href="/post/two/?w=1">Micro services</a></li><li><a href="/post/two/?w=1">Components</a></li><li><a href="/post/two/?w=1">Reports</a></li><li><a href="/post/two/?w=1">Access</a></li><li><a href="/post/two/?w=1">About</a></li></ul></nav></div><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic&amp;lang=en"><div id="content-wrapper"><div class="mui-container-fluid"><p></p><div class="mui-panel"><form class="mui-form--inline" id="frm1"><div> <legend>Content</legend><div class="mui-textfield"><input type="text" name="data.section"><label>Section</label></div><div class="mui-textfield"><input type="text" name="data.urn"><label>Short Name</label></div><div class="mui-textfield"><input type="text" name="data.headline"><label>Headline</label></div></div><div></div><hr><div><div class="mui-textfield"><input type="text" name="data.main_img"><label>Image url</label></div><div class="mui-textfield"><input type="text" name="data.email"><label>Author's email</label></div><div class="mui-textfield"><input type="text" name="data.firstDat"><label>Date</label></div></div><div><div class="mui-textfield"><input type="text" name="data.templateW"><label>Template</label></div></div><div><div class="mui-textfield"><input type="text" name="data.templateM"><label>Template-Mobile</label></div></div><div><div class="mui-textfield"><input type="text" name="data.description"><label>Tag list</label></div></div></form><p></p><button class="mui-btn mui-btn--raised" type="submit" id="save">Save</button><button class="mui-btn mui-btn--raised" type="submit" id="edit">Edit</button><button class="mui-btn mui-btn--raised" type="submit" id="det">Details</button><button class="mui-btn mui-btn--raised" type="submit" id="refresh">Refresh</button><button class="mui-btn mui-btn--raised" type="submit" id="new">Save New Content</button></div><table class="display" id="dg0" cellspacing="0" width="100%"><thead><tr><th>URL</th><th>Section</th><th>Author</th><th>Date</th></tr></thead></table></div><script>// rating, pinned_level, ads_seeked, demographic_seeked, popularity, alt_keyword, mentions, tags, location, lang, date_start, date_end, member_level, Tag list
+
+function init() {
+
+	console.log('init')
+	dtInit()
+	$('#frm1').jsForm()
+	$('#save').click(function(e) { 
+		e.preventDefault()
+		save()
+	})
+	$('#edit').click(function(e) { 
+		e.preventDefault()
+		window.location.href='Edit.html'
+	})
+	$('#new').click(function(e) { 
+		e.preventDefault()
+		saveNew()
+	})
+}//()
+
+function dtInit() {
+	_table = $('#dg0').DataTable(
+		{	'columns': [
+				{ 'data': 'urn' },
+				{ 'data': 'section' },
+				{ 'data': 'email' },
+				{ 'data': 'firstDat' }
+			]
+			,'searching': false
+			,'info': false
+			,'lengthChange': false
+			,'paging': false
+			,ordering: true
+	} )
+
+	$('#dg0').on('click', 'tr', function () {
+		var col1 = $(this).find('td:nth-child(1)')//urn
+		var col2 = $(this).find('td:nth-child(2)')//section
+		load(col2.text(),col1.text())
+		$('#dg0 tr').removeClass('selected')
+		$(this).toggleClass('selected')
+	} )
+
+	search()
+}//()
+
+function saveNew() {
+	var dat=  $('#frm1').jsForm('get') 
+	var siteCode = Cookies.get('siteCode')
+	dat.siteCode = siteCode
+
+	X.fetch(ROOT, 'CONTENT/newContent', dat)
+		.then(function(value) { // 3:
+			console.log(JSON.stringify(value))
+			search()
+	}).catch(function(err) { //error
+		console.error('err')
+		console.error(err)
+	})//fetch()
+}
+
+function load(section, urn) {
+	console.log(section, urn)
+	var siteCode = Cookies.get('siteCode')
+	let qry = {
+		siteCode : siteCode,
+		section : section,
+		urn : urn
+	}
+	X.fetch(ROOT, 'CONTENT/load', qry)
+		.then(function(data) { // 3 done:
+			console.log('loaded:')
+			Cookies.set('Cid', data.id)
+			Cookies.set('siteCode', data.siteCode)
+			$('#frm1').jsForm('fill', data)
+
+	}).catch(function(err) { //error
+		console.error(err)
+	})//fetch()
+}//load
+
+function search() {
+	var siteCode = Cookies.get('siteCode')
+	let qry = {
+		siteCode : siteCode
+	}
+
+	X.fetch(ROOT, 'CONTENT/search', qry)
+		.then(function(data) { // 3 done:
+			console.log('loaded:')
+			//console.log( data)
+			_table.clear()
+			_table.rows.add( data ) .draw()
+	}).catch(function(err) { //error
+		console.error(err)
+	})//fetch()
+}//search
+		loadjs.ready(['app-ready'], {// loaded setup libs 			success: function(){ 				init() 			} 		})//init)
+</script><p></p><p></p></div></div><footer id="footer"><div class="mui-panel"><div class="mui-container-fluid"><div class="mui-row"><div class="mui-col-sm-1 mui--hidden-xs"></div><div class="mui-col-sm-3 mui--hidden-xs"><a class="mui--hidden-xs" href="https://gitter.im/topseed-demos/Lobby">bp CMS </a></div><div class="mui-col-sm-3 mui--pull-right mui--hidden-xs"><a class="mui--hidden-xs" href="https://github.com/topseed/topseed-demos">c All rights</a></div><div class="mui-col-sm-1 mui--hidden-xs"></div></div></div></div></footer><script>//tracking script or such</script></body></html>

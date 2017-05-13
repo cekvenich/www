@@ -1,0 +1,92 @@
+extends  ../parts/_baseShellS
+
+block head
+	include ../parts/_headerS
+
+block top
+	include ../parts/_topS
+
+block main
+	.mui-container-fluid
+		p
+		.mui-panel
+			form.mui-form#frm1
+				legend Site
+				.mui-row
+					.mui-col-sm-6
+						.mui-textfield
+							input(type='text', name='data.siteCode', readonly='')
+							label Short Code
+
+						.mui-textfield
+							input(type='text', name='data.cheifsEmail', readonly='')
+							label Cheif
+
+						.mui-textfield
+							input(type='text', name='data.siteName')
+							label Site's full name
+
+
+						p m,mB, w, wB
+
+
+						.mui-textfield
+							input(type='text', name='data.ctrib')
+							label Contributors
+
+		button.mui-btn.mui-btn--raised(type='submit')#cms CMS
+		button.mui-btn.mui-btn--raised(type='submit')#save Save
+		button.mui-btn.mui-btn--raised(type='submit')#email Change email
+
+	script.
+		function init() {
+			console.log('init M')
+			$('#frm1').jsForm()
+
+			load()
+
+			$('#cms').click(function(e) { 
+				e.preventDefault()
+				Cookies.set('siteCode', $('input[name="data.siteCode"]').val())
+				window.location.href='ContentList.html'
+			})//cms
+
+			$('#save').click(function(e) { 
+				e.preventDefault()
+				var dat=  $('#frm1').jsForm('get') 
+
+				X.fetch(ROOT, 'SITE/save', dat)
+					.then(function(value) { // 3:
+						console.log(JSON.stringify(value))
+
+				}).catch(function(err) { //error
+					console.error('err')
+					console.error(err)
+				})//fetch()
+			})//save
+
+		}//()
+		function load() {
+			var siteCode = Cookies.get('siteCode')
+			var dat = {}
+			dat.siteCode = siteCode
+			X.fetch(ROOT, 'SITE/load', dat)
+				.then(function(value) { // 3:
+					//console.log(JSON.stringify(value))
+					$('#frm1').jsForm('fill', value)
+					
+					console.log(value.id)
+					Cookies.set('siteCode', value.siteCode)
+					Cookies.set('Cid', value.id)
+
+			}).catch(function(err) { //error
+				console.error('err')
+				console.error(err)
+			})//fetch()
+
+		}
+
+		onAppReady(init)
+
+block footer
+	include ../parts/_footerS
