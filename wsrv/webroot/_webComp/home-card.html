@@ -1,8 +1,6 @@
 
 <template id="xhome-card">
   <style>
-    p { color: orange; }
-    
     home-card {
     	height: 250px;
     	width: 350px;
@@ -38,17 +36,24 @@
     }
     
   </style>
-  <div class="homeCard"></div>
+  <div class="homeCard">
+    <div id="dhome-card"></div>
+  </div>
   <!--a(href='{', ref='', }='')
   .hc--img(style='background-image:url({ img })')
   .hc--headline { headline }
   
   -->
 </template>
+<script id="shome-card" type="text/x-dot-template">
+  <a href='{{=it.img}}')> {{=it.headline}}</a>
+  
+</script>
 <script>
   class HomeCard extends HTMLElement {
   	constructor() {
   		super()
+  		console.log('v1')
   		this._shadowRoot = this.attachShadow({mode: 'open'})
   		const t = document.querySelector('#xhome-card')// add the dom above
   		const instance = t.content.cloneNode(true)
@@ -66,6 +71,15 @@
   
   	connectedCallback() {
   		console.log(this.img, this.ref, this.headline)
+  
+  		var tpl1 = document.getElementById('shome-card').text
+  		var tpl1Foo = doT.template(tpl1)
+  		var data = {'ref': this.ref, 'headline': this.headline, 'img': this.img}
+  		var res = tpl1Foo(data)
+  		console.log(res)
+  		const d = this.shadowRoot.querySelector('#dhome-card', this)//ctx
+  		d.innerHTML=res
+  
   	}
   
   }//class
