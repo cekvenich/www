@@ -24,7 +24,7 @@ loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
 
 function startApp(){
 	// READY ///////////////////////////////////////////////////////////
-	ST.signalAppReady()
+	TS.signalAppReady()
 	
 	TT.ScontentID ='#content-wrapper'
 	TT.handle(function(evt) {
