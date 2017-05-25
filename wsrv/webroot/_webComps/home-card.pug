@@ -37,8 +37,9 @@ template#xhome-card
 		}
 
 	p One
-
-	button#but1  But1 
+	a(href='{', ref='', }='')
+		.hc--img(style='background-image:url({ img })')
+		.hc--headline { headline }
 
 script.
 	class HomeCard extends HTMLElement {
@@ -53,6 +54,10 @@ script.
 		}//()
 
 		init(blx) {
+			this.headline = opts.headline
+			this.ref =	opts.ref
+			this.img = opts.img
+
 			console.log('comp1()')
 			const $but = $('#but1', this._shadowRoot)
 			console.log($but)
