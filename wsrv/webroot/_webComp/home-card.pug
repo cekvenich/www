@@ -1,6 +1,5 @@
 template#xhome-card
 	style.
-
 		home-card {
 			height: 250px;
 			width: 350px;
@@ -34,21 +33,20 @@ template#xhome-card
 		home-card:hover{
 			box-shadow: 0 3px 4px rgba(0,0,0,0.7);
 		}
-
-	.homeCard
-		#dhome-card
-	//a(href='{', ref='', }='')
-		.hc--img(style='background-image:url({ img })')
-		.hc--headline { headline }
+	
+	#dhome-card.homeCard
 
 script#shome-card(type='text/x-dot-template').
-	<a href='{{=it.img}}')> {{=it.headline}}</a>
+	<a href='{{=it.img}}')> 
+		<div class='hc--img' style='background-image:url({{=it.img }})'></div>
+		<div class='hc--headline' {{=it.headline}}</div>
+	</a>
 
 script.
 	class HomeCard extends HTMLElement {
 		constructor() {
 			super()
-			console.log('v1')
+			console.log('v3')
 			this._shadowRoot = this.attachShadow({mode: 'open'})
 			const t = document.querySelector('#xhome-card')// add the dom above
 			const instance = t.content.cloneNode(true)
@@ -65,16 +63,13 @@ script.
 		}
 
 		connectedCallback() {
-			console.log(this.img, this.ref, this.headline)
-
 			var tpl1 = document.getElementById('shome-card').text
 			var tpl1Foo = doT.template(tpl1)
 			var data = {'ref': this.ref, 'headline': this.headline, 'img': this.img}
 			var res = tpl1Foo(data)
-			console.log(res)
+			//console.log(res)
 			const d = this.shadowRoot.querySelector('#dhome-card', this)//ctx
 			d.innerHTML=res
-
 		}
 
 	}//class
