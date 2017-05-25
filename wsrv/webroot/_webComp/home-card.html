@@ -1,0 +1,72 @@
+
+<template id="xhome-card">
+  <style>
+    p { color: orange; }
+    
+    home-card {
+    	height: 250px;
+    	width: 350px;
+    	border-radius: 3px;
+    	background-color: gray;
+    	overflow: hidden;
+    	cursor: pointer;
+    	box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+    	display: inline-table;
+    	margin: 7px;
+    }
+    
+    .homeCard a, .homeCard a:visited,
+    .homeCard a:hover, .homeCard a:active {
+    	text-decoration: none;
+    }
+    
+    .hc--img {
+    	height: 210px;
+    	width: 350px;
+    	background-position: left top;
+    	background-size: cover;
+    	background-repeat: no-repeat;
+    }
+    
+    .hc--headline {
+    	padding: 6px;
+    	background-color: white;
+    }
+    
+    home-card:hover{
+    	box-shadow: 0 3px 4px rgba(0,0,0,0.7);
+    }
+    
+  </style>
+  <div class="homeCard"></div>
+  <!--a(href='{', ref='', }='')
+  .hc--img(style='background-image:url({ img })')
+  .hc--headline { headline }
+  
+  -->
+</template>
+<script>
+  class HomeCard extends HTMLElement {
+  	constructor() {
+  		super()
+  		this._shadowRoot = this.attachShadow({mode: 'open'})
+  		const t = document.querySelector('#xhome-card')// add the dom above
+  		const instance = t.content.cloneNode(true)
+  		this._shadowRoot.appendChild(instance)
+  
+  	}//()
+  
+  	static get observedAttributes() {
+  		return ['headline', 'ref', 'img']
+  	}
+  
+  	attributeChangedCallback(attrName, oldValue, newVal) {
+  		this[attrName] = newVal
+  	}
+  
+  	connectedCallback() {
+  		console.log(this.img, this.ref, this.headline)
+  	}
+  
+  }//class
+</script>

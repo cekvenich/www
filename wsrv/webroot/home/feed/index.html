@@ -51,13 +51,15 @@
       <script>
         TS.onAppReady(UIinit)
         function UIinit() {
-        	console.log('x')
-        	riot.compile(function(){ // make component, and wait for it
-        		console.log('home-card')
-        		var comps = riot.mount('home-card')
-        	})//r
-        }//init
+        	console.log('home-card')
+        	TS.loadComp($('#comps'),'/_webComp/home-card.html', UICompInit)
+        }
         
+        function UICompInit() {//this does not execute yet
+        	var el = customElements.get('home-card')
+        	if(!el) // if it is not defined, define:
+        		customElements.define('home-card', HomeCard)// loaded w/ template
+        }
         
       </script>
     </div>
