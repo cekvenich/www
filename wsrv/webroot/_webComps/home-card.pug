@@ -1,15 +1,51 @@
-template#xc1-el
+template#xhome-card
 	style.
 		p { color: orange; }
+
+		home-card {
+			height: 250px;
+			width: 350px;
+			border-radius: 3px;
+			background-color: gray;
+			overflow: hidden;
+			cursor: pointer;
+			box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+			display: inline-table;
+			margin: 7px;
+		}
+
+		.homeCard a, .homeCard a:visited,
+		.homeCard a:hover, .homeCard a:active {
+			text-decoration: none;
+		}
+
+		.hc--img {
+			height: 210px;
+			width: 350px;
+			background-position: left top;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		.hc--headline {
+			padding: 6px;
+			background-color: white;
+		}
+
+		home-card:hover{
+			box-shadow: 0 3px 4px rgba(0,0,0,0.7);
+		}
+
 	p One
+
 	button#but1  But1 
 
 script.
-	class C1El extends HTMLElement {
+	class HomeCard extends HTMLElement {
 		constructor() {
 			super()
 			this._shadowRoot = this.attachShadow({mode: 'open'})
-			const t = document.querySelector('#xc1-el')// add the dom above
+			const t = document.querySelector('##xhome-card')// add the dom above
 			const instance = t.content.cloneNode(true)
 			this._shadowRoot.appendChild(instance)
 
