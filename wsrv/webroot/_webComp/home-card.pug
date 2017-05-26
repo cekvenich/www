@@ -52,15 +52,12 @@ script.
 			const t = document.querySelector('#xhome-card')// add the dom above
 			const instance = t.content.cloneNode(true)
 			this._shadowRoot.appendChild(instance)
-
 		}//()
-
-		static get observedAttributes() {
-			return ['headline', 'ref', 'img']
-		}
-
 		attributeChangedCallback(attrName, oldValue, newVal) {
 			this[attrName] = newVal
+		}
+		static get observedAttributes() {
+			return ['headline', 'ref', 'img']
 		}
 
 		connectedCallback() {

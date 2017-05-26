@@ -1,43 +1,58 @@
-template#x-vid
+template#xx-vid
 	style.
 
-	#dhome-card.homeCard
-
-script#shome-card(type='text/x-dot-template').
-	<a href='{{=it.ref}}')> 
-		<div class='hc--img' style='background-image:url({{=it.img }})'></div>
-		<div class='hc--headline'>{{=it.headline}}</div>
-	</a>
+	#v1
 
 script.
+	var players = []
+
 	class VidEl extends HTMLElement {
 		constructor() {
 			super()
 			console.log('v2')
 			this._shadowRoot = this.attachShadow({mode: 'open'})
-			const t = document.querySelector('#x-vid')// add the dom above
+			const t = document.querySelector('#xx-vid')// add the dom above
 			const instance = t.content.cloneNode(true)
 			this._shadowRoot.appendChild(instance)
-
 		}//()
-
-		static get observedAttributes() {
-			return ['headline', 'ref', 'img']
-		}
-
 		attributeChangedCallback(attrName, oldValue, newVal) {
 			this[attrName] = newVal
 		}
-
-		connectedCallback() {
-			var tpl1 = document.getElementById('shome-card').text
-			var tpl1Foo = doT.template(tpl1)
-			var data = {'ref': this.ref, 'headline': this.headline, 'img': this.img}
-			var res = tpl1Foo(data)
-			//console.log(res)
-			const d = this.shadowRoot.querySelector('#dhome-card', this)//ctx
-			d.innerHTML=res
+		static get observedAttributes() {
+			return ['bitrate1', 'poster', 'zid']
 		}
 
+		connectedCallback() {
+			// First we specify bitrates to feed to the player
+			let bitrates = {
+				mp4: [
+				'//cdn.rawgit.com/cekvenich/what/master/asites/arc.mp4'
+			]}
+			// Then we set our player settings
+			let vsettings = {
+				licenseKey : 'Kl8laT0wZWswM3VlOGt6PTdzZWsyZW9kP3JvbTVkYXNpczMwZGIwQSVfKg==',
+				initialVolume: 0,
+				muted: true,
+				width: 360,
+				height: 250,
+				scaleMode: 'stretch',
+				posterScaleMode: 'stretch',
+				bitrates: bitrates,
+				poster: '//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg',
+				autoplay: true,
+				mutedAutoplayOnMobile: true,
+				delayToFade: 1000,
+				loop: true,
+				googleCast: false
+			}
+
+			const d = this.shadowRoot.querySelector('#vv11', this)//ctx
+
+			vsettings.poster = this.poster
+			bitrates.mp4[0] = this.bitrate1
+
+			var rmp = new RadiantMP(this.zid)
+			rmp.init(vsettings)
+			players.push(rmp)
+		}//()
 	}//class
-	
