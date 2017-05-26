@@ -5,7 +5,7 @@ block head
 
 block main
 	.mui-container-fluid
-		include story1.html
+		h3 These are some nice looking web-apps that I found
 
 		style.
 			.wall {
@@ -38,17 +38,18 @@ block main
 
 	script(src='//cdn.muut.com/1/moot.min.js')
 
-
 	script.
 		TS.onAppReady(UIinit)
 		function UIinit() {
 			console.log('x')
-			riot.compile(function(){ // make component, and wait for it
-				console.log('x-vic')
-				var comps = riot.mount('x-vid')
-			})//r
-		}//()
-		
+			TS.loadComp($('#comps'),'/_webComp/x-vid.html', UICompInit)
+		}
+
+		function UICompInit() {//this does not execute yet
+			var el = customElements.get('x-vid')
+			if(!el) // if it is not defined, define:
+				customElements.define('x-vid', VidEl)// loaded w/ template
+		}
 
 block footer
 	include ../../_part/_footer

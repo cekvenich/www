@@ -6,25 +6,6 @@ var bitrates = {
 	'//cdn.rawgit.com/cekvenich/what/master/asites/arc.mp4'
 ]}
 
-this.on('before-unmount', function(){
-	console.log('bu')
-})
-this.on('unmount', function(){
-	console.log('u')
-})
-
-/*
-
-		console.log('removing players')
-		if(players) {
-			while (players.length>0) { // stop each player
-				var rmp = players.pop()
-				rmp.stop()
-				rmp.destroy()
-			}//while
-		}//fi
-*/
-
 // Then we set our player settings
 var vsettings = {
 	licenseKey : 'Kl8laT0wZWswM3VlOGt6PTdzZWsyZW9kP3JvbTVkYXNpczMwZGIwQSVfKg==',
@@ -47,7 +28,6 @@ this.on('mount', function(){
 	vidInit(this.opts)
 
 })
-
 
 var players = []
 function vidInit(tag) {

@@ -39,8 +39,8 @@
     </script>
     <div id="content-wrapper0"> </div>
     <div id="content-wrapper">
-      <div class="mui-container-fluid"><h1 id="these-are-some-nice-looking-web-apps-that-i-found">These are some nice looking web-apps that I found</h1>
-
+      <div class="mui-container-fluid">
+        <h3>These are some nice looking web-apps that I found</h3>
         <style>
           .wall {
           	display: flex;
@@ -64,15 +64,17 @@
       <div class="mui-container-fluid"><a class="muut" href="https://muut.com/i/masons/comments" type="dynamic">Comments</a></div>
       <script src="//cdn.muut.com/1/moot.min.js"></script>
       <script>
-        ST.onAppReady(UIinit)
+        TS.onAppReady(UIinit)
         function UIinit() {
         	console.log('x')
-        	riot.compile(function(){ // make component, and wait for it
-        		console.log('x-vic')
-        		var comps = riot.mount('x-vid')
-        	})//r
-        }//()
+        	TS.loadComp($('#comps'),'/_webComp/x-vid.html', UICompInit)
+        }
         
+        function UICompInit() {//this does not execute yet
+        	var el = customElements.get('x-vid')
+        	if(!el) // if it is not defined, define:
+        		customElements.define('x-vid', VidEl)// loaded w/ template
+        }
         
       </script>
     </div>
