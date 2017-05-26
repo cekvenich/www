@@ -4,12 +4,9 @@
   <div id="v1"></div>
 </template>
 <script>
-  var players = []
-  
   class VidEl extends HTMLElement {
   	constructor() {
   		super()
-  		console.log('v2')
   		this._shadowRoot = this.attachShadow({mode: 'open'})
   		const t = document.querySelector('#xx-vid')// add the dom above
   		const instance = t.content.cloneNode(true)
@@ -46,14 +43,16 @@
   			googleCast: false
   		}
   
-  		const d = this.shadowRoot.querySelector('#vv11', this)//ctx
+  		const d = this.shadowRoot.querySelector('v1', this)//ctx
+  		const b = document.getElementById(this.zid)
+  		//console.log(b)
   
   		vsettings.poster = this.poster
   		bitrates.mp4[0] = this.bitrate1
   
   		var rmp = new RadiantMP(this.zid)
   		rmp.init(vsettings)
-  		players.push(rmp)
+  
   	}//()
   }//class
 </script>
