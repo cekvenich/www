@@ -1,6 +1,7 @@
 template#xhome-card
 	style.
-		home-card {
+
+		.home-card, #dhome-card {
 			height: 250px;
 			width: 350px;
 			border-radius: 3px;
@@ -37,16 +38,16 @@ template#xhome-card
 	#dhome-card.homeCard
 
 script#shome-card(type='text/x-dot-template').
-	<a href='{{=it.img}}')> 
+	<a href='{{=it.ref}}')> 
 		<div class='hc--img' style='background-image:url({{=it.img }})'></div>
-		<div class='hc--headline' {{=it.headline}}</div>
+		<div class='hc--headline'>{{=it.headline}}</div>
 	</a>
 
 script.
 	class HomeCard extends HTMLElement {
 		constructor() {
 			super()
-			console.log('v3')
+			console.log('v2')
 			this._shadowRoot = this.attachShadow({mode: 'open'})
 			const t = document.querySelector('#xhome-card')// add the dom above
 			const instance = t.content.cloneNode(true)
