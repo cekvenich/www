@@ -49,15 +49,15 @@
           
         </style>
         <div class="wall">
-          <x-vid id="rmpArc" zid="rmpArc" bitrate1="//cdn-484996.c.cdn77.org/asites/arc.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-          <x-vid id="rmpLab" zid="rmpLab" bitrate1="//cdn-484996.c.cdn77.org/asites/lab.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-          <x-vid id="rmpChair" zid="rmpChair" bitrate1="//cdn-484996.c.cdn77.org/asites/chair.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-          <x-vid id="rmpTravel" zid="rmpTravel" bitrate1="//cdn-484996.c.cdn77.org/asites/travel.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-          <x-vid id="rmpShi" zid="rmpShi" bitrate1="//cdn-484996.c.cdn77.org/asites/shi.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-          <x-vid id="rmpTweet" zid="rmpTweet" bitrate1="//cdn-484996.c.cdn77.org/asites/tweet.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-          <x-vid id="rmpChild" zid="rmpChild" bitrate1="//cdn-484996.c.cdn77.org/asites/child.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-          <x-vid id="rmpVw2" zid="rmpVw2" bitrate1="//cdn-484996.c.cdn77.org/asites/vw2.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
-          <x-vid id="rmpPress" zid="rmpPress" bitrate1="//cdn-484996.c.cdn77.org/asites/press.mp4" poster="//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg"></x-vid>
+          <x-vid src="//cdn-484996.c.cdn77.org/asites/arc.mp4"></x-vid>
+          <x-vid src="//cdn-484996.c.cdn77.org/asites/lab.mp4"></x-vid>
+          <x-vid src="//cdn-484996.c.cdn77.org/asites/chair.mp4"></x-vid>
+          <x-vid src="//cdn-484996.c.cdn77.org/asites/travel.mp4"></x-vid>
+          <x-vid src="//cdn-484996.c.cdn77.org/asites/shi.mp4"></x-vid>
+          <x-vid src="//cdn-484996.c.cdn77.org/asites/tweet.mp4"></x-vid>
+          <x-vid src="//cdn-484996.c.cdn77.org/asites/child.mp4"></x-vid>
+          <x-vid src="//cdn-484996.c.cdn77.org/asites/vw2.mp4"></x-vid>
+          <x-vid src="//cdn-484996.c.cdn77.org/asites/press.mp4"></x-vid>
         </div>
       </div>
       <hr>
@@ -70,8 +70,8 @@
         	TS.loadComp($('#comps'),'/_webComp/x-vid.html', UICompInit)
         }
         
-        function UICompInit() {//this does not execute yet
-        	var el = customElements.get('x-vid')
+        function UICompInit() {
+        	var el = customElements.get('VidEl')
         	if(!el) // if it is not defined, define:
         		customElements.define('x-vid', VidEl)// loaded w/ template
         }

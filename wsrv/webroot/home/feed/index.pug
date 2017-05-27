@@ -28,7 +28,7 @@ block main
 			TS.loadComp($('#comps'),'/_webComp/home-card.html', UICompInit)
 		}
 
-		function UICompInit() {//this does not execute yet
+		function UICompInit() {
 			var el = customElements.get('home-card')
 			if(!el) // if it is not defined, define:
 				customElements.define('home-card', HomeCard)// loaded w/ template

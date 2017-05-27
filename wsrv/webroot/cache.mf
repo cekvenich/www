@@ -1,11 +1,12 @@
 CACHE MANIFEST
 # load stable assets once and freeze on client, even if asset changes, it won't ping
 
-#index assets
 
 
-#video assets
+/_js/vendor/jquery.jsForm.min.js
 
+//cdn.jsdelivr.net/mediaelement/4.1.0/mediaelement-and-player.min.js
+//cdn.jsdelivr.net/mediaelement/4.1.0/mediaelementplayer.min.css
 
 NETWORK:
 *

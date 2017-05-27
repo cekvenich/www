@@ -1,16 +1,18 @@
 'use strict'
 loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
 	success: function(){
-
+		console.log('loading')
 		loadjs([
-			'//cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js'
-			,'/_js/vendor/jquery.jsForm.min.js'
+			//'//cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js'
+			'/_js/vendor/jquery.jsForm.min.js'
 
 			,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
 			, '/_js/split.js'
 
 			//,'/_js/vendor/jquery.fullpage.min.css'
 			//,'/_js/vendor/jquery.fullpage.min.js'
+			,'//cdn.jsdelivr.net/mediaelement/4.1.0/mediaelement-and-player.min.js'
+			,'//cdn.jsdelivr.net/mediaelement/4.1.0/mediaelementplayer.min.css'
 
 			,'//cse.google.com/cse.js?cx=015406677380205718189:esv77diws9e'
 

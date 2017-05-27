@@ -1,7 +1,7 @@
 
 <template id="xx-vid">
   <style></style>
-  <div id="v1"></div>
+  <video id="v1" src="//cdn-484996.c.cdn77.org/asites/lab.mp4" autoplay="autoplay" loop="loop" muted="muted" width="360" height="250"></video>
 </template>
 <script>
   class VidEl extends HTMLElement {
@@ -16,43 +16,29 @@
   		this[attrName] = newVal
   	}
   	static get observedAttributes() {
-  		return ['bitrate1', 'poster', 'zid']
+  		return ['src']
   	}
   
   	connectedCallback() {
-  		// First we specify bitrates to feed to the player
-  		let bitrates = {
-  			mp4: [
-  			'//cdn.rawgit.com/cekvenich/what/master/asites/arc.mp4'
-  		]}
-  		// Then we set our player settings
-  		let vsettings = {
-  			licenseKey : 'Kl8laT0wZWswM3VlOGt6PTdzZWsyZW9kP3JvbTVkYXNpczMwZGIwQSVfKg==',
-  			initialVolume: 0,
-  			muted: true,
-  			width: 360,
-  			height: 250,
-  			scaleMode: 'stretch',
-  			posterScaleMode: 'stretch',
-  			bitrates: bitrates,
-  			poster: '//www.radiantmediaplayer.com/images/poster-rmp-showcase.jpg',
-  			autoplay: true,
-  			mutedAutoplayOnMobile: true,
-  			delayToFade: 1000,
-  			loop: true,
-  			googleCast: false
+  		//const d = this.shadowRoot.querySelector('v1', this)//ctx
+  
+  		$('#v1', this).mediaelementplayer({
+  			 features: ['fullscreen']
+  			,controlsTimeoutDefault: 100
+  			,success: function(ply, originalNode) {
+  				ply.setCurrentTime(10.0)
+  				console.log('ok', ply.getCurrentTime ()	)
+  			}
+  		})
+  
+  	}//()
+  
+  	_kill() {
+  		var ply = $('#rmpLab')[0]
+  		if (!ply.paused) {
+  				ply.pause();	
   		}
-  
-  		const d = this.shadowRoot.querySelector('v1', this)//ctx
-  		const b = document.getElementById(this.zid)
-  		//console.log(b)
-  
-  		vsettings.poster = this.poster
-  		bitrates.mp4[0] = this.bitrate1
-  
-  		var rmp = new RadiantMP(this.zid)
-  		rmp.init(vsettings)
-  
+  		ply.remove()
   	}//()
   }//class
 </script>
