@@ -1,12 +1,18 @@
 CACHE MANIFEST
 # load stable assets once and freeze on client, even if asset changes, it won't ping
 
+https://code.jquery.com/jquery-3.2.1.slim.min.js
+https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js
+
+https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/flyd.min.js
+https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/js.cookie.min.js
+https://cdn.jsdelivr.net/dot.js/1.1.1/doT.min.js
+
+https://www.masons-foundation.com/favicon.ico
 
 
-/_js/vendor/jquery.jsForm.min.js
-
-//cdn.jsdelivr.net/mediaelement/4.1.0/mediaelement-and-player.min.js
-//cdn.jsdelivr.net/mediaelement/4.1.0/mediaelementplayer.min.css
+https://cdn.jsdelivr.net/mediaelement/4.1.0/mediaelement-and-player.min.js
+https://cdn.jsdelivr.net/mediaelement/4.1.0/mediaelementplayer.min.css
 
 NETWORK:
 *
