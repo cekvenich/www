@@ -4,7 +4,7 @@ loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
 		console.log('loading')
 		loadjs([
 			//'//cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js'
-			'//cdn.rawgit.com/topseed/topseed-turbo/master/vendor/jquery.jsForm.min.js'
+			'//cdn.rawgit.com/topseed/topseed-turbo/master/vendor/jquery.jsForm.min.js?a=1'
 
 			,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
 			, '/_js/split.js'
