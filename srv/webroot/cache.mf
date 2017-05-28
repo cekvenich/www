@@ -8,8 +8,7 @@ https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/flyd.min.js
 https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/js.cookie.min.js
 https://cdn.jsdelivr.net/dot.js/1.1.1/doT.min.js
 
-https://www.masons-foundation.com/favicon.ico
-
+https://www.masons-foundation.org/favicon.ico
 
 https://cdn.jsdelivr.net/mediaelement/4.1.0/mediaelement-and-player.min.js
 https://cdn.jsdelivr.net/mediaelement/4.1.0/mediaelementplayer.min.css

@@ -13,13 +13,12 @@ server.use(bodyParser.json())
 server.use(cors())
 server.use(compression())
 
-const scribe = require('scribe-js')({ })
-
-const console = process.console
+//const scribe = require('scribe-js')({ })
+//const console = process.console
 //server.use(scribe.express.logger()) //Log each request for now
-server.use('/logs', scribe.webPanel())
-const debug = require('debug')('my-app')
-debug('oh hi')
+//server.use('/logs', scribe.webPanel())
+//const debug = require('debug')('my-app')
+//debug('oh hi')
 
 const Decider = require('./utils/Decider')
 const contPg = require('./sroute/contPg')

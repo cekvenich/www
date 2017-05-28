@@ -10,18 +10,13 @@
 		, "riot": ">=3.4"
 		, "cheerio": ">=0.2"
 		, "moment": ">=2.1"
-		, "scribe-js": ">=2.0"
-		, "debug": ">=2.6"
-		, "bugsnag": ">=1.9"
 		, "node-fetch": ">=1.6"
-		, "markdown-it": ">=8.3"
 		, "flyd": ">=0.2.4"
 		, "topseed-util": "=1.2.1"
 
-		, "jsonwebtoken": ">= 7.2"
 		, "mailgun-js": ">=0.8"
-		, "@google-cloud/datastore": ">=0.7"
-		, "node-cache": ">=4.1"
+		,"firebase-admin": ">=4.2.1"
+
 
 	}
 }
