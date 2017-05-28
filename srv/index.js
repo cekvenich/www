@@ -12,7 +12,6 @@ const compression = require('compression')
 server.use(bodyParser.json())
 server.use(cors())
 server.use(compression())
-
 //const scribe = require('scribe-js')({ })
 //const console = process.console
 //server.use(scribe.express.logger()) //Log each request for now
@@ -20,13 +19,18 @@ server.use(compression())
 //const debug = require('debug')('my-app')
 //debug('oh hi')
 
+//linkBlg ######################, we should use another CDN/port
+server.use('/linksPg', require('./scode/route/LinksPg')) 
+server.use('/adminPg', require('./scode/route/AdminPg')) 
+server.use('/loginPg', require('./scode/route/LoginPg')) 
+
+// ###################### static
 const Decider = require('./utils/Decider')
 const contPg = require('./sroute/contPg')
 
 //front route: ////////////////
 server.use('/contPg', contPg) 
 
-// ###################### static
 server.use(Decider.decide)
 server.use(express.static(ServerConfig.WEBROOT))
 

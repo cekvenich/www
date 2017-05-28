@@ -14,7 +14,7 @@ loadjs.ready(['dependencyIE', 'keyLibs'], {// loaded setup libs
 })
 
 
-const ROOT = 'http://localhost:8081/'
+const ROOT = 'https://www.masons-foundation.org/'
 function tst1() {
 	// class:
 	class Page1BDS extends BDS {
