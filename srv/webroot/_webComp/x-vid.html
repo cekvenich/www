@@ -41,15 +41,14 @@
   		d.innerHTML=res
   
   		$('#v1', this).mediaelementplayer({
-  			 features: ['fullscreen']
+  			features: ['fullscreen']
   			,controlsTimeoutDefault: 100
-  			,controlsTimeoutMouseEnter: 1000
-  
+  			,controlsTimeoutMouseEnter: 100
+  			,controlsTimeoutMouseLeave: 100
   			,stretching: 'fill'
-  			,hideVideoControlsOnLoad: "true"
-  
+  			//,hideVideoControlsOnLoad: "true"
   			,success: function(ply, originalNode) {
-  				ply.setCurrentTime(10.0)
+  				ply.setCurrentTime(5.0)
   				console.log('ok', ply.getCurrentTime ()	)
   			}
   		})

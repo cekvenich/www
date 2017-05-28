@@ -21,4 +21,4 @@ Icon\r
 **/logs/**
 **/node_modules/**
 
-serviceKey.json
+**/serviceKey.json

@@ -47,7 +47,6 @@ script.
 	class HomeCard extends HTMLElement {
 		constructor() {
 			super()
-			console.log('v2')
 			this._shadowRoot = this.attachShadow({mode: 'open'})
 			const t = document.querySelector('#xhome-card')// add the dom above
 			const instance = t.content.cloneNode(true)
@@ -68,44 +67,21 @@ script.
 			//console.log(res)
 			const d = this.shadowRoot.querySelector('#dhome-card', this)//ctx
 			d.innerHTML=res
+
+			var i = $('a',this.shadowRoot)
+			i.click(function (e) {//prevent
+				console.log('2XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+
+				var $anchor = $(e.currentTarget)
+				var href = $anchor.prop('href')
+				e.stopPropagation()
+				e.preventDefault()
+				TT._clickAnchor(href)
+
+			})//()
+
 		}
 
 	}//class
 
-	/*
-	$(document).ready(function () {
 
-		TT.clearUrl()
-
-		$(window).on('popstate', function (e) {//back button
-			var state = e.originalEvent.state
-			if (state !== null) {
-				e.preventDefault()
-				TT.loadPg(state.url)
-			}
-		})//()
-
-		$(document).on('click', 'a', function (e) {//prevent
-			var $anchor = $(e.currentTarget)
-			var href = $anchor.prop('href')
-			//console.log(href)
-			if(! href || href.length < 1) {
-				return
-			}
-			if(TT.isHash(href)) {
-				TT.clearUrl()
-				console.log('#')
-				return
-			}
-			if(TT.isExternal(href)) {
-				console.log('bye')
-				return
-			}
-
-			//e.stopPropagation()
-			e.preventDefault()
-			TT._clickAnchor(href)
-		})//()
-		console.log('TT loaded')
-	})
-	*/
