@@ -8,7 +8,7 @@ QUnit.test( 'test my fetch', function( assert ) {
 })//test
 })//outer
 
-const ROOT = 'http://localhost:8080/RM/'
+let ROOT = 'http://localhost:8080/RM/'
 
 function _fetch(ROOT_, url_, data_) {
 	return fetch(ROOT_ + url_ , { //1 call

@@ -2,7 +2,7 @@
 function Minit( ) {// 'closure|module'-iso.
 	console.log('ps admin')
 
-	const ROOT = 'https://www.masons-foundation.org/'
+	let ROOT = 'https://www.masons-foundation.org/'
 	class DS extends BDS {
 		doFetch(data, token) {
 			return BDS.fetch(window.fetch, ROOT, 'adminPg/add', data, token)

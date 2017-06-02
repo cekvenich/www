@@ -1,6 +1,6 @@
 'use strict'
 
-const ROOT = 'http://localhost:8080/cmsA/'
+let ROOT = 'http://localhost:8080/cmsA/'
 
 let data = { 	//BDS.insertContentKey(dat.dom, dat.section, dat.urn, dat)
 	section : 'sports',
