@@ -33,7 +33,6 @@ function serveAmp(req) { // should we serve mobile/AMP
 }
 
 //**************** */
-console.log('v17.03')
 exports.decide = function (req, res, next) {
 	res.header('X-TimeSent', U.getDt() )
 	U.cacheLong(res) // default is long, later we set to quick if needed

@@ -7,7 +7,7 @@ class Links extends BaseFB {
 	constructor() {
 		super()
 		this.table = 'links100'
-		this.ref = this.fdb.ref(this.table)
+		//this.ref = this.fdb.ref(this.table)
 	}
 
 	add(row) { // return a promise

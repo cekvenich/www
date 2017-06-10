@@ -12,12 +12,7 @@ const compression = require('compression')
 server.use(bodyParser.json())
 server.use(cors())
 server.use(compression())
-//const scribe = require('scribe-js')({ })
-//const console = process.console
-//server.use(scribe.express.logger()) //Log each request for now
-//server.use('/logs', scribe.webPanel())
-//const debug = require('debug')('my-app')
-//debug('oh hi')
+
 
 //linkBlg ######################, we should use another CDN/port
 server.use('/linksPg', require('./scode/route/LinksPg')) 
@@ -44,4 +39,21 @@ server.listen(ServerConfig.WWW_PORT, '0.0.0.0', function() {
 server.listen(ServerConfig.AMP_PORT, '0.0.0.0', function() {
 	console.log('App listening on port ' +ServerConfig.AMP_PORT)
 	console.log('Press Ctrl+C to quit.')
+})
+
+var algoliasearch = require('algoliasearch')
+var client = algoliasearch('XO3LSEXN6Y', '21ffff287ac97c39416ddcd54ad74db6')
+var table = client.initIndex('links')
+
+var row = {
+	headline : 'head'
+	, url : 'http://news.com'
+	, dateTime : 123
+	, tags : ['one', 'two']
+}
+table.addObject(row)
+
+var pro = table.browse()
+pro.then(function(content){
+	console.log(content.hits)
 })

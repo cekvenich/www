@@ -1,23 +1,26 @@
-{	"name" : "a"
-	,"version" : "1.0.0"
-	, "engines": { "npm" : ">=5", "node": ">=8" }
-	, "dependencies": { 
-		"express": ">=4.15"
-		, "cors": ">=2.8"
-		, "compression": ">=1.6"
-		, "body-parser": ">=1.1"
-		, "is_js": ">=0.9"
-		, "riot": ">=3.4"
-		, "cheerio": ">=0.2"
-		, "moment": ">=2.1"
-		, "node-fetch": ">=1.6"
-		, "flyd": ">=0.2.4"
-		, "topseed-util": "=1.2.1"
-
-		, "mailgun-js": ">=0.8"
-		,"firebase-admin": ">=4.2.1"
-
-
-	}
+{
+		"name": "a",
+		"version": "1.0.0",
+		"engines": {
+				"npm": ">=5",
+				"node": ">=8"
+		},
+		"dependencies": {
+				"express": ">=4.15",
+				"cors": ">=2.8",
+				"compression": ">=1.6",
+				"body-parser": ">=1.1",
+				"is_js": ">=0.9",
+				"cheerio": ">=0.2",
+				"moment": ">=2.1",
+				"node-fetch": ">=1.6",
+				"flyd": ">=0.2.4",
+				"pug": ">=2.0.0-rc.2",
+				"topseed-util": ">=20.1",
+				"server-components": ">=0.2",
+				"dot": ">=1.1",
+				"algoliasearch": ">=3.23",
+				"mailgun-js": ">=0.8",
+				"node-cache": ">=4.1"
+		}
 }
- 
