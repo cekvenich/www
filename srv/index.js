@@ -46,7 +46,8 @@ var client = algoliasearch('XO3LSEXN6Y', '21ffff287ac97c39416ddcd54ad74db6')
 var table = client.initIndex('links')
 
 var row = {
-	headline : 'head'
+	page: 'image'
+	, headline : 'head'
 	, url : 'http://news.com'
 	, dateTime : 123
 	, tags : ['one', 'two']
