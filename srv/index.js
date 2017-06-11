@@ -41,6 +41,7 @@ server.listen(ServerConfig.AMP_PORT, '0.0.0.0', function() {
 	console.log('Press Ctrl+C to quit.')
 })
 
+/*
 var algoliasearch = require('algoliasearch')
 var client = algoliasearch('XO3LSEXN6Y', '21ffff287ac97c39416ddcd54ad74db6')
 var table = client.initIndex('links')
@@ -58,3 +59,4 @@ var pro = table.browse()
 pro.then(function(content){
 	console.log(content.hits)
 })
+*/

@@ -46,43 +46,67 @@
   
 </script>
 <script>
-  class HomeCard extends HTMLElement {
-  	constructor() {
-  		super()
-  		this._shadowRoot = this.attachShadow({mode: 'open'})
-  		const t = document.querySelector('#xhome-card')// add the dom above
-  		const instance = t.content.cloneNode(true)
-  		this._shadowRoot.appendChild(instance)
-  	}//()
-  	attributeChangedCallback(attrName, oldValue, newVal) {
-  		this[attrName] = newVal
-  	}
-  	static get observedAttributes() {
-  		return ['headline', 'ref', 'img']
-  	}
+  var HomeCard = Object.create(HTMLElement.prototype)
+  HomeCard.createdCallback = function() {
+  	var t = document.querySelector('##xhome-card')
+  	var clone = document.importNode(t.content, true)
+  	//var shadow = this.createShadowRoot() NOPE
+  	var shadow = this.attachShadow({mode: 'open'})
   
-  	connectedCallback() {
-  		var tpl1 = document.getElementById('shome-card').text
-  		var tpl1Foo = doT.template(tpl1)
-  		var data = {'ref': this.ref, 'headline': this.headline, 'img': this.img}
-  		var res = tpl1Foo(data)
-  		//console.log(res)
-  		const d = this.shadowRoot.querySelector('#dhome-card', this)//ctx
-  		d.innerHTML=res
+  	HomeCard._shadow = shadow
+  	shadow.appendChild(clone)
   
-  		var i = $('a',this.shadowRoot)
-  		i.click(function (e) {//prevent
-  			console.log('2XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+  	TS.loadNX('/_js/vendor/justgage.js', HomeCard.loadedLib )
+  }//created
+  HomeCard.loadedLib = function() {
+  	var c = $('#dhome-card', HomeCard._shadow)[0]
+  	console.log('created')
   
-  			var $anchor = $(e.currentTarget)
-  			var href = $anchor.prop('href')
-  			e.stopPropagation()
-  			e.preventDefault()
-  			TT._clickAnchor(href)
+  	var g = new JustGage({
+  		parentNode : c,
+  		value: 67,
+  		min: 0,
+  		max: 100,
+  		title: 'Visitors'
+  	})
+  }//loaded
   
-  		})//()
+  function constructor() {
+  	super()
+  	this._shadowRoot = this.attachShadow({mode: 'open'})
+  	const t = document.querySelector('#xhome-card')// add the dom above
+  	const instance = t.content.cloneNode(true)
+  	this._shadowRoot.appendChild(instance)
+  }//()
   
-  	}
+  function attributeChangedCallback(attrName, oldValue, newVal) {
+  	this[attrName] = newVal
+  }
   
-  }//class
+  function  observedAttributes() {
+  	return ['headline', 'ref', 'img']
+  }
+  
+  function connectedCallback() {
+  	var tpl1 = document.getElementById('shome-card').text
+  	var tpl1Foo = doT.template(tpl1)
+  	var data = {'ref': this.ref, 'headline': this.headline, 'img': this.img}
+  	var res = tpl1Foo(data)
+  	//console.log(res)
+  	const d = this.shadowRoot.querySelector('#dhome-card', this)//ctx
+  	d.innerHTML=res
+  
+  	var i = $('a',this.shadowRoot)
+  	i.click(function (e) {//prevent
+  		console.log('2XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+  
+  		var $anchor = $(e.currentTarget)
+  		var href = $anchor.prop('href')
+  		e.stopPropagation()
+  		e.preventDefault()
+  		TT.loadPg(href)
+  
+  	})//()
+  
+  }
 </script>

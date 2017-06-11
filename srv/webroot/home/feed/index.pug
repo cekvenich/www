@@ -25,14 +25,14 @@ block main
 		TS.onAppReady(UIinit)
 		function UIinit() {
 			console.log('home-card')
-			TS.loadComp($('#comps'),'/_webComp/home-card.html', UICompInit)
+			TS.loadComp($('#comps'),'/_webComp/home-card.html', UIComp1Init)
 		}
 
-		function UICompInit() {
-			var el = customElements.get('home-card')
-			if(!el) // if it is not defined, define:
-				customElements.define('home-card', HomeCard)// loaded w/ template
-		}
+		function UIComp1Init() {
+			console.log('.')
 
+			var xx = TS.cRegOrGet('home-card', HomeCard)
+			console.log(xx)
+		}
 block footer
 	include ../../_part/_footer
