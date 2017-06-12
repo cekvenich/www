@@ -45,19 +45,15 @@ script#shome-card(type='text/x-dot-template').
 script.
 	var HomeCard = Object.create(HTMLElement.prototype)
 	HomeCard.createdCallback = function() {
-		 var headline = this.getAttribute('headline')
-		 var ref = this.getAttribute('ref')
-		 var img = this.getAttribute('img')
+		var shadow = TS.attachShad('#xhome-card', this)
+
+		var headline = this.getAttribute('headline')
+		var ref = this.getAttribute('ref')
+		var img = this.getAttribute('img')
 
 		var tpl1 = document.getElementById('shome-card').text
-		var tpl1Foo = doT.template(tpl1)
 		var data = {'ref': ref, 'headline': headline, 'img': img}
-		var res = tpl1Foo(data)
-
-		var t = document.querySelector('#xhome-card')
-		var clone = document.importNode(t.content, true)
-		var shadow = this.attachShadow({mode: 'open'})
-		shadow.appendChild(clone)
+		var res = TS.dbind(tpl1,data)
 
 		const d = shadow.getElementById('dhome-card')//ctx
 		d.innerHTML=res
