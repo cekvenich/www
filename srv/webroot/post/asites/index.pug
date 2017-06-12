@@ -47,14 +47,15 @@ block main
 		TS.onAppReady(UIinit)
 		function UIinit() {
 			console.log('x')
-			TS.loadComp($('#comps'),'/_webComp/x-vid.html', UICompInit)
+			TS.loadComp($('#comps'),'/_webComp/x-vid.html', UIComp1Init)
 		}
 
-		function UICompInit() {
-			var el = customElements.get('VidEl')
-			if(!el) // if it is not defined, define:
-				customElements.define('x-vid', VidEl)// loaded w/ template
+		function UIComp1Init() {
+			console.log('.')
+			var xx = TS.cRegOrGet('x-vid', VidEl)
+			//console.log(xx)
 		}
 
 block footer
 	include ../../_part/_footer
+

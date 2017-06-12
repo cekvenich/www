@@ -33,13 +33,13 @@ server.use(express.static(ServerConfig.WEBROOT))
 
 server.listen(ServerConfig.WWW_PORT, '0.0.0.0', function() {
 	console.log('App listening on port '+ServerConfig.WWW_PORT)
-	console.log('Press Ctrl+C to quit.')
 })
 
 server.listen(ServerConfig.AMP_PORT, '0.0.0.0', function() {
-	//console.log('App listening on port ' +ServerConfig.AMP_PORT)
-	console.log('Press Ctrl+C to quit.')
+	console.log('App listening on port ' +ServerConfig.AMP_PORT)
 })
+var img = this.getAttribute('img')
+
 
 /*
 var algoliasearch = require('algoliasearch')

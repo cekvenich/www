@@ -28,12 +28,11 @@ block main
 			TS.loadComp($('#comps'),'/_webComp/home-card.html', UIComp1Init)
 		}
 
-
 		function UIComp1Init() {
-			console.log('...')
-
+			console.log('.')
 			var xx = TS.cRegOrGet('home-card', HomeCard)
-			console.log(xx)
+			//console.log(xx)
 		}
+
 block footer
 	include ../../_part/_footer
