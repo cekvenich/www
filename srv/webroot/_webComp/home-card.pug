@@ -45,7 +45,7 @@ script#shome-card(type='text/x-dot-template').
 script.
 	var HomeCard = Object.create(HTMLElement.prototype)
 	HomeCard.createdCallback = function() {
-		var shadow = TS.attachShad('#xhome-card', this)
+		var shadow = TW.attachShad('#xhome-card', this)
 
 		var headline = this.getAttribute('headline')
 		var ref = this.getAttribute('ref')
@@ -53,7 +53,7 @@ script.
 
 		var tpl1 = document.getElementById('shome-card').text
 		var data = {'ref': ref, 'headline': headline, 'img': img}
-		var res = TS.dbind(tpl1,data)
+		var res = TW.dbind(tpl1,data)
 
 		const d = shadow.getElementById('dhome-card')//ctx
 		d.innerHTML=res
