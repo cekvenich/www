@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <base href="/tutorial/">
+    <title>Agenda</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <link rel="icon" href="./favicon.ico">
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-3.2.1.js"></script>
+    <script src="./_js/main.js" async=""></script>
+    <style>body {opacity: 0.1}</style>
+  </head>
+  <body>
+    <link rel="stylesheet" href="./_sass/main.css" lazyload="1">
+    <div id="appbar">
+      <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Tutorial</span></div>
+      <ul id="appbar--menu">
+        <li><a href="./0-agenda/">Agenda</a></li>
+        <li><a href="./1-helloWorld/">One</a></li>
+        <li><a href="./2-theBasics/">Two</a></li>
+        <li><a href="./3-goLive/">Three</a></li>
+        <li><a href="./4-appShell/">Four</a></li>
+        <li><a href="./5-amp/">Five</a></li>
+        <li><a href="./6-read/">Six</a></li>
+        <li><a href="./7-write/">Seven</a></li>
+        <li><a href="./8-security/">Eight</a></li>
+      </ul>
+    </div>
+    <div id="sidedrawer" onclick="closeDrawer()">
+      <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
+      <div class="mui-divider"></div>
+      <ul id="sidedrawer--menu">
+        <li><a href="./0-agenda/">Agenda</a></li>
+        <li><a href="./1-helloWorld/">1: Hello World</a></li>
+        <li><a href="./2-theBasics/">2: The Basics</a></li>
+        <li><a href="./3-goLive/">3: Golive</a></li>
+        <li><a href="./4-appShell/">4: AppShell</a></li>
+        <li><a href="./5-amp/">5: AMP and Node.js</a></li>
+        <li><a href="./6-read/">6: UI Reading from API	</a></li>
+        <li><a href="./7-write/">7: UI Writing to API</a></li>
+        <li><a href="./8-security/">8: Login Security</a></li>
+      </ul>
+    </div>
+    <script>
+      function openDrawer(px, e) {
+      	$('#sidedrawer').css('transform', 'translateX(201px)')
+      }
+      function closeDrawer(e) {
+      	$('#sidedrawer').css('transform', 'translateX(0px)')
+      }			
+    </script>
+    <div id="content-wrapper">
+      <style>
+        .section {
+        	background-size: cover;
+        	background-attachment: fixed;
+        	background-image: url(res/beach768.jpg);
+        }
+        
+        .section1 {
+        	background-image: url(res/beach768.jpg);
+        }
+        .section2 {
+        	background-image: url(res/city768.jpg);
+        }
+        .section3{
+        	background-image: url(res/light768.jpg);
+        }
+        .section4{
+        	background-image: url(res/road768.jpg);
+        }
+        
+      </style>
+      <div id="fullpage">
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Data Binding</H3>
+              <p>There are many ways we use, some are:</p>
+              <ul>
+                <li>Mustache type</li>
+                <li>SSR</li>
+                <li>jQuery type</li>
+              </ul>
+              <p>Also, Web Components could hide some of the DOM soup and do data binding.</p>
+              <p>note: A jr. developer may want to skip ahead. Mastering data binding is a step for sr. engineers, before making any web component.  </p>
+            </div>
+          </div>
+        </div>
+        <div class="section2 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>One Mustache style is 'doT', ex:</p><code>
+                <pre>.mui-container-fluid
+	#bind1
+script#exp1Tpl(type='text/x-dot-template').
+	{{~it.array :value:index}}
+		&ltdiv&gt{{=value}}&lt/div&gt
+	{{~}}
+script.
+	TS.onAppReady(UIinit)
+	function UIinit() {
+		var tpl1 = document.getElementById('exp1Tpl').text
+		var tpl1Foo = doT.template(tpl1)
+		var data = {'array':['banana','apple','orange']}
+		var res = tpl1Foo(data)
+		document.getElementById('bind1').innerHTML = res
+	}
+</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section3 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>SSR ex: (note: this is also front end code)</p><code>
+                <pre>const cheerio = require('cheerio')
+const tpl = 
+`{{~it.array :value:index}}
+	&ltdiv&gt{{=value}}&lt/div&gt
+{{~}}`
+class MyBLX {
+	_renderComps(html, res) {
+		const tplFoo = doT.template(tpl) //compile
+		const data = this._fetchData() 
+		const bound = tplFoo(data)
+		var $ = cheerio.load(html) // load in the HTML into cheerio
+		$('#list1').replaceWith(bound)
+		return $.html()
+	}
+	_getPage() {// should be file
+		const p =`html
+	head
+	body
+		p hi
+		#list1
+	`
+		return pug.render(p) 
+	}//pg
+	renderPage(res) {
+		const html = this._getPage()
+		return this._renderComps(html, res)	 
+	}//()
+}//class
+module.exports = MyBLX //node
+</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section4 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>One example of jQuery data binding is dataTables.net</H3>
+            </div>
+          </div>
+        </div>
+        <div class="section4 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>LAB</H3>
+              <p>Make a browser side data binding for a list of links.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        TS.onAppReady(UIinit)
+        function UIinit() {
+        	console.log('x')
+        	$('#fullpage').fullpage({
+        		//verticalCentered: false,
+        		css3:false
+        	})//config
+        }
+        
+      </script>
+    </div>
+    <div id="footer">
+      <div id="footer_div"><a href="https://gitter.im/topseed/Lobby" target="_blank">Forum </a>
+        <div id="footer_div--right"><a href="https://github.com/topseed/topseed" target="_blank">Kitchen Sink</a></div>
+      </div>
+    </div>
+  </body>
+</html>

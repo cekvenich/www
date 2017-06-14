@@ -1,0 +1,244 @@
+extends  ../../../_part/_baseShell
+
+block head
+	title Agenda
+	include ../../../_part/_header
+
+block main
+	style.
+		.section {
+			background-size: cover;
+			background-attachment: fixed;
+			background-image: url(res/beach768.jpg);
+		}
+
+		.section1 {
+			background-image: url(res/beach768.jpg);
+		}
+		.section2 {
+			background-image: url(res/city768.jpg);
+		}
+		.section3{
+			background-image: url(res/light768.jpg);
+		}
+		.section4{
+			background-image: url(res/road768.jpg);
+		}
+
+	#fullpage
+		.section1.section
+			.mui-container-fluid
+				.mui-panel
+					H3 Web Components, and Business Logic
+					p As desert, not to replace the main meal. 
+					p Used to hide div soup.
+					p Used a bit like banner ads.
+
+		.section1.section
+			.mui-container-fluid
+				.mui-panel
+					H3 They have a short half life:
+					ol
+						li Backbone
+						li Knockout
+						li Ember
+						li Angular
+						li React
+						li Vue
+						li RIOT
+						li Polymer
+						li ?
+						li ?
+
+		.section2.section
+			.mui-container-fluid
+				.mui-panel
+					H3 A comparison: 
+					a(href='http://jeffcarp.github.io/frontend-hyperpolyglot/', target="_blank") Frontend polyglot
+
+		.section1.section
+			.mui-container-fluid
+				.mui-panel
+					H3 Some are DOM based:
+					p Polymer, AMP?, (Predix, Vaadmin), RIOT(like react), Standard
+
+		.section2.section
+			.mui-container-fluid
+				.mui-panel
+					H3 One example:
+					a(href='https://meowni.ca/posts/polymer-2-cheatsheet/', target="_blank") Polymer Cheat Sheet
+
+
+		.section2.section
+			.mui-container-fluid
+				.mui-panel
+					H3 Another example:
+					a(href='http://tutorials.jenkov.com/riotjs/tags.html', target="_blank") RIOT - based on React.
+
+		.section3.section
+			.mui-container-fluid
+				.mui-panel
+					p Example standard comp:
+					code
+						pre.
+							template#xfirst-el
+							style.
+								p { color: orange; }
+							p I'm Shady
+							script.
+								class FirstEl extends HTMLElement {
+									constructor() {
+										super()
+										let shadowRoot = this.attachShadow({mode: 'open'})
+										const t = document.querySelector('#xfirst-el')// add the dom
+										const instance = t.content.cloneNode(true)
+										shadowRoot.appendChild(instance)
+									}//()
+									tst() { console.log('XXX') }
+								}//class
+		.section4.section
+			.mui-container-fluid
+				.mui-panel
+					p Example script to load a component on a page:
+					code
+						pre.
+							_loadedComp : {'exComp': true} // don't load 2x
+							loadComp: function($here, url, cb) { //load template, don't forget #comps
+								if(url in TS._loadedComp) {//guard: we loaded it before, thank you
+									cb()
+									return
+								} else {
+									fetch(url, {
+										method: 'get'
+									}).then(function(reSPonse) {
+										if (!reSPonse.ok) {
+											throw Error(reSPonse.statusText)
+										}
+										return reSPonse.text()
+									}).then(function(txt) {
+										TS._loadedComp[url] = true
+										$here.append( txt )
+										cb()
+									})
+								}
+							}//()
+
+		.section3.section
+			.mui-container-fluid
+				.mui-panel
+					p Example page using a component:
+					code
+						pre.
+							&lt div class="mui-container-fluid"&gt
+								&ltfirst-el&gt&lt/first-el&gt
+							&lt/div&gt
+							&ltscript&gt
+								function UIinit() {//#comps should be in footer
+									loadComp($('#comps'),'/_webComp/first.html', UIComp1Init)
+								}
+								function UIComp1Init() {
+									var el = customElements.get('first-el')
+									if(!el) // if it is not defined, define:
+										customElements.define('first-el', FirstEl)// loaded w/ template
+									var m = document.querySelector('first-el')
+									m.tst() // talk to it
+								}
+							&lt/script&gt
+
+		.section3.section
+			.mui-container-fluid
+				.mui-panel
+					p Example SSR component (w/ data binding)
+					code
+						pre.
+							const components = require('server-components')
+							class Cre{
+								constructor() {
+									const NEL = components.newElement()
+									NEL.createdCallback = function () {
+										const tpl = 
+							`{{~it.array :value:index}}
+								&ltdiv&gt{{=value}}&lt/div&gt
+							{{~}}`
+										this.innerHTML = tpl // html
+									}
+									return NEL
+								}//cpms
+							}
+
+							module.exports = Cre //node
+
+		.section2.section
+			.mui-container-fluid
+				.mui-panel
+					H3 Best practices
+					ul
+						li No Data Services in Web Components
+						li Trivial, like a button is not a component. BEM or a 'Card' is
+						
+
+		.section1.section
+			.mui-container-fluid
+				.mui-panel
+					H3 Sometimes there are 2 or more components on page
+					H4 So... they may need to talk to each other.
+					H3 Good idea is to have an Observer pattern. 
+					H4 
+
+		.section3.section
+			.mui-container-fluid
+				.mui-panel
+					p Example page using 2 components:
+					code
+						pre.
+							.mui-container-fluid
+								c-1
+								c-2
+							script.
+								TS.onAppReady(UIinit)
+								let _blx // a dictionay map of observers
+								function UIinit() {
+									_blx = new BLX(null) 
+									TS.loadComp($('#comps'),'/_webComp/C1.html', UIComp1Init)
+									TS.loadComp($('#comps'),'/_webComp/C2.html', UIComp2Init)
+								}
+								function UIComp1Init() {
+									let m = defineEl('c-1', C1El)
+									m.init(_blx) // talk to it
+								}
+								function UIComp2Init() {
+									let m = defineEl('c-2', C2El)
+									m.init(_blx) // talk to it
+								}
+								function defineEl(elId, Klass) { //define and get element
+									var el = customElements.get(elId)
+									if(!el) // if it is not defined, define:
+										customElements.define(elId, Klass)
+									return document.querySelector(elId)
+								}
+
+		.section2.section
+			.mui-container-fluid
+				.mui-panel
+					H4 So good idea to user observer (stream) at business layer for Comp Com and Data Services. (Event sterams are composable - you can change how they are wired)
+					H3 Also, suggestion on 'source of truth':
+					a(href='https://medium.com/dev-channel/custom-elements-that-work-anywhere-898e1dd2bc48', target="_blank") Rob
+
+		.section1.section
+			.mui-container-fluid
+				.mui-panel
+					H3 LAB:
+					H4 Starting w/ data binding example: hide it in a component
+
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
+			$('#fullpage').fullpage({
+				//verticalCentered: false,
+				css3:false
+			})//config
+		}
+
+block footer
+	include ../../../_part/_footer

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Agenda</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="/_sass/main.css">
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-2.4.js"></script>
+    <script src="/_js/main.js" async=""></script>
+  </head>
+  <body>
+    <div id="appbar">
+      <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Tutorial</span></div>
+      <ul id="appbar--menu">
+        <li><a href="/0-agenda/">Agenda</a></li>
+      </ul>
+    </div>
+    <div id="sidedrawer" onclick="closeDrawer()">
+      <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
+      <div class="mui-divider"></div>
+      <ul id="sidedrawer--menu">
+        <li><a href="/0-agenda/">Agenda</a></li>
+        <li><a href="/2-theBasics/">Two: The Basics</a></li>
+        <li><a href="/3-goLive/">Three: Golive</a></li>
+        <li><a href="/4-appShell/">Four: AppShell</a></li>
+        <li><a href="/5-amp/">Five: AMP and Node.js</a></li>
+      </ul>
+    </div>
+    <script>
+      function openDrawer(px, e) {
+      	$('#sidedrawer').css('transform', 'translateX(201px)')
+      }
+      function closeDrawer(e) {
+      	$('#sidedrawer').css('transform', 'translateX(0px)')
+      }			
+    </script>
+    <div id="content-wrapper">
+      <style>
+        .section {
+        	background-size: cover;
+        	background-attachment: fixed;
+        	background-image: url(res/beach768.jpg);
+        }
+        
+        .section1 {
+        	background-image: url(res/beach768.jpg);
+        }
+        .section2 {
+        	background-image: url(res/city768.jpg);
+        }
+        .section3{
+        	background-image: url(res/light768.jpg);
+        }
+        .section4{
+        	background-image: url(res/road768.jpg);
+        }
+        
+      </style>
+      <div id="fullpage">
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Firebase Service</H3>
+              <p>The cloud has now become more cloudy. BaaS is no DB, just services.</p>
+            </div>
+          </div>
+        </div>
+        <div class="section2 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H4>Services should be per page.</H4>
+              <p>and match the fields needed on the page. If there is 'joins' or complex queries, it can be handled server side. So that page does not have a 'mapping' impedance (like existed for ORM layes). Page should not know  how data is gotten, so for example we can change from FireBase to Google Data Services - and it would not affect the page. But if the page fileds change, the Service/API would change. Since services map to the page, how the data is used.</p>
+            </div>
+          </div>
+        </div>
+        <div class="section3 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Ex. service. First version can return hard coded JSON - as needed by the page.</H3><code>
+                <pre>router.all('/list', function (req, res) {	
+	const dat = req.body
+	const pro = links.listAll()
+	pro.then(function(rows){
+		res.status(200).send(JSON.stringify(rows))
+	})//c
+})
+
+</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section4 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>Once you know that the service/API works on a page, then you can start implementing. A base class that we can extend, note that you need the free service key from FireBase.</p><code>
+                <pre>const fb = firebase.initializeApp({
+	credential: firebase.credential.cert(serviceAccount),
+	databaseURL: "https://YOUR-DB.firebaseio.com"
+})
+class BaseFB {
+	constructor(db_) {
+		this.fdb = fb.database()
+	}
+	static toArray(ra){
+		var array=[]
+		for(var key in ra){
+			array.push(ra[key])
+		}
+		return array
+	}//()
+}
+module.exports = BaseFB 
+</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section4 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>Implement.</p><code>
+                <pre>const BaseFB = require('./BaseFB')
+class Links extends BaseFB {
+	constructor() {
+		super()
+		this.table = 'links10'
+		this.ref = this.fdb.ref(this.table)
+	}
+	add(row) { // return a promise
+		const pk = this.fdb.ref().child(this.table).push().key
+		row['pk'] = pk
+		const ut = Date.now()
+		row['ts'] = ut
+		return this.fdb.ref(this.table+'/'+ pk).setWithPriority(row, 0-
+		ut).then(function(a,b){return pk})
+	}//()
+	listAll() {//returns all rows sorted backwards by date
+		return this.ref.once('value').then(function(res){
+				const row=res.val()
+				const rows= BaseFB.toArray(row)
+				return rows
+		})
+	}//()
+</pre></code>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        TS.onAppReady(UIinit)
+        function UIinit() {
+        	console.log('x')
+        	$('#fullpage').fullpage({
+        		//verticalCentered: false,
+        		css3:false
+        	})//config
+        }
+        
+      </script>
+    </div>
+    <div id="footer">
+      <div id="footer_div"><a href="https://gitter.im/topseed/Lobby" target="_blank">Forum </a>
+        <div id="footer_div--right"><a href="https://github.com/topseed/topseed" target="_blank">Kitchen Sink</a></div>
+      </div>
+    </div>
+  </body>
+</html>

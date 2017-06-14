@@ -1,0 +1,101 @@
+extends  ../../../_part/_baseShell
+
+block head
+	title Agenda
+	include ../../../_part/_header
+
+block main
+	style.
+		.section {
+			background-size: cover;
+			background-attachment: fixed;
+			background-image: url(res/beach768.jpg);
+		}
+
+		.section1 {
+			background-image: url(res/beach768.jpg);
+		}
+		.section2 {
+			background-image: url(res/city768.jpg);
+		}
+		.section3{
+			background-image: url(res/light768.jpg);
+		}
+		.section4{
+			background-image: url(res/road768.jpg);
+		}
+
+	#fullpage
+		.section1.section
+			.mui-container-fluid
+				.mui-panel
+					H3 Regresion Testing
+					p Some testing is usefull and increases productivity. Some testing is usless and may lower productivity and ability to iterate quickly.
+					H4 If we define 3 tiers on a client/Front-End: UI/CSS, Business Logic, Data Services(API) ...
+
+		.section2.section
+			.mui-container-fluid
+				.mui-panel
+					H4 Automated integration end-to-end testing in a browser, done at Business Logic (Observers / Streams) might be benficial.
+					H3 Ex: On a githook(code push), in a Browser (ex: Electron/Nighmare.js) run a simple end-to-end user story test script. 
+					H4 Result: Since Business Logic layers calls (Data) APIs, any regresion of previosly working APIs will be reported automatically and close to the time window that broke the previosly working functionality. Changing the implentation of how a business logic layer works should not cuase a regression.
+
+		.section3.section
+			.mui-container-fluid
+				.mui-panel
+					H2 Writing a testable Business Logic Layer(FRP?) is not easy, it is something that the team's most senior members are responsible for. The benefit is reduced regression of a production system when there is a new release.
+					H3 If you can set up a team's ownership of modules, integration points of the modules should be tested.
+					H4 Testing UI could be done by a QA Admin that outsources browser testing, but developers should be doing mobile and cross browser testing as they develop. Unit testing could be done optionally by a each team internally, within the module but unit testing should not be visibile outside of the module's implementors and could be disposable.
+
+		.section4.section
+			.mui-container-fluid
+				.mui-panel
+					code
+						pre.
+							loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
+								success: function(){
+									loadjs([
+										'/_js/BDS.js'
+										], { success: function(){ tst1() }
+								})//loadjs
+								}//suc
+							})
+							let ROOT = 'http://localhost:8081/'
+							function tst1() {
+								class Page1BDS extends BDS {
+									doFetch(data, token) {
+										return BDS.fetch(window.fetch, ROOT, 'adminPg/add', data, token)
+											.then(function(value) { 	return value })//BDS
+									}//doFetch
+								}//class
+								const ds = new Page1BDS()
+								QUnit.test( 'test: fetch()', function( assert ) {
+									const done = assert.async()
+									const obj = new Object()
+									obj.user='al'
+									obj.password='xxx'
+									const pro = ds.doFetch(obj, obj)
+									pro.then(function(val) {
+										assert.ok(true, 'we got data')
+										done()
+									}).catch(function (er) { console.log(er) })//c
+								})//qu
+							}//()
+
+		.section3.section
+			.mui-container-fluid
+				.mui-panel
+					p You should also do geo-distributed load testing, for example monitis.com
+
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
+			$('#fullpage').fullpage({
+				//verticalCentered: false,
+				css3:false
+			})//config
+		}
+
+block footer
+	include ../../../_part/_footer

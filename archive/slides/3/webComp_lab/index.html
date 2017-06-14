@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Agenda</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="/_sass/main.css">
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-2.7.js"></script>
+    <script src="/_js/main.js" async=""></script>
+  </head>
+  <body>
+    <div id="appbar">
+      <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Tutorial</span></div>
+      <ul id="appbar--menu">
+        <li><a href="/0-agenda/">Agenda</a></li>
+      </ul>
+    </div>
+    <div id="sidedrawer" onclick="closeDrawer()">
+      <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
+      <div class="mui-divider"></div>
+      <ul id="sidedrawer--menu">
+        <li><a href="/0-agenda/">Agenda</a></li>
+        <li><a href="/2-theBasics/">Two: The Basics</a></li>
+        <li><a href="/3-goLive/">Three: Golive</a></li>
+        <li><a href="/4-appShell/">Four: AppShell</a></li>
+        <li><a href="/5-amp/">Five: AMP and Node.js</a></li>
+      </ul>
+    </div>
+    <script>
+      function openDrawer(px, e) {
+      	$('#sidedrawer').css('transform', 'translateX(201px)')
+      }
+      function closeDrawer(e) {
+      	$('#sidedrawer').css('transform', 'translateX(0px)')
+      }			
+    </script>
+    <div id="content-wrapper">
+      <style>
+        .section {
+        	background-size: cover;
+        	background-attachment: fixed;
+        	background-image: url(res/beach768.jpg);
+        }
+        
+        .section1 {
+        	background-image: url(res/beach768.jpg);
+        }
+        .section2 {
+        	background-image: url(res/city768.jpg);
+        }
+        .section3{
+        	background-image: url(res/light768.jpg);
+        }
+        .section4{
+        	background-image: url(res/road768.jpg);
+        }
+        
+      </style>
+      <div id="fullpage">
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Web Components, and Business Logic</H3>
+              <p>As desert, not to replace the main meal. </p>
+              <p>Used to hide div soup.</p>
+              <p>Used a bit like banner ads.</p>
+            </div>
+          </div>
+        </div>
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>They have a short half life:</H3>
+              <ol>
+                <li>Backbone</li>
+                <li>Knockout</li>
+                <li>Ember</li>
+                <li>Angular</li>
+                <li>React</li>
+                <li>Vue</li>
+                <li>RIOT</li>
+                <li>Polymer</li>
+                <li>?</li>
+                <li>?</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="section2 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>A comparison: </H3><a href="http://jeffcarp.github.io/frontend-hyperpolyglot/" target="_blank">Frontend polyglot</a>
+            </div>
+          </div>
+        </div>
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Some are DOM based:</H3>
+              <p>Polymer, AMP?, (Predix, Vaadmin), RIOT(like react), Standard</p>
+            </div>
+          </div>
+        </div>
+        <div class="section2 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>One example:</H3><a href="https://meowni.ca/posts/polymer-2-cheatsheet/" target="_blank">Polymer Cheat Sheet</a>
+            </div>
+          </div>
+        </div>
+        <div class="section2 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Another example:</H3><a href="http://tutorials.jenkov.com/riotjs/tags.html" target="_blank">RIOT - based on React.</a>
+            </div>
+          </div>
+        </div>
+        <div class="section3 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>Example standard comp:</p><code>
+                <pre>template#xfirst-el
+style.
+	p { color: orange; }
+p I'm Shady
+script.
+	class FirstEl extends HTMLElement {
+		constructor() {
+			super()
+			let shadowRoot = this.attachShadow({mode: 'open'})
+			const t = document.querySelector('#xfirst-el')// add the dom
+			const instance = t.content.cloneNode(true)
+			shadowRoot.appendChild(instance)
+		}//()
+		tst() { console.log('XXX') }
+	}//class</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section4 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>Example script to load a component on a page:</p><code>
+                <pre>_loadedComp : {'exComp': true} // don't load 2x
+loadComp: function($here, url, cb) { //load template, don't forget #comps
+	if(url in TS._loadedComp) {//guard: we loaded it before, thank you
+		cb()
+		return
+	} else {
+		fetch(url, {
+			method: 'get'
+		}).then(function(reSPonse) {
+			if (!reSPonse.ok) {
+				throw Error(reSPonse.statusText)
+			}
+			return reSPonse.text()
+		}).then(function(txt) {
+			TS._loadedComp[url] = true
+			$here.append( txt )
+			cb()
+		})
+	}
+}//()
+</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section3 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>Example page using a component:</p><code>
+                <pre>&lt div class="mui-container-fluid"&gt
+	&ltfirst-el&gt&lt/first-el&gt
+&lt/div&gt
+&ltscript&gt
+	function UIinit() {//#comps should be in footer
+		loadComp($('#comps'),'/_webComp/first.html', UIComp1Init)
+	}
+	function UIComp1Init() {
+		var el = customElements.get('first-el')
+		if(!el) // if it is not defined, define:
+			customElements.define('first-el', FirstEl)// loaded w/ template
+		var m = document.querySelector('first-el')
+		m.tst() // talk to it
+	}
+&lt/script&gt
+</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section3 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>Example SSR component (w/ data binding)</p><code>
+                <pre>const components = require('server-components')
+class Cre{
+	constructor() {
+		const NEL = components.newElement()
+		NEL.createdCallback = function () {
+			const tpl = 
+`{{~it.array :value:index}}
+	&ltdiv&gt{{=value}}&lt/div&gt
+{{~}}`
+			this.innerHTML = tpl // html
+		}
+		return NEL
+	}//cpms
+}
+
+module.exports = Cre //node
+</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section2 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Best practices</H3>
+              <ul>
+                <li>No Data Services in Web Components</li>
+                <li>Trivial, like a button is not a component. BEM or a 'Card' is</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Sometimes there are 2 or more components on page</H3>
+              <H4>So... they may need to talk to each other.</H4>
+              <H3>Good idea is to have an Observer pattern. </H3>
+              <H4> </H4>
+            </div>
+          </div>
+        </div>
+        <div class="section3 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>Example page using 2 components:</p><code>
+                <pre>.mui-container-fluid
+	c-1
+	c-2
+script.
+	TS.onAppReady(UIinit)
+	let _blx // a dictionay map of observers
+	function UIinit() {
+		_blx = new BLX(null) 
+		TS.loadComp($('#comps'),'/_webComp/C1.html', UIComp1Init)
+		TS.loadComp($('#comps'),'/_webComp/C2.html', UIComp2Init)
+	}
+	function UIComp1Init() {
+		let m = defineEl('c-1', C1El)
+		m.init(_blx) // talk to it
+	}
+	function UIComp2Init() {
+		let m = defineEl('c-2', C2El)
+		m.init(_blx) // talk to it
+	}
+	function defineEl(elId, Klass) { //define and get element
+		var el = customElements.get(elId)
+		if(!el) // if it is not defined, define:
+			customElements.define(elId, Klass)
+		return document.querySelector(elId)
+	}
+</pre></code>
+            </div>
+          </div>
+        </div>
+        <div class="section2 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H4>So good idea to user observer (stream) at business layer for Comp Com and Data Services. (Event sterams are composable - you can change how they are wired)</H4>
+              <H3>Also, suggestion on 'source of truth':</H3><a href="https://medium.com/dev-channel/custom-elements-that-work-anywhere-898e1dd2bc48" target="_blank">Rob</a>
+            </div>
+          </div>
+        </div>
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>LAB:</H3>
+              <H4>Starting w/ data binding example: hide it in a component</H4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        TS.onAppReady(UIinit)
+        function UIinit() {
+        	console.log('x')
+        	$('#fullpage').fullpage({
+        		//verticalCentered: false,
+        		css3:false
+        	})//config
+        }
+        
+      </script>
+    </div>
+    <div id="footer">
+      <div id="footer_div"><a href="https://gitter.im/topseed/Lobby" target="_blank">Forum </a>
+        <div id="footer_div--right"><a href="https://github.com/topseed/topseed" target="_blank">Kitchen Sink</a></div>
+      </div>
+    </div>
+  </body>
+</html>

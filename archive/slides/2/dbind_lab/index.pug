@@ -1,0 +1,122 @@
+extends  ../../../_part/_baseShell
+
+block head
+	title Agenda
+	include ../../../_part/_header
+
+block main
+	style.
+		.section {
+			background-size: cover;
+			background-attachment: fixed;
+			background-image: url(res/beach768.jpg);
+		}
+
+		.section1 {
+			background-image: url(res/beach768.jpg);
+		}
+		.section2 {
+			background-image: url(res/city768.jpg);
+		}
+		.section3{
+			background-image: url(res/light768.jpg);
+		}
+		.section4{
+			background-image: url(res/road768.jpg);
+		}
+
+	#fullpage
+		.section1.section
+			.mui-container-fluid
+				.mui-panel
+					H3 Data Binding
+					p There are many ways we use, some are:
+					ul
+						li Mustache type
+						li SSR
+						li jQuery type
+					p Also, Web Components could hide some of the DOM soup and do data binding.
+					p note: A jr. developer may want to skip ahead. Mastering data binding is a step for sr. engineers, before making any web component.  
+
+		.section2.section
+			.mui-container-fluid
+				.mui-panel
+					p One Mustache style is 'doT', ex:
+					code
+						pre.
+							.mui-container-fluid
+								#bind1
+							script#exp1Tpl(type='text/x-dot-template').
+								{{~it.array :value:index}}
+									&ltdiv&gt{{=value}}&lt/div&gt
+								{{~}}
+							script.
+								TS.onAppReady(UIinit)
+								function UIinit() {
+									var tpl1 = document.getElementById('exp1Tpl').text
+									var tpl1Foo = doT.template(tpl1)
+									var data = {'array':['banana','apple','orange']}
+									var res = tpl1Foo(data)
+									document.getElementById('bind1').innerHTML = res
+								}
+
+		.section3.section
+			.mui-container-fluid
+				.mui-panel
+					p SSR ex: (note: this is also front end code)
+					code
+						pre.
+							const cheerio = require('cheerio')
+							const tpl = 
+							`{{~it.array :value:index}}
+								&ltdiv&gt{{=value}}&lt/div&gt
+							{{~}}`
+							class MyBLX {
+								_renderComps(html, res) {
+									const tplFoo = doT.template(tpl) //compile
+									const data = this._fetchData() 
+									const bound = tplFoo(data)
+									var $ = cheerio.load(html) // load in the HTML into cheerio
+									$('#list1').replaceWith(bound)
+									return $.html()
+								}
+								_getPage() {// should be file
+									const p =`html
+								head
+								body
+									p hi
+									#list1
+								`
+									return pug.render(p) 
+								}//pg
+								renderPage(res) {
+									const html = this._getPage()
+									return this._renderComps(html, res)	 
+								}//()
+							}//class
+							module.exports = MyBLX //node
+
+		.section4.section
+			.mui-container-fluid
+				.mui-panel
+					H3 One example of jQuery data binding is dataTables.net
+
+		.section4.section
+			.mui-container-fluid
+				.mui-panel
+					H3 LAB
+					p Make a browser side data binding for a list of links.
+
+
+	script.
+		TS.onAppReady(UIinit)
+		function UIinit() {
+			console.log('x')
+			$('#fullpage').fullpage({
+				//verticalCentered: false,
+				css3:false
+			})//config
+		}
+
+block footer
+	include ../../../_part/_footer

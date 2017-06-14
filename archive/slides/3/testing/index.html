@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <base href="/tutorial/">
+    <title>Agenda</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <link rel="icon" href="./favicon.ico">
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/vendor/loadjs.min.js"></script>
+    <script src="https://cdn.rawgit.com/topseed/topseed-turbo/master/setup/setup-3.2.1.js"></script>
+    <script src="./_js/main.js" async=""></script>
+    <style>body {opacity: 0.1}</style>
+  </head>
+  <body>
+    <link rel="stylesheet" href="./_sass/main.css" lazyload="1">
+    <div id="appbar">
+      <div id="appbar--brand" onclick="openDrawer()">&nbsp; ☰ &nbsp;<span class="mui--hidden-xs">Topseed&trade; Tutorial</span></div>
+      <ul id="appbar--menu">
+        <li><a href="./0-agenda/">Agenda</a></li>
+        <li><a href="./1-helloWorld/">One</a></li>
+        <li><a href="./2-theBasics/">Two</a></li>
+        <li><a href="./3-goLive/">Three</a></li>
+        <li><a href="./4-appShell/">Four</a></li>
+        <li><a href="./5-amp/">Five</a></li>
+        <li><a href="./6-read/">Six</a></li>
+        <li><a href="./7-write/">Seven</a></li>
+        <li><a href="./8-security/">Eight</a></li>
+      </ul>
+    </div>
+    <div id="sidedrawer" onclick="closeDrawer()">
+      <div id="sidedrawer--brand">&nbsp; ☰ Topseed&trade; Tutorials</div>
+      <div class="mui-divider"></div>
+      <ul id="sidedrawer--menu">
+        <li><a href="./0-agenda/">Agenda</a></li>
+        <li><a href="./1-helloWorld/">1: Hello World</a></li>
+        <li><a href="./2-theBasics/">2: The Basics</a></li>
+        <li><a href="./3-goLive/">3: Golive</a></li>
+        <li><a href="./4-appShell/">4: AppShell</a></li>
+        <li><a href="./5-amp/">5: AMP and Node.js</a></li>
+        <li><a href="./6-read/">6: UI Reading from API	</a></li>
+        <li><a href="./7-write/">7: UI Writing to API</a></li>
+        <li><a href="./8-security/">8: Login Security</a></li>
+      </ul>
+    </div>
+    <script>
+      function openDrawer(px, e) {
+      	$('#sidedrawer').css('transform', 'translateX(201px)')
+      }
+      function closeDrawer(e) {
+      	$('#sidedrawer').css('transform', 'translateX(0px)')
+      }			
+    </script>
+    <div id="content-wrapper">
+      <style>
+        .section {
+        	background-size: cover;
+        	background-attachment: fixed;
+        	background-image: url(res/beach768.jpg);
+        }
+        
+        .section1 {
+        	background-image: url(res/beach768.jpg);
+        }
+        .section2 {
+        	background-image: url(res/city768.jpg);
+        }
+        .section3{
+        	background-image: url(res/light768.jpg);
+        }
+        .section4{
+        	background-image: url(res/road768.jpg);
+        }
+        
+      </style>
+      <div id="fullpage">
+        <div class="section1 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H3>Regresion Testing</H3>
+              <p>Some testing is usefull and increases productivity. Some testing is usless and may lower productivity and ability to iterate quickly.</p>
+              <H4>If we define 3 tiers on a client/Front-End: UI/CSS, Business Logic, Data Services(API) ...</H4>
+            </div>
+          </div>
+        </div>
+        <div class="section2 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H4>Automated integration end-to-end testing in a browser, done at Business Logic (Observers / Streams) might be benficial.</H4>
+              <H3>Ex: On a githook(code push), in a Browser (ex: Electron/Nighmare.js) run a simple end-to-end user story test script. </H3>
+              <H4>Result: Since Business Logic layers calls (Data) APIs, any regresion of previosly working APIs will be reported automatically and close to the time window that broke the previosly working functionality. Changing the implentation of how a business logic layer works should not cuase a regression.</H4>
+            </div>
+          </div>
+        </div>
+        <div class="section3 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <H2>Writing a testable Business Logic Layer(FRP?) is not easy, it is something that the team's most senior members are responsible for. The benefit is reduced regression of a production system when there is a new release.</H2>
+              <H3>If you can set up a team's ownership of modules, integration points of the modules should be tested.</H3>
+              <H4>Testing UI could be done by a QA Admin that outsources browser testing, but developers should be doing mobile and cross browser testing as they develop. Unit testing could be done optionally by a each team internally, within the module but unit testing should not be visibile outside of the module's implementors and could be disposable.</H4>
+            </div>
+          </div>
+        </div>
+        <div class="section4 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel"><code>
+                <pre>loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
+	success: function(){
+		loadjs([
+			'/_js/BDS.js'
+			], { success: function(){ tst1() }
+	})//loadjs
+	}//suc
+})
+let ROOT = 'http://localhost:8081/'
+function tst1() {
+	class Page1BDS extends BDS {
+		doFetch(data, token) {
+			return BDS.fetch(window.fetch, ROOT, 'adminPg/add', data, token)
+				.then(function(value) { 	return value })//BDS
+		}//doFetch
+	}//class
+	const ds = new Page1BDS()
+	QUnit.test( 'test: fetch()', function( assert ) {
+		const done = assert.async()
+		const obj = new Object()
+		obj.user='al'
+		obj.password='xxx'
+		const pro = ds.doFetch(obj, obj)
+		pro.then(function(val) {
+			assert.ok(true, 'we got data')
+			done()
+		}).catch(function (er) { console.log(er) })//c
+	})//qu
+}//()
+</pre></code></div>
+          </div>
+        </div>
+        <div class="section3 section">
+          <div class="mui-container-fluid">
+            <div class="mui-panel">
+              <p>You should also do geo-distributed load testing, for example monitis.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        TS.onAppReady(UIinit)
+        function UIinit() {
+        	console.log('x')
+        	$('#fullpage').fullpage({
+        		//verticalCentered: false,
+        		css3:false
+        	})//config
+        }
+        
+      </script>
+    </div>
+    <div id="footer">
+      <div id="footer_div"><a href="https://gitter.im/topseed/Lobby" target="_blank">Forum </a>
+        <div id="footer_div--right"><a href="https://github.com/topseed/topseed" target="_blank">Kitchen Sink</a></div>
+      </div>
+    </div>
+  </body>
+</html>
