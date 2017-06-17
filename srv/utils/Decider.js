@@ -1,5 +1,3 @@
-const fs = require('fs')
-const isj = require('is_js')
 const Util = require('topseed-util')
 const U = new Util() 
 
@@ -81,4 +79,3 @@ exports.decide = function (req, res, next) {
 		}
 	} 
 }//()
-
