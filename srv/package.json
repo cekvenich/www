@@ -10,7 +10,7 @@
 				"cors": ">=2.8",
 				"compression": ">=1.6",
 				"body-parser": ">=1.1",
-				"topseed-util": ">=23.6.0",
+				"topseed-util": ">=23.9.0",
 				"cheerio": ">=0.22",
 				"is_js": ">=0.9",
 				"moment": ">=2.1",
