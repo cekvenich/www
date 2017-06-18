@@ -8,33 +8,31 @@ script#Lst1Tpl(type='text/x-dot-template').
 	{{~it.array :value:index}}
 		<li><a href={{=value.url}}> {{=value.head_line}}</a></li>
 	{{~}}
+
 script.
 	//http://www.javascriptoo.com/dot-js
 	console.log ('in temp list ') // don't forget #comps
-	class ListEl extends HTMLElement {
-		constructor() {
-			super()
-			console.log('list cons')
-			var shadowRoot = this.attachShadow({mode: 'open'})
-			var t = document.querySelector('#xlist-el')
-			var instance = t.content.cloneNode(true)
-			shadowRoot.appendChild(instance)
-
-			//this._emit = flyd.stream()
+	var ListEl = Object.create(HTMLElement.prototype)
+	ListEl.createdCallback = function() {
+		ListEl._shadow = TW.attachShadow(this, '#xlist-el')
 		}//()
 
-		init(values) {
-			var tpl1 = document.getElementById('Lst1Tpl').text
-			var tpl1Foo = doT.template(tpl1)
+	ListEl.init = function(values) {
+		console.log('init')
+		var tpl1 = document.getElementById('Lst1Tpl').text
+		var data2 = {'array': values}
 
-			var data2 = {'array': values}
-			var res = tpl1Foo(data2)
-			//console.log(res)
-			var lst = this.shadowRoot.querySelector('#myList', this)//ctx
-			lst.innerHTML=res
+		var tpl1Foo = doT.template(tpl1)
+		var res = tpl1Foo(data2)
 
-			$("#myList", this).append("<span id='list-ready'></span>")// MAGIC!!
-		}//()
+		//console.log(res)
+
+		var lst = ListEl._shadow.querySelector('#myList')//ctx
+		lst.innerHTML=res
+
+		$("#myList", ListEl._shadow ).append("<span id='list-ready'></span>")// MAGIC!!
+	}//()
+	
 
 		/*
 		set receiver(stream) {
@@ -48,5 +46,3 @@ script.
 			return this._emit
 		}
 		*/
-
-	}//class
