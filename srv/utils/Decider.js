@@ -21,11 +21,11 @@ function ifError(err, msg, res) {
 
 function pugComp(req,res) {
 	const pgPath = U.getPath(ROOT,req)
-	console.log('requested:'+requestedResource )
+	console.log('requested:'+ pgPath )
 	res.header('Content-Type', 'text/html')
 	U.cacheQuick(res)
-	const html = U.getPug(requestedResource)
-	res.send(html)
+	const html = U.getPug(pgPath)
+	res.status(200).send( html).end()
 }
 
 function serveAmp(req) { // should we serve mobile/AMP
@@ -43,6 +43,9 @@ exports.decide = function (req, res, next) {
 
 	if (req.path.indexOf('.') > 0 ) { // hasDot?
 		//console.log('next')
+		if(req.path.indexOf('.html') > 0) {
+			pugComp(req, res)
+		} else
 		next() // it is a static asset, ex: .jpg, .css
 	} else { // no dot, it is a path:
 		try {

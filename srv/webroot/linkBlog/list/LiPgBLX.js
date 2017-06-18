@@ -10,11 +10,11 @@ function Minit( ) {// 'closure|module'-iso.
 					console.log('back')
 					//console.log(JSON.stringify(value))
 					return value
-			})//BDS
+			})//BDS 
 		}//doFetch
 	}//class
 
-	class PgBLX extends BLX {// NO UI, or render in this layer
+	class PgBLX extends PLX {// NO UI, or render in this layer
 		init(nam, le) {
 			this._le = le
 			this._nam = nam
