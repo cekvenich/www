@@ -19,15 +19,19 @@ function ifError(err, msg, res) {
 	} else return false
 }
 
+function pugComp(req,res) {
+	const pgPath = U.getPath(ROOT,req)
+	console.log('requested:'+requestedResource )
+	res.header('Content-Type', 'text/html')
+	U.cacheQuick(res)
+	const html = U.getPug(requestedResource)
+	res.send(html)
+}
+
 function serveAmp(req) { // should we serve mobile/AMP
 	console.log('subs',req.subdomains)
 	if (req.socket.localPort == ServerConfig.WWW_PORT) return true
 	if (req.socket.localPort == ServerConfig.AMP_PORT) return false
-	if (req.subdomains.indexOf(ServerConfig.WEB_SUBDOMAIN) > -1)  return ServerConfig.AMP_IS_LANDING
-	if (req.subdomains.indexOf(ServerConfig.AMP_SUBDOMAIN) > -1)  return true
-	if (req.query.w == '1') return false
-	if (req.query.a == '1') return true
-	return ServerConfig.AMP_IS_LANDING
 }
 
 //**************** */
@@ -46,9 +50,6 @@ exports.decide = function (req, res, next) {
 			U.cacheQuick(res)
 
 			console.log(req.socket.localPort)
-			console.log(U.getAgent(req))
-
-			//console.log(agent.toAgent())
 
 			res.header('Content-Type', 'text/html')
 
@@ -61,17 +62,13 @@ exports.decide = function (req, res, next) {
 			const fallbackResource = pgPath + (returnAmp?SPA:AMP);
 			
 			//attempt to get the requested version, show the other version if not exists
-			if (fs.existsSync(requestedResource)) { 
+			if (U.exists(requestedResource)) { 
 				//console.log('found '+requestedResource)
-				fs.readFile(requestedResource, 'utf8', function(err, data) {
-					ifError(err, returnAmp?'amp':'spa', res)
-					res.send(data)
-				})// readfile
+				let html = U.getPug(requestedResource)  
+				res.status(200).send( html).end()
 			} else { //the other version
-				fs.readFile(fallbackResource, 'utf8', function(err, data) {
-					ifError(err, returnAmp?'spa':'amp', res)
-					res.send(data)
-				})
+				let html = U.getPug(rfallbackResource) 
+				res.status(200).send( html).end()
 			}
 
 		} catch(err) {
