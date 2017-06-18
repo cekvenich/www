@@ -1,20 +1,20 @@
 
-function Minit( ) {// 'closure|module'-iso.
+function Minit( ) {// 'closure|module|namespace
 	console.log('ps list')
 
-	var DS extends BDS {
-		doFetch(data, token) {
-			return BDS.fetch(window.fetch, ROOT, 'linksPg/list', data, token)
+	var DS = BDS.extend({
+		doFetch: function(data, token) {
+			return BDS.fetch(window.fetch, 'linksPg/list', data, token)
 				.then(function(value) { 
 					console.log('back')
 					//console.log(JSON.stringify(value))
 					return value
 			})//BDS 
 		}//doFetch
-	}//class
+	})//class
 
-	class PgBLX extends PLX {// NO UI, or render in this layer
-		init(nam, le) {
+	var PgBLX =  PLX.extend({// NO UI, or render in this layer
+		init:function(nam, le) {
 			this._le = le
 			this._nam = nam
 			const thiz = this
@@ -27,14 +27,15 @@ function Minit( ) {// 'closure|module'-iso.
 			})//c
 		}
 
-		render(values, nam, le) {
+		,render:function(values, nam, le) {
 			le.init(values) // could be stream//observer
 
 		}//()
-	}//class
+	})//class
 
 	const ds = new DS()
-	const bl = new PgBLX(ds)
+	const bl = new PgBLX()
+	bl.initPLX(ds)
 
 	const leaavingPg = flyd.on(cleanUp, bl.observer('TT'))
 	function cleanUp() {
