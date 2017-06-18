@@ -25,12 +25,12 @@ block main
 		TS.onAppReady(UIinit)
 		function UIinit() {
 			console.log('home-card')
-			TS.loadComp($('#comps'),'/_webComp/home-card.html', UIComp1Init)
+			TW.loadComp('/_webComp/home-card.html', $('#comps'), UIComp1Init)
 		}
 
 		function UIComp1Init() {
 			console.log('.')
-			var xx = TW.cReg ('home-card', HomeCard)
+			var xx = TW.registerCustomElement ('home-card', HomeCard)
 			//console.log(xx)
 		}
 

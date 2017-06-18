@@ -14,7 +14,7 @@ block main
 		function UIinit() {
 			console.log('.')
 
-			TS.loadComp($('#comps'),'/_webComp/List.html', BLinit) // load UI first
+			TW.loadComp($('#comps'),'/_webComp/List.html', BLinit) // load UI first
 
 		}//()
 
@@ -23,7 +23,7 @@ block main
 			let el = customElements.get('list-el')
 			if(!el) customElements.define('list-el', ListEl)
 
-			TS.loadNX('/linkBlog/list/LiPgBLX.js', onLoadedBL)
+			TS.load('/linkBlog/list/LiPgBLX.js', onLoadedBL)
 
 		}//()
 

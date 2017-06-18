@@ -67,7 +67,7 @@ exports.decide = function (req, res, next) {
 				let html = U.getPug(requestedResource)  
 				res.status(200).send( html).end()
 			} else { //the other version
-				let html = U.getPug(rfallbackResource) 
+				let html = U.getPug(fallbackResource) 
 				res.status(200).send( html).end()
 			}
 

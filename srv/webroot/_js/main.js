@@ -6,7 +6,7 @@ loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
 			//'//cdn.radiantmediatechs.com/rmp/v4/latest/js/rmp.min.js'
 			'//cdn.rawgit.com/topseed/topseed-turbo/master/vendor/jquery.jsForm.min.js'
 			,'/_js/BDS.js'
-			,'/_js/BLX.js'
+			//,'/_js/BLX.js'
 
 			,'//cdn.jsdelivr.net/jquery.transit/0.9.12/jquery.transit.min.js'
 			,'/_js/split.js'
