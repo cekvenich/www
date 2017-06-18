@@ -24,7 +24,9 @@ QUnit.test( 'test insert - not a dupe', function( assert ) {
 	fetch(ROOT +'insert', { //1 call
 			method: 'post'
 			, headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'Accept':'application/json',
+				credentials: 'same-origin' //res.cookie returned
 			}
 			, body: JSON.stringify(data)
 		}).then(function(response) { //2 return a promise
@@ -56,7 +58,9 @@ QUnit.test( 'test insert - not a dupe', function( assert ) {
 			fetch(ROOT +'load', { //1 call
 					method: 'post'
 					, headers: {
-						'Content-Type': 'application/json'
+					'Content-Type': 'application/json',
+					'Accept':'application/json',
+					 credentials: 'same-origin' //res.cookie returned
 					}
 					, body: JSON.stringify(data)
 				}).then(function(response) { //2 return a promise
@@ -98,7 +102,9 @@ function testUpdate(assert) {
 	fetch(ROOT +'save', { //1 call
 			method: 'post'
 			, headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'Accept':'application/json',
+				credentials: 'same-origin' //res.cookie returned
 			}
 			, body: JSON.stringify(data)
 		}).then(function(response) { //2 return a promise

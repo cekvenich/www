@@ -1,15 +1,21 @@
 'use strict'
 
+
 var BDS = Class.extend({ //IE11-compatible base class for Data Access Object
 
-	 _fetch: function(fetch_,ROOT_, url_, data_) { //static
+	 _fetch: function(fetch_, url_, data_) { 
+
+		var ROOT = 'https://www.masons-foundation.org/'
+
 		//var xjt_ = Cookies.get(BDS.XJT)
 		//var xb_  = Cookies.get(BDS.XBASIC)
 		console.log('fetching ', url_)
-		return fetch_(ROOT_ + url_ , { //1 call
+		return fetch_(ROOT + url_ , { //1 call
 				method: 'post'
 				, headers: {
-					'Content-Type': 'application/json'
+					'Content-Type': 'application/json',
+					'Accept':'application/json',
+					 credentials: 'same-origin' //res.cookie returned
 				}
 				, body: JSON.stringify(data_)
 			}).then(function(response) { //2 returns a promise

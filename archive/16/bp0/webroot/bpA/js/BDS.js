@@ -35,7 +35,8 @@ static fetch(fetch_,ROOT_, url_, data_) {
 			method: 'post'
 			, headers: {
 				'Content-Type': 'application/json',
-				//'X-JWT' : xjt_,
+				'Accept':'application/json',
+				credentials: 'same-origin' //res.cookie returned				//'X-JWT' : xjt_,
 				//'X-BASIC': xb_
 			}
 			, body: JSON.stringify(data_)

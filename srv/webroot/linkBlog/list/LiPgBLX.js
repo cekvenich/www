@@ -2,8 +2,7 @@
 function Minit( ) {// 'closure|module'-iso.
 	console.log('ps list')
 
-	let ROOT = 'https://www.masons-foundation.org/'
-	class DS extends BDS {
+	var DS extends BDS {
 		doFetch(data, token) {
 			return BDS.fetch(window.fetch, ROOT, 'linksPg/list', data, token)
 				.then(function(value) { 

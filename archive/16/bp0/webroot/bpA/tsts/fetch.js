@@ -14,7 +14,9 @@ function _fetch(ROOT_, url_, data_) {
 	return fetch(ROOT_ + url_ , { //1 call
 			method: 'post'
 			, headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'Accept':'application/json',
+				credentials: 'same-origin' //res.cookie returned
 			}
 			, body: JSON.stringify(data_)
 		}).then(function(response) { //2 returns a promise
