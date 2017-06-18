@@ -47,12 +47,12 @@ block main
 		TS.onAppReady(UIinit)
 		function UIinit() {
 			console.log('x')
-			TS.loadComp($('#comps'),'/_webComp/x-vid.html', UIComp1Init)
+			TW.loadComp('/_webComp/x-vid.html', $('#comps'), UIComp1Init)
 		}
 
 		function UIComp1Init() {
 			console.log('.')
-			var xx = TW.cReg ('x-vid', VidEl)
+			var xx = TW.registerCustomElement ('x-vid', VidEl)
 			//console.log(xx)
 		}
 

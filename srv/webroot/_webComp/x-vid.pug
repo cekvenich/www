@@ -13,13 +13,13 @@ script#sxv(type='text/x-dot-template').
 script.
 	var VidEl = Object.create(HTMLElement.prototype)
 	VidEl.createdCallback = function() {
-		var shadow = TS.attachShad('#xx-vid', this)
+		var shadow = TW.attachShadow( this , '#xx-vid')
 		
 		var src = this.getAttribute('src')
 
 		var tpl1 = document.getElementById('sxv').text
 		var data = {'src': src}
-		var res = TS.dbind(tpl1, data)
+		var res = TW.bind(tpl1, data)
 		//console.log(res)
 
 		var d = shadow.querySelector('#v1')//ctx

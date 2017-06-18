@@ -6,6 +6,7 @@ var BDS = Class.extend({ //IE11-compatible base class for Data Access Object
 	 _fetch: function(fetch_, url_, data_) { 
 
 		var ROOT = 'https://www.masons-foundation.org/'
+		var ROOT0 = 'http://localhost:8080/'
 
 		//var xjt_ = Cookies.get(BDS.XJT)
 		//var xb_  = Cookies.get(BDS.XBASIC)

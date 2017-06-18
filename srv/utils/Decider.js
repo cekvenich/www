@@ -20,12 +20,20 @@ function ifError(err, msg, res) {
 }
 
 function pugComp(req,res) {
-	const pgPath = U.getPath(ROOT,req)
+	let pgPath = U.getPath(ROOT,req)
+	pgPath = removeLastSlash(pgPath)
 	console.log('requested:'+ pgPath )
 	res.header('Content-Type', 'text/html')
 	U.cacheQuick(res)
 	const html = U.getPug(pgPath)
 	res.status(200).send( html).end()
+}
+
+function removeLastSlash(str) {
+	const ch = str.slice(-1)
+	if('/'== ch)
+		str = str.slice(0, -1)
+	return str
 }
 
 function serveAmp(req) { // should we serve mobile/AMP
