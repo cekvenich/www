@@ -2,7 +2,7 @@
 function Minit( ) {// 'closure|module'-iso.
 	console.log('ps login')
 
-	let ROOT = 'https://www.masons-foundation.org/'
+	var ROOT = 'https://www.masons-foundation.org/'
 	class DS extends BDS {
 		doFetch(data, token) {
 			return BDS.fetch(window.fetch, ROOT, 'loginPg/login', data, token)
@@ -20,7 +20,7 @@ function Minit( ) {// 'closure|module'-iso.
 		init(nam) {
 			this.clicks = flyd.stream()
 			this._nav = flyd.stream() // to navigate away
-			const thiz = this
+			var thiz = this
 			flyd.on(function(e) {// on click
 				//console.log(e)
 				thiz.clicked(nam)
@@ -30,11 +30,11 @@ function Minit( ) {// 'closure|module'-iso.
 		}//()
 
 		clicked(nam) {
-			const obj = $('#frm1').jsForm('get') 
+			var obj = $('#frm1').jsForm('get') 
 			console.log(JSON.stringify( obj))
 
-			const thiz = this
-			const pro = this._ds.doFetch(obj)
+			var thiz = this
+			var pro = this._ds.doFetch(obj)
 			pro.then(function(val) {
 				thiz.nav(obj) //page nav
 			}).catch(function (er) {
@@ -43,10 +43,10 @@ function Minit( ) {// 'closure|module'-iso.
 		}//()
 	}//class
 
-	const ds = new DS()
-	const bl = new PgBLX(ds)
+	var ds = new DS()
+	var bl = new PgBLX(ds)
 
-	const leaavingPg = flyd.on(cleanUp, bl.observer('TT'))
+	var leaavingPg = flyd.on(cleanUp, bl.observer('TT'))
 	function cleanUp() {
 		//console.log('TT login')
 	}//()

@@ -15,22 +15,22 @@ script.
 		constructor() {
 			super()
 			console.log('list cons')
-			let shadowRoot = this.attachShadow({mode: 'open'})
-			const t = document.querySelector('#xlist-el')
-			const instance = t.content.cloneNode(true)
+			var shadowRoot = this.attachShadow({mode: 'open'})
+			var t = document.querySelector('#xlist-el')
+			var instance = t.content.cloneNode(true)
 			shadowRoot.appendChild(instance)
 
 			//this._emit = flyd.stream()
 		}//()
 
 		init(values) {
-			const tpl1 = document.getElementById('Lst1Tpl').text
+			var tpl1 = document.getElementById('Lst1Tpl').text
 			var tpl1Foo = doT.template(tpl1)
 
 			var data2 = {'array': values}
 			var res = tpl1Foo(data2)
 			//console.log(res)
-			const lst = this.shadowRoot.querySelector('#myList', this)//ctx
+			var lst = this.shadowRoot.querySelector('#myList', this)//ctx
 			lst.innerHTML=res
 
 			$("#myList", this).append("<span id='list-ready'></span>")// MAGIC!!

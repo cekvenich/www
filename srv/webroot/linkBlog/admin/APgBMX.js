@@ -2,7 +2,7 @@
 function Minit( ) {// 'closure|module'-iso.
 	console.log('ps admin')
 
-	let ROOT = 'https://www.masons-foundation.org/'
+	var ROOT = 'https://www.masons-foundation.org/'
 	class DS extends BDS {
 		doFetch(data, token) {
 			return BDS.fetch(window.fetch, ROOT, 'adminPg/add', data, token)
@@ -29,7 +29,7 @@ function Minit( ) {// 'closure|module'-iso.
 				//console.log(this._auth)
 
 				this.clicks = flyd.stream()
-				const thiz = this
+				var thiz = this
 				flyd.on(function(e) {
 					thiz.clicked(nam, thiz._auth)
 				}, thiz.clicks)
@@ -40,11 +40,11 @@ function Minit( ) {// 'closure|module'-iso.
 
 		clicked(nam, auth) {
 			console.log(auth)
-			const obj = $('#frm1').jsForm('get') 
+			var obj = $('#frm1').jsForm('get') 
 			console.log(JSON.stringify( obj))
 
-			const thiz = this
-			const pro = this._ds.doFetch(obj, auth)
+			var thiz = this
+			var pro = this._ds.doFetch(obj, auth)
 			pro.then(function(val) {
 
 				thiz._redirect('/linkBlog/list/')
@@ -55,10 +55,10 @@ function Minit( ) {// 'closure|module'-iso.
 		}//()
 	}//class
 
-	const ds = new DS()
-	const bl = new PgBLX(ds)
+	var ds = new DS()
+	var bl = new PgBLX(ds)
 
-	const leaavingPg = flyd.on(cleanUp, bl.observer('TT'))
+	var leaavingPg = flyd.on(cleanUp, bl.observer('TT'))
 	function cleanUp() {
 		//console.log('TT admin')
 	}//()

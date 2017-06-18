@@ -26,8 +26,8 @@ And now we can implement the library by calling a microservice, with that templa
 			return (response.json())
 		}).then(function(value) {
 			// your code here
-			let tmpl = $.templates("#peopleList") // the id of template
-			let html2 = tmpl.render( value )
+			var tmpl = $.templates("#peopleList") // the id of template
+			var html2 = tmpl.render( value )
 			$('#peopleList').html(html2)
 		}).catch(function(err) {
 			console.log(err)
@@ -57,14 +57,14 @@ Make sure you view _common.pug file above, it is used in spa.html and amp.html :
 
 	server.get('/members/dBindEx/', function (req, res) {
 		fs.readFile('./www//members/dBindEx/amp.html', 'utf8', function(err, data) {
-			let tmpl = jsrender.templates(data)
+			var tmpl = jsrender.templates(data)
 			fetch('https://rch-demo.appspot.com/membersPg/mem/', { 
 				method: 'get'
 				}).then(function(response) {
 					return (response.json())
 				}).then(function(value) { 
 					// your code here
-					let html2 = tmpl.render( value )
+					var html2 = tmpl.render( value )
 					res.send(html2)
 				}).catch(function(err) {
 					console.log(err)
@@ -76,7 +76,7 @@ In this case, the server waits for the microservice, and sends the UI and bound 
 To do server both  node side and browser side data binding you need something like:
 
 	server.get('/members/dBindEx/', function (req, res) {
-		const isWWWW = ...
+		var isWWWW = ...
 		if(isWWWW) {
 			...
 			}

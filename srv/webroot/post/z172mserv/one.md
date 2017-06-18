@@ -47,9 +47,9 @@ If you are not able to get above microservice to work, go to next step anyway.
 
 We recommend that the routes match url on the front end. So if you are calling the microservice from /home/member then the route in express should be /home/member + a descriptive name of the function. Some REST zelots name routes based on back end entities. We believe it's a better practice to mirror the front end instead. The microservice will deal with entities as needed and shield the implementation away from the front end reqs. The sample and the index.js looks like this:
 
-		const middle = express()
-		const membersPg = require('./front_routes/membersPg')
-		const cfenv = require('cfenv')
+		var middle = express()
+		var membersPg = require('./front_routes/membersPg')
+		var cfenv = require('cfenv')
 
 		//set up filters chain ###################### 
 		middle.use(bodyParser.json()) // parse application/json
@@ -66,8 +66,8 @@ We recommend that the routes match url on the front end. So if you are calling t
 
 And the route:
 
-		const router = express.Router()
-		const fake = require('./fake')
+		var router = express.Router()
+		var fake = require('./fake')
 
 		router.all('/mem', function (req, res) {
 			var ret = fake._fakeBind()
@@ -80,7 +80,7 @@ And our back end:
 
 
 		exports._fakeBind = function() {
-			let _people = {people: [{name: 'Jim'}, {name: 'Pedro'}] }
+			var _people = {people: [{name: 'Jim'}, {name: 'Pedro'}] }
 			return _people
 		}
 

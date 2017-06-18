@@ -14,7 +14,7 @@ loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
 })
 
 
-let ROOT = 'https://www.masons-foundation.org/'
+var ROOT = 'https://www.masons-foundation.org/'
 function tst1() {
 	// class:
 	class Page1BDS extends BDS {
@@ -27,16 +27,16 @@ function tst1() {
 			})//BDS
 		}//doFetch
 	}//class
-	const ds = new Page1BDS()
+	var ds = new Page1BDS()
 	QUnit.test( 'test: fetch()', function( assert ) {
 		//assert.expect(1)
-		const done = assert.async()
+		var done = assert.async()
 
-		const obj = new Object()
+		var obj = new Object()
 		obj.user='vic'
 		obj.password='123'
 
-		const pro = ds.doFetch(obj, obj)
+		var pro = ds.doFetch(obj, obj)
 		pro.then(function(val) {
 			console.log(val)
 			assert.ok(true, 'we got data')

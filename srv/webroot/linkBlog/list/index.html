@@ -56,7 +56,7 @@
         
         function BLinit() {
         	console.log('x')
-        	let el = customElements.get('list-el')
+        	var el = customElements.get('list-el')
         	if(!el) customElements.define('list-el', ListEl)
         
         	TS.load('/linkBlog/list/LiPgBLX.js', onLoadedBL)
@@ -65,8 +65,8 @@
         
         function onLoadedBL() { // last is wire to get data
         	console.log('loaded')
-        	const bl = Minit()
-        	let le = document.querySelector('list-el')
+        	var bl = Minit()
+        	var le = document.querySelector('list-el')
         	bl.init('list1', le) // Don't send el, send stream name
         }//()
         

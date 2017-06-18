@@ -34,7 +34,7 @@ block main
 
 		function onLoadedBL() {
 			console.log('loaded')
-			const bl = Minit()
+			var bl = Minit()
 			bl.init('ll')
 
 			$('#login').on('click', bl.observer('ll'))
@@ -44,7 +44,7 @@ block main
 				console.log(Cookies.get('auth'))
 
 				setTimeout(function() {
-					TT.loadPg('/linkBlog/admin/')// let the cookie write
+					TT.loadPg('/linkBlog/admin/')// var the cookie write
 				},50)
 			}, bl.nav)
 		}//()

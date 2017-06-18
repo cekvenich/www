@@ -49,9 +49,9 @@ Mostly you&#39;d start w/ a SPA page, a regular page, that you also want to have
     if (req.path.indexOf(&#39;.&#39;) !=-1) { // hasDot?
         next() // it is a static asset, ex: .jpg, .css
     } else { // no dot, it is a path:
-        const pgPath = ROOT + req.path
-        let containsWWWW = (req.subdomains.indexOf(&#39;www&#39;) &gt; -1) // or amp.
-        const isWWWW = (req.query.w == &#39;1&#39;) || containsWWWW                
+        var pgPath = ROOT + req.path
+        var containsWWWW = (req.subdomains.indexOf(&#39;www&#39;) &gt; -1) // or amp.
+        var isWWWW = (req.query.w == &#39;1&#39;) || containsWWWW                
         console.log(pgPath + &#39; ^ &#39; + isWWWW)
 
         if(!endsWithSlash(req.path)) {

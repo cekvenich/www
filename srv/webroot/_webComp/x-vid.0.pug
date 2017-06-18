@@ -15,8 +15,8 @@ script.
 		constructor() {
 			super()
 			this._shadowRoot = this.attachShadow({mode: 'open'})
-			const t = document.querySelector('#xx-vid')// add the dom above
-			const instance = t.content.cloneNode(true)
+			var t = document.querySelector('#xx-vid')// add the dom above
+			var instance = t.content.cloneNode(true)
 			this._shadowRoot.appendChild(instance)
 		}//()
 		attributeChangedCallback(attrName, oldValue, newVal) {
@@ -27,14 +27,14 @@ script.
 		}
 
 		connectedCallback() {
-			//const d = this.shadowRoot.querySelector('v1', this)//ctx
+			//var d = this.shadowRoot.querySelector('v1', this)//ctx
 			var tpl1 = document.getElementById('sxv').text
 			var tpl1Foo = doT.template(tpl1)
 			var data = {'src': this.src}
 			var res = tpl1Foo(data)
 			//console.log(res)
 
-			const d = this.shadowRoot.querySelector('#v1', this)//ctx
+			var d = this.shadowRoot.querySelector('#v1', this)//ctx
 			d.innerHTML=res
 
 			$('#v1', this).mediaelementplayer({

@@ -58,7 +58,7 @@
         function UIinit() {
         	console.log('x')
         
-        	const auth = Cookies.get('auth')
+        	var auth = Cookies.get('auth')
         	console.log(':', auth)
         
         	TS.loadNX('/linkBlog/admin/APgBMX.js', onLoadedBL)
@@ -69,8 +69,8 @@
         	console.log('loaded admin')
         
         	$('#frm1').jsForm()
-        	const auth = Cookies.get('auth')
-        	const bl = Minit()
+        	var auth = Cookies.get('auth')
+        	var bl = Minit()
         	if(bl.init('ad', auth)) {
         
         		$('#add').on('click', bl.observer('ad'))  // ad inited from here

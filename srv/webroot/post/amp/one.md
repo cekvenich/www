@@ -11,9 +11,9 @@ Some sites have a m. subdomain, where they server mobile version of their site -
 		if (req.path.indexOf('.') !=-1) { // hasDot?
 			next() // it is a static asset, ex: .jpg, .css
 		} else { // no dot, it is a path:
-			const pgPath = ROOT + req.path
-			let containsWWWW = (req.subdomains.indexOf('www') > -1) // or amp.
-			const isWWWW = (req.query.w == '1') || containsWWWW				
+			var pgPath = ROOT + req.path
+			var containsWWWW = (req.subdomains.indexOf('www') > -1) // or amp.
+			var isWWWW = (req.query.w == '1') || containsWWWW				
 			console.log(pgPath + ' ^ ' + isWWWW)
 
 			if(!endsWithSlash(req.path)) {

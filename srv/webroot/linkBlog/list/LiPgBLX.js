@@ -1,10 +1,8 @@
 
 function Minit( ) {// 'closure|module|namespace
-	console.log('ps list')
-
 	var DS = BDS.extend({
 		doFetch: function(data, token) {
-			return BDS.fetch(window.fetch, 'linksPg/list', data, token)
+			return BDS._fetch(window.fetch, 'linksPg/list', data, token)
 				.then(function(value) { 
 					console.log('back')
 					//console.log(JSON.stringify(value))
@@ -12,13 +10,13 @@ function Minit( ) {// 'closure|module|namespace
 			})//BDS 
 		}//doFetch
 	})//class
-
+	var ds = new DS()
 	var PgBLX =  PLX.extend({// NO UI, or render in this layer
 		init:function(nam, le) {
 			this._le = le
 			this._nam = nam
-			const thiz = this
-			const pro = this._ds.doFetch()
+			var thiz = this
+			var pro = ds.doFetch()
 			pro.then(function(val) {
 				//console.log(val)
 				thiz.render(val, thiz._nam, thiz._le)
@@ -32,12 +30,10 @@ function Minit( ) {// 'closure|module|namespace
 
 		}//()
 	})//class
-
-	const ds = new DS()
-	const bl = new PgBLX()
+	var bl = new PgBLX()
 	bl.initPLX(ds)
 
-	const leaavingPg = flyd.on(cleanUp, bl.observer('TT'))
+	var leaavingPg = flyd.on(cleanUp, bl.observer('TT'))
 	function cleanUp() {
 		//console.log('TT list')
 	}//()
